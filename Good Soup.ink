@@ -20,19 +20,24 @@ You walk in the front door
 
     *Take in the Scene
 
-- The woman dining accross the table from him disappointedly tucks something into her purse. "I'll have what he's having." a voice drolls from somewhere within the crowd. A balding man with his hand on the corpse calls out "We need an ambulance!"
+- The woman dining accross the table from him disappointedly tucks something into her purse. "I'll have what he's having." a voice drolls from somewhere within the crowd. A balding man with his hand on the corpse's shoulder calls out "We need an ambulance!"
 
     *Round up the Staff and Suspects -> Interview_Room
     -
     
 ===Interview_Room===
-
+You stand in your impromptu Interview Room in the broom closet. The closet's light bulb flickers ominously. The omen in question is that you'll need to write up the electrical. 
 * Interview the Waiter ->Speak_With_Mileut
+* Interview someone else ->Speak_Other
 * -> Conclusion
 
 
 ===Speak_With_Mileut===
 You call for the waiter to be brought in.
+->Interview_Room
+
+===Speak_Other===
+You talk to some other lame character, like a frog or something, idk
 ->Interview_Room
 
 ===Conclusion===
