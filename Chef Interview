@@ -1,0 +1,86 @@
+===Chef_Main_Interview===
+{StoryStates == StoryStates.head_explodes: ->State_HEAD->}
+{StoryStates == StoryStates.filthy_kitchen: ->State_KITCHEN->}
+{StoryStates == StoryStates.secret_ingredients: ->State_INGREDIENTS->}
+{StoryStates == StoryStates.beauregard_ingredient: ->State_BEAU->}
+{StoryStates == StoryStates.frank_cache: ->State_CACHE->}
+->->
+
+===Chef_State_HEAD===
+Man, that dude's head sure did explode, crazy
+~StoryStates++
+->->
+
+===Chef_State_KITCHEN===
+This kitchen is extremely nasty, I'm going to vom
+~StoryStates++
+->->
+
+===Chef_State_INGREDIENTS===
+This kitchen is extremely nasty, I'm going to vom
+~StoryStates++
+->->
+
+===Chef_State_BEAU===
+That kid god damn sucks
+~StoryStates++
+->->
+
+===Chef_State_CACHE===
+FROG WITH A GUN FROG WITH A GUN FROG WITH A GUN FROG WITH A GUN
+~StoryStates++
+->->
+
+===Chef_State_POP===
+This fool straight up GOBBLING gunpowder
+~StoryStates++
+->->
+
+===Chef_State_CONCLUSION===
+What a wild and crazy story that was, I cannot believe it
+changed something
+
+
+->->
+
+
+== Chef ==
+
+"Mon Ami!" He cried. "What is going on in my restaurant?! To think the headmaster would die, under my watchful eye!" Screamed the chef, oh the wailing!
+
+* [Slap some sense into the Chef.]
+    -> slapChef
+* [Calm the Chef down.]
+    -> calmChef
+
+"Now, I need you to answer some questions." I harshly spoke, the lights around us dimming as the room morphed from a kitchen into my domain of choice: the classic interview room. The Chef hardly noticed as our surroundings changed. I smirked.
+
+== Questions ==
+
+* "What is your name?"
+    "Why, I am William Smith! A man with a true French accent!" He said, smiling proudly at himself. -> Questions
+* "What did the Headmaster eat?"
+    "All we did was serve him some caviar! I swears it!" He whimpered, losing his accent. -> Questions
+* "What is the situation in the kitchen?"
+    "There is no situation in my kitchen! I am a man of prestige good sir! The man simply must have had some sort of accident." He spoke unconvincingly. -> Questions
+* "Tell me about... the frog."
+    Darting his eyes back and forth. "W-what? There's nothing to tell. That's enough of that." -> Questions
+* ->
+    "Alright that's enough." I commanded. "Tell me what your part in it all is!" I yelled, hoping to intimidate the Chef into loosing his tongue.
+     "Alright! Alright!" The Chef admitted. "I know that the Headmistress was planning something quite evil! You should talk to her about her recent plans."
+     -> dontChangeSubject
+
+== slapChef ==
+I slap the Chef, left and right, hoping to calm him down.
+    -> Questions
+
+== calmChef ==
+I pat the Chef on the shoulder, showing him that I am a human as well.
+    -> Questions
+    
+== dontChangeSubject ==
+I slap the Chef backwards and forwards. "Don't change the subject!"
+    -> DONE
+
+    
+
