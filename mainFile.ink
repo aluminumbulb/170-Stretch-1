@@ -1,9 +1,8 @@
 INCLUDE Chef interview
 INCLUDE Mileut Interview
 INCLUDE Main Interview Template
+INCLUDE Variables and States
 
-
-LIST StoryStates = (head_explodes), secret_ingredients, filthy_kitchen, beauregard_ingredient, frank_cache, ralph_pop_rocks, conclusion
 
 KITCHEN, 1857
 Residence of Headmaster Parsennon White.
@@ -18,25 +17,41 @@ A larger man quickly emerges from the kitchen, gasping and putting his hands on 
 
 * "Gather everyone in the kitchen." I replied sternly. 
     And the man quickly followed suit. 
-    -> lineup
+    -> LineUp_Introductuion
 * [Nod curtly and enter the kitchen.] -> nod
 
-
-=== lineup ===
+=== LineUp_Introductuion ===
 Soon, the kitchen staff would gather and line themselves up. "Now then." I spoke. "We've got a murder on our hands!" I continued. "The Headmaster's skull has popped like a balloon, and I've an inkling that the culprit is in this very room with us!"
 The audience gasps in surprise, surely this cannot be true! "And yet it is!" I stated, cutting the momentary silence. "And now I will decide who I will interview first."
-The suspect line quickly strike a pose, each appropriate for their role in the kitchen. The chef, standing tall and proud, grabs at his collar confidently. Beside him stands a much younger and much more anxious man, with curled orange hair and an air of underconfidence. A woman you easily identify as the Headmaster's wife, Catherine White, stands pompously in the room, a "hmph" emerging from her mouth as you glance in her direction. Much to your confusion, a customer appears to be standing in the kitchen. Even MORE to your confusion, is a bullfrog sitting on a chair, eyelevel with the rest of the cast. Finally, a waiter, standing over and beside the frog, nods kindly as you inspect him, his two single strands of moustache hair looping back around nicely.  
 
+->lineup
 
+=== lineup ===
+
+//<> indicate "glue" this passage will seem together while being spaced out for 
+//readability/writability
+The suspect line quickly strike a pose, each appropriate for their role in the kitchen. 
+{ntchef: The chef, standing tall and proud, grabs at his collar confidently.}
+<>{ntbeau:{ntchef: Beside him| Apart from the rest} stands a much younger and much more anxious man, with curled orange hair and an air of underconfidence.}
+<>{ntcath: A woman you easily identify as the Headmaster's wife, Catherine White, stands pompously in the room, a "hmph" emerging from her mouth as you glance in her direction.}
+<>{ntralph: Much to your confusion, a customer appears to be standing in the kitchen.}
+<>{ntfrank: Even MORE to your confusion, is a bullfrog sitting on a chair, eyelevel with the rest of the cast.}
+<>{ntstern: Finally, you are astonished NOT to see the figure of a waiter next to the frog, rather a suit without a body, topped with a finely curled but false mustache. The clothing sags and shufflles to indicate a spectral form with miserable posture and worse outlook.}
+-
 * [The Chef.]
     I selected the chef, because it was clear he understood his kichen.
     -> chefText
-    -> ending
+    
+
+* [The Supernaturally Suspended Waiter's Uniform]
+    ->Mileut_Introduction
+    
+*-> ending
 
 
 === nod ===
 I nodded curtly. "Quickly, into the kitchen with you!" I yipped.
--> lineup
+-> LineUp_Introductuion
 
 === chefText ===
 He smiled at me, and quickly sat us down at a nice dinner table.
@@ -44,5 +59,6 @@ He smiled at me, and quickly sat us down at a nice dinner table.
 
 
 === ending ===
+
 "And the murderer was caught. Or was he?"
 -> END

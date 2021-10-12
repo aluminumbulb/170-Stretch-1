@@ -1,0 +1,9 @@
+LIST StoryStates = (head_explodes), secret_ingredients, filthy_kitchen, beauregard_ingredient, frank_cache, ralph_pop_rocks, conclusion
+
+//characters not spoken to (nt = not talked)
+VAR ntchef = true
+VAR ntbeau = true
+VAR ntcath = true
+VAR ntfrank = true
+VAR ntralph = true
+VAR ntstern = true

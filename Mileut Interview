@@ -1,44 +1,46 @@
+===Mileut_Introduction===
+~ ntstern = false
+->Mileut_Main_Reveal
+
 ===Mileut_Main_Reveal===
-{StoryStates == StoryStates.head_explodes: ->M_State_HEAD->}
-{StoryStates == StoryStates.filthy_kitchen: ->M_State_KITCHEN->}
-{StoryStates == StoryStates.secret_ingredients: ->M_State_INGREDIENTS->}
-{StoryStates == StoryStates.beauregard_ingredient: ->M_State_BEAU->}
-{StoryStates == StoryStates.frank_cache: ->M_State_CACHE->}
-->->
+{StoryStates == StoryStates.head_explodes: ->M_State_HEAD}
+{StoryStates == StoryStates.filthy_kitchen: ->M_State_KITCHEN}
+{StoryStates == StoryStates.secret_ingredients: ->M_State_INGREDIENTS}
+{StoryStates == StoryStates.beauregard_ingredient: ->M_State_BEAU}
+{StoryStates == StoryStates.frank_cache: ->M_State_CACHE}
+->lineup //this really shoud never get reached, but you never know
 
 ===M_State_HEAD===
 Man, that dude's head sure did explode, crazy
 ~StoryStates++
-->->
+->lineup
 
 ===M_State_KITCHEN===
 This kitchen is extremely nasty, I'm going to vom
 ~StoryStates++
-->->
+->lineup
 
 ===M_State_INGREDIENTS===
 This kitchen is extremely nasty, I'm going to vom
 ~StoryStates++
-->->
+->lineup
 
 ===M_State_BEAU===
 That kid god damn sucks
 ~StoryStates++
-->->
+->lineup
 
 ===M_State_CACHE===
 FROG WITH A GUN FROG WITH A GUN FROG WITH A GUN FROG WITH A GUN
 ~StoryStates++
-->->
+->lineup
 
 ===M_State_POP===
 This fool straight up GOBBLING gunpowder
 ~StoryStates++
-->->
+->lineup
 
 ===M_State_CONCLUSION===
 What a wild and crazy story that was, I cannot believe it
 changed something
-
-
-->->
+->lineup

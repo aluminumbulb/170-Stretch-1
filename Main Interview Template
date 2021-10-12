@@ -1,44 +1,42 @@
 ===Main_Interview===
-{StoryStates == StoryStates.head_explodes: ->State_HEAD->}
-{StoryStates == StoryStates.filthy_kitchen: ->State_KITCHEN->}
-{StoryStates == StoryStates.secret_ingredients: ->State_INGREDIENTS->}
-{StoryStates == StoryStates.beauregard_ingredient: ->State_BEAU->}
-{StoryStates == StoryStates.frank_cache: ->State_CACHE->}
-->->
+{StoryStates == StoryStates.head_explodes: ->State_HEAD}
+{StoryStates == StoryStates.filthy_kitchen: ->State_KITCHEN}
+{StoryStates == StoryStates.secret_ingredients: ->State_INGREDIENTS}
+{StoryStates == StoryStates.beauregard_ingredient: ->State_BEAU}
+{StoryStates == StoryStates.frank_cache: ->State_CACHE}
+->lineup
 
 ===State_HEAD===
 Man, that dude's head sure did explode, crazy
 ~StoryStates++
-->->
+->lineup
 
 ===State_KITCHEN===
 This kitchen is extremely nasty, I'm going to vom
 ~StoryStates++
-->->
+->lineup
 
 ===State_INGREDIENTS===
 This kitchen is extremely nasty, I'm going to vom
 ~StoryStates++
-->->
+->lineup
 
 ===State_BEAU===
 That kid god damn sucks
 ~StoryStates++
-->->
+->lineup
 
 ===State_CACHE===
 FROG WITH A GUN FROG WITH A GUN FROG WITH A GUN FROG WITH A GUN
 ~StoryStates++
-->->
+->lineup
 
 ===State_POP===
 This fool straight up GOBBLING gunpowder
 ~StoryStates++
-->->
+->lineup
 
 ===State_CONCLUSION===
 What a wild and crazy story that was, I cannot believe it
 changed something
-
-
-->->
+->lineup
