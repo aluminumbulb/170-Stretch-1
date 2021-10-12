@@ -52,8 +52,8 @@ In a sudden change of demeanor, the Chef leans back in his chair and stares into
 
 // Conclude it all
 ===Chef_State_CONCLUSION===
-What a wild and crazy story that was, I cannot believe it
-changed something
+In a sudden change of demeanor, the Chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is, I think the Headmaster ate a gunpowder-filled caviar!" He exclaimed. "That must be it! Think about it: Ralph tasted a popping sensation in his mouth and Beauregard was in charge of the secret ingredient! With Frank leaving his contraband around-" I cut him off. 
+"I imagine Beauregard, clumsy as he is, must have accidentally grabbed gunpowder and put it in the caviar! Frank's gunpowder, specifically! The Headmaster must have had some strange chemical reaction, causing his head to burst the moment I walked in." I continued, stroking my chin. "Alright, William. You're off the hook this time."
 
 
 ->->
@@ -82,8 +82,7 @@ changed something
     Darting his eyes back and forth. "W-what? There's nothing to tell. That's enough of that." -> Questions
 * ->
     "Alright that's enough." I commanded. "Tell me what your part in it all is!" I yelled, hoping to intimidate the Chef into loosing his tongue.
-     "Alright! Alright!" The Chef admitted. "I know that the Headmistress was planning something quite evil! You should talk to her about her recent plans."
-     -> Chef_State_HEAD
+     -> Chef_Learn_SECRET_INGREDIENTS
      -> lineup
 
 
@@ -101,6 +100,13 @@ I pat the Chef on the shoulder, showing him that I am a human as well.
 == dontChangeSubject ==
 I slap the Chef backwards and forwards. "Don't change the subject!"
     -> DONE
+    
+    
+    
+    
+    
+    
+    
 
     
 
