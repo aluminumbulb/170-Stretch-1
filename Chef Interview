@@ -1,49 +1,51 @@
 ===Chef_Main_Interview===
-{StoryStates == StoryStates.head_explodes: ->Chef_State_HEAD}
-{StoryStates == StoryStates.filthy_kitchen: ->Chef_State_KITCHEN}
-{StoryStates == StoryStates.secret_ingredients: ->Chef_State_INGREDIENTS}
-{StoryStates == StoryStates.beauregard_ingredient: ->Chef_State_BEAU}
-{StoryStates == StoryStates.frank_cache: ->Chef_State_CACHE}
-->lineup
+{StoryStates == StoryStates.head_explodes: ->State_HEAD->}
+{StoryStates == StoryStates.filthy_kitchen: ->State_KITCHEN->}
+{StoryStates == StoryStates.secret_ingredients: ->State_INGREDIENTS->}
+{StoryStates == StoryStates.beauregard_ingredient: ->State_BEAU->}
+{StoryStates == StoryStates.frank_cache: ->State_CACHE->}
+->->
 
 ===Chef_State_HEAD===
 Man, that dude's head sure did explode, crazy
 ~StoryStates++
-->lineup
+->->
 
 ===Chef_State_KITCHEN===
 This kitchen is extremely nasty, I'm going to vom
 ~StoryStates++
-->lineup
+->->
 
 ===Chef_State_INGREDIENTS===
 This kitchen is extremely nasty, I'm going to vom
 ~StoryStates++
-->lineup
+->->
 
 ===Chef_State_BEAU===
 That kid god damn sucks
 ~StoryStates++
-->lineup
+->->
 
 ===Chef_State_CACHE===
 FROG WITH A GUN FROG WITH A GUN FROG WITH A GUN FROG WITH A GUN
 ~StoryStates++
-->lineup
+->->
 
 ===Chef_State_POP===
 This fool straight up GOBBLING gunpowder
 ~StoryStates++
-->lineup
+->->
 
 ===Chef_State_CONCLUSION===
 What a wild and crazy story that was, I cannot believe it
 changed something
-->lineup
+
+
+->->
 
 
 == Chef ==
-~ntchef = false //Set trigger for having talked to chef
+
 "Mon Ami!" He cried. "What is going on in my restaurant?! To think the headmaster would die, under my watchful eye!" Screamed the chef, oh the wailing!
 
 * [Slap some sense into the Chef.]
@@ -65,7 +67,6 @@ changed something
     Darting his eyes back and forth. "W-what? There's nothing to tell. That's enough of that." -> Questions
 * ->
     "Alright that's enough." I commanded. "Tell me what your part in it all is!" I yelled, hoping to intimidate the Chef into loosing his tongue.
-    //This should probably be where you link up to the main reveal
      "Alright! Alright!" The Chef admitted. "I know that the Headmistress was planning something quite evil! You should talk to her about her recent plans."
      -> dontChangeSubject
 
@@ -79,7 +80,7 @@ I pat the Chef on the shoulder, showing him that I am a human as well.
     
 == dontChangeSubject ==
 I slap the Chef backwards and forwards. "Don't change the subject!"
-    -> lineup
+    -> DONE
 
     
 
