@@ -1,37 +1,38 @@
 ===Mileut_Main_Reveal===
-{StoryStates == StoryStates.head_explodes: ->M_State_HEAD->}
-{StoryStates == StoryStates.filthy_kitchen: ->M_State_KITCHEN->}
-{StoryStates == StoryStates.secret_ingredients: ->M_State_INGREDIENTS->}
-{StoryStates == StoryStates.beauregard_ingredient: ->M_State_BEAU->}
-{StoryStates == StoryStates.frank_cache: ->M_State_CACHE->}
+{StoryStates == StoryStates.head_explodes: ->M_Learn_SECRET_INGREDIENTS}
+{StoryStates == StoryStates.secret_ingredients: ->M_Learn_FILTHY_KITCHEN}
+{StoryStates == StoryStates.filthy_kitchen: ->M_Learn_BEAU_INGREDIENTS}
+{StoryStates == StoryStates.beauregard_ingredient: ->M_learn_FRANK_EXPAT}
+{StoryStates == StoryStates.frank_cache: ->M_Learn_POPROCKS}
+{StoryStates == StoryStates.ralph_pop_rocks: ->M_Learn_FULL}
 ->->
 
-===M_State_HEAD===
+===M_Learn_SECRET_INGREDIENTS===
 Man, that dude's head sure did explode, crazy
 ~StoryStates++
 ->->
 
-===M_State_KITCHEN===
+===M_Learn_FILTHY_KITCHEN===
 This kitchen is extremely nasty, I'm going to vom
 ~StoryStates++
 ->->
 
-===M_State_INGREDIENTS===
+===M_Learn_BEAU_INGREDIENTS===
 This kitchen is extremely nasty, I'm going to vom
 ~StoryStates++
 ->->
 
-===M_State_BEAU===
+===M_learn_FRANK_EXPAT===
 That kid god damn sucks
 ~StoryStates++
 ->->
 
-===M_State_CACHE===
+===M_Learn_POPROCKS===
 FROG WITH A GUN FROG WITH A GUN FROG WITH A GUN FROG WITH A GUN
 ~StoryStates++
 ->->
 
-===M_State_POP===
+===M_Learn_FULL===
 This fool straight up GOBBLING gunpowder
 ~StoryStates++
 ->->

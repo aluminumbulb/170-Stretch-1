@@ -44,7 +44,7 @@ The suspect line quickly strike a pose, each appropriate for their role in the k
     
 
 * [The Supernaturally Suspended Waiter's Uniform]
-    -> M_State_HEAD
+    -> M_Learn_SECRET_INGREDIENTS
     
 *-> ending
 

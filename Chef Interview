@@ -4,7 +4,7 @@
 {StoryStates == StoryStates.filthy_kitchen: ->Chef_Learn_BEAU_INGREDIENTS}
 {StoryStates == StoryStates.beauregard_ingredient: ->Chef_learn_FRANK_EXPAT}
 {StoryStates == StoryStates.frank_cache: ->Chef_Learn_POPROCKS}
-{StoryStates == StoryStates.frank_cache: ->Chef_Learn_FULL}
+{StoryStates == StoryStates.ralph_pop_rocks: ->Chef_Learn_FULL}
 ->->
 
 // Secret ingredient reveal

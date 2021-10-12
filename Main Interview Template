@@ -5,7 +5,7 @@
 {StoryStates == StoryStates.filthy_kitchen: ->Learn_BEAU_INGREDIENTS}
 {StoryStates == StoryStates.beauregard_ingredient: ->learn_FRANK_EXPAT}
 {StoryStates == StoryStates.frank_cache: ->Learn_POPROCKS}
-{StoryStates == StoryStates.frank_cache: ->Learn_FULL}
+{StoryStates == StoryStates.ralph_pop_rocks: ->Learn_FULL}
 ->lineup //Oops the programmer miscounted again. Classic.
 
 ===Learn_SECRET_INGREDIENTS===
