@@ -1,11 +1,19 @@
 ===Mileut_Introduction===
 ~ ntstern = false
-->Mileut_Main_Reveal
+Alone with the spectral wait-staff, it became perfectly clear to me who this person was. You see them from time to time in the Health Inpspection business. These apparitions are not ghosts as they were never human, rather they are the result of the residual malcontentment of service workers. The screams of frustration in the walkins, the tears of a fevered breakdown, and a smoke from a break as-soon-as-you-can-get-it is enough to make one. 
+
+->General_Questions
+
+===General_Questions===
+Ask About:
+    *[{ntchef: The Chef| William}]
+        something->General_Questions
+    *->Mileut_Main_Reveal
 
 ===Mileut_Main_Reveal===
 {StoryStates == StoryStates.head_explodes: ->M_State_HEAD}
-{StoryStates == StoryStates.filthy_kitchen: ->M_State_KITCHEN}
 {StoryStates == StoryStates.secret_ingredients: ->M_State_INGREDIENTS}
+{StoryStates == StoryStates.filthy_kitchen: ->M_State_KITCHEN}
 {StoryStates == StoryStates.beauregard_ingredient: ->M_State_BEAU}
 {StoryStates == StoryStates.frank_cache: ->M_State_CACHE}
 ->lineup //this really shoud never get reached, but you never know
@@ -15,12 +23,12 @@ Man, that dude's head sure did explode, crazy
 ~StoryStates++
 ->lineup
 
-===M_State_KITCHEN===
+===M_State_INGREDIENTS===
 This kitchen is extremely nasty, I'm going to vom
 ~StoryStates++
 ->lineup
 
-===M_State_INGREDIENTS===
+===M_State_KITCHEN===
 This kitchen is extremely nasty, I'm going to vom
 ~StoryStates++
 ->lineup

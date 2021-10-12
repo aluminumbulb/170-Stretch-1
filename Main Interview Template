@@ -1,43 +1,39 @@
 ===Main_Interview===
 //ADD STATEMENT HERE THAT CHANES ntcharacter to false
-{StoryStates == StoryStates.head_explodes: ->State_HEAD}
-{StoryStates == StoryStates.filthy_kitchen: ->State_KITCHEN}
-{StoryStates == StoryStates.secret_ingredients: ->State_INGREDIENTS}
-{StoryStates == StoryStates.beauregard_ingredient: ->State_BEAU}
-{StoryStates == StoryStates.frank_cache: ->State_CACHE}
-->lineup
+{StoryStates == StoryStates.head_explodes: ->Learn_SECRET_INGREDIENTS}
+{StoryStates == StoryStates.secret_ingredients: ->Learn_FILTHY_KITCHEN}
+{StoryStates == StoryStates.filthy_kitchen: ->Learn_BEAU_INGREDIENTS}
+{StoryStates == StoryStates.beauregard_ingredient: ->learn_FRANK_EXPAT}
+{StoryStates == StoryStates.frank_cache: ->Learn_POPROCKS}
+{StoryStates == StoryStates.frank_cache: ->Learn_FULL}
+->lineup //Oops the programmer miscounted again. Classic.
 
-===State_HEAD===
-Man, that dude's head sure did explode, crazy
+===Learn_SECRET_INGREDIENTS===
+How novel, the chef uses secret ingredients
 ~StoryStates++
 ->lineup
 
-===State_KITCHEN===
-This kitchen is extremely nasty, I'm going to vom
+===Learn_FILTHY_KITCHEN===
+I literally just pee where I want dude. Pee is not only sterile but antiseptic!
 ~StoryStates++
 ->lineup
 
-===State_INGREDIENTS===
-This kitchen is extremely nasty, I'm going to vom
+===Learn_BEAU_INGREDIENTS===
+Beaurigard revealed to be lethally stupid
 ~StoryStates++
 ->lineup
 
-===State_BEAU===
-That kid god damn sucks
+===learn_FRANK_EXPAT===
+F R O G W I T H A G U N
 ~StoryStates++
 ->lineup
 
-===State_CACHE===
-FROG WITH A GUN FROG WITH A GUN FROG WITH A GUN FROG WITH A GUN
+===Learn_POPROCKS===
+Ratty Ralph Gobbles Poprocks
 ~StoryStates++
 ->lineup
 
-===State_POP===
-This fool straight up GOBBLING gunpowder
+===Learn_FULL===
+Here's all the facts right in front of you.
 ~StoryStates++
-->lineup
-
-===State_CONCLUSION===
-What a wild and crazy story that was, I cannot believe it
-changed something
 ->lineup
