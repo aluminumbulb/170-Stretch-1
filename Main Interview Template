@@ -10,7 +10,7 @@
 
 ===Learn_SECRET_INGREDIENTS===
 How novel, the chef uses secret ingredients
-~StoryStates++
+~StoryStates = StoryStates.secret_ingredients
 ->lineup
 
 ===Learn_FILTHY_KITCHEN===
