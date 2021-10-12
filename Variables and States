@@ -7,3 +7,5 @@ VAR ntcath = true
 VAR ntfrank = true
 VAR ntralph = true
 VAR ntstern = true
+
+VAR s_info = true
