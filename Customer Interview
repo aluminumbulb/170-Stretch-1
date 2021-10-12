@@ -1,0 +1,65 @@
+===Ralph_Main_Interview===
+//ADD STATEMENT HERE THAT CHANES ntcharacter to false
+{StoryStates has StoryStates.head_explodes: ->Learn_SECRET_INGREDIENTS}
+{StoryStates has StoryStates.secret_ingredients: ->Learn_FILTHY_KITCHEN}
+{StoryStates has StoryStates.filthy_kitchen: ->Learn_BEAU_INGREDIENTS}
+{StoryStates has StoryStates.beauregard_ingredient: ->learn_FRANK_EXPAT}
+{StoryStates has StoryStates.frank_cache: ->Learn_POPROCKS}
+{StoryStates has StoryStates.ralph_pop_rocks: ->Learn_FULL}
+->lineup //Oops the programmer miscounted again. Classic.
+
+===Ralph_Intro===
+~ ntralph = false
+You turn to the customer, who appears to be trying to blend in with the crowd. He is leaning on the wall and slightly hunched over, twiddling his thumbs in an almost, but not quite menacing fashion. He pretends to not notice you approaching until you snap him to attention. "OY! You there! What are you even doing in this corner of the establishment!?"
+
+No longer fooling anyone, Ralph suddenly adopts a bit of a mischievous grin. "Why, I'm no ordinary customer, fella. Haven't you heard about me, the magnificent connoisseur Ratty Ralph? Documenter of all known flavor combinations, the Guinness World Record holder for strongest sense of smell, the final say on ANY restaurant's reputation in the land-"
+* [You recognize him.]
+    ->recognized
+* [You have no idea who the hell he is.]
+    ->noideawho
+    
+===recognized===
+You are amused by his claims. "Yeah yeah I've heard about you, though I definitely don't think you're in the world records, nor have I heard of any restaurant that took your advice seriously."
+
+"...Well, yeah, that's kind of true," he says apologetically, "but I gotta act strong in the face of adversity. And besides, the part about documenting flavor combos IS true. Hehe."
+->INTERROGATE_RALPH
+
+===noideawho===
+You have no idea what he's going on about. "Look here, I don't know who you are or what makes you so special, but someone appears to have just spontaneously combusted over there, and no amount of status is going to save you from being interrogated."
+
+He lowers his head in sadness, but not shame. "Alright, then. Go on with your 'interrogation.' Even though you're not really a detective."
+->INTERROGATE_RALPH
+
+===INTERROGATE_RALPH===
+You decide you just want to get this over with. You peruse your head for questions that this dude could possibly comprehend. "Aight, let's get down to brass tacks. Tell me about..."
+-> lineup
+
+===Ralph_Learn_SECRET_INGREDIENTS===
+"SO HERE'S THE DEAL," Ralph yells, taking you aback. He makes a dramatic hand motion before going on. ""
+~StoryStates += StoryStates.secret_ingredients
+->lineup
+
+===Ralph_Learn_FILTHY_KITCHEN===
+"SO HERE'S THE DEAL," Ralph yells, taking you aback. He makes a dramatic hand motion before going on. ""
+~StoryStates += StoryStates.filthy_kitchen
+->lineup
+
+===Ralph_Learn_BEAU_INGREDIENTS===
+"SO HERE'S THE DEAL," Ralph yells, taking you aback. He makes a dramatic hand motion before going on. ""
+~StoryStates += StoryStates.beauregard_ingredient
+->lineup
+
+===Ralph_Learn_FRANK_EXPAT===
+"SO HERE'S THE DEAL," Ralph yells, taking you aback. He makes a dramatic hand motion before going on. ""
+~StoryStates += StoryStates.frank_cache
+->lineup
+
+===Ralph_Learn_POPROCKS===
+"sO...HeRe'S tH-ThE dEaL...," Ralph clutches his mouth, and he appears to be entering a bit of a panic. ""
+~StoryStates += StoryStates.ralph_pop_rocks
+->lineup
+
+===Ralph_Learn_FULL===
+Here's all the facts right in front of you.
+~StoryStates += StoryStates.conclusion
+->lineup

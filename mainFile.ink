@@ -2,6 +2,7 @@ INCLUDE Chef interview
 INCLUDE Mileut Interview
 INCLUDE Main Interview Template
 INCLUDE Variables and States
+INCLUDE Customer Interview
 
 
 KITCHEN, 1857
@@ -42,6 +43,8 @@ The suspect line quickly strike a pose, each appropriate for their role in the k
     I selected the chef, because it was clear he understood his kichen.
     -> chefText
     
+* [The Mildly Out-of-Place Customer.]
+    -> Ralph_Intro
 
 * [The Supernaturally Suspended Waiter's Uniform]
     ->Mileut_Introduction

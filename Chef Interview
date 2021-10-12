@@ -1,49 +1,60 @@
 ===Chef_Main_Interview===
-{StoryStates == StoryStates.head_explodes: ->Chef_State_HEAD}
-{StoryStates == StoryStates.filthy_kitchen: ->Chef_State_KITCHEN}
-{StoryStates == StoryStates.secret_ingredients: ->Chef_State_INGREDIENTS}
-{StoryStates == StoryStates.beauregard_ingredient: ->Chef_State_BEAU}
-{StoryStates == StoryStates.frank_cache: ->Chef_State_CACHE}
-->lineup
+{StoryStates == StoryStates.head_explodes: ->Chef_Learn_SECRET_INGREDIENTS}
+{StoryStates == StoryStates.secret_ingredients: ->Chef_Learn_FILTHY_KITCHEN}
+{StoryStates == StoryStates.filthy_kitchen: ->Chef_Learn_BEAU_INGREDIENTS}
+{StoryStates == StoryStates.beauregard_ingredient: ->Chef_learn_FRANK_EXPAT}
+{StoryStates == StoryStates.frank_cache: ->Chef_Learn_POPROCKS}
+{StoryStates == StoryStates.ralph_pop_rocks: ->Chef_Learn_FULL}
+->->
 
-===Chef_State_HEAD===
-Man, that dude's head sure did explode, crazy
+// Secret ingredient reveal
+===Chef_Learn_SECRET_INGREDIENTS===
+In a sudden change of demeanor, the Chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is I like to put secret ingredients into the meals. The Headmaster and Headmistress don't approve, but they don't know how much they like it! I've been doing it for months now, and have never had an issue like this!" In a harumph, the Chef turns in his seat. "Please now, that's all I know!" He whimpers. It appears he is telling the truth, but you cannot make it out for certain. 
+    You turn back to the lineup.
 ~StoryStates++
-->lineup
+    -> lineup
 
-===Chef_State_KITCHEN===
-This kitchen is extremely nasty, I'm going to vom
+// Double hand washing reveal
+===Chef_Learn_FILTHY_KITCHEN===
+In a sudden change of demeanor, the Chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is my son, Beauregard." He gestures to the curled haired individual. "Is quite the unclean fellow. In an effort to bar the spread of disease in my kitchen, I implemented new cleaning standards for everyone! No hand will be left unwashed in MY kitchen!" He proudly announces, causing some of the other individuals in the kitchen to roll their eyes. "But I certainly don't know how that would relate to the death of the Headmaster!" He announced, and it seemed to me that I wasn't going to get any other good information out of him.
 ~StoryStates++
-->lineup
+->->
 
-===Chef_State_INGREDIENTS===
-This kitchen is extremely nasty, I'm going to vom
+// Beauregard put gunpowder in the food reveal 
+===Chef_Learn_BEAU_INGREDIENTS===
+In a sudden change of demeanor, the Chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is, for this occasion, due to how busy my responsibilities make me, I allowed my son Beauregard to include our secret ingredient. Clumsy as he is, I imagine he grabbed the wrong item! But I can't imagine something so horrid being stored in my kitchen! I promise, I've nothing peculiar here!" He claimed, and it seemed that's all he would say.
 ~StoryStates++
-->lineup
+->->
 
-===Chef_State_BEAU===
-That kid god damn sucks
+// Frog reveal and contraband
+===Chef_learn_FRANK_EXPAT===
+In a sudden change of demeanor, the Chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is..." He darted his eyes left and right, moving his head and shoulders slightly to gesture to the small bullfrog sitting neatly on his chair. "Frank..." He spat. "He has some hidden contraband tucked away into the kitchen. If I had to guess, he had something to do with this! Don't look at me like that! He threatened me! I had no choice but to let him store his things here." He whimpered, turning to look at the Frog with contempt. After that, the Chef sat in silence, in a sullen anger.
 ~StoryStates++
-->lineup
+->->
 
-===Chef_State_CACHE===
-FROG WITH A GUN FROG WITH A GUN FROG WITH A GUN FROG WITH A GUN
+// Gunpowder poprocks reveal
+===Chef_Learn_POPROCKS===
+In a sudden change of demeanor, the Chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is, I think Ralph was the taste-tester for the Headmaster. Unofficially, of course. They were very friendly. If anyone were to know more about what the Headmaster ate, it would be Ralph! I recall that he mentioned a tingling sensation upon his taste test, but his head hasn't exploded!" He weeped. It appears that the Chef is no longer able to conduct the interview. 
 ~StoryStates++
-->lineup
+->->
 
-===Chef_State_POP===
-This fool straight up GOBBLING gunpowder
+// Headmaster died because of gunpowder
+===Chef_Learn_FULL===
+In a sudden change of demeanor, the Chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is, I think the Headmaster ate a gunpowder-filled caviar!" He exclaimed. "That must be it! Think about it: Ralph tasted a popping sensation in his mouth and Beauregard was in charge of the secret ingredient! It certainly wasn't me!" He pleaded. "I imagine it was some crazed chemical reaction that popped the Headmaster's skull! Stranger things have happened you know!" He finished, leaning back in his seat. "It can't be me!" He stated one last time, and I believed him.
 ~StoryStates++
-->lineup
+->->
 
+// Conclude it all
 ===Chef_State_CONCLUSION===
-What a wild and crazy story that was, I cannot believe it
-changed something
-->lineup
+In a sudden change of demeanor, the Chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is, I think the Headmaster ate a gunpowder-filled caviar!" He exclaimed. "That must be it! Think about it: Ralph tasted a popping sensation in his mouth and Beauregard was in charge of the secret ingredient! With Frank leaving his contraband around-" I cut him off. 
+"I imagine Beauregard, clumsy as he is, must have accidentally grabbed gunpowder and put it in the caviar! Frank's gunpowder, specifically! The Headmaster must have had some strange chemical reaction, causing his head to burst the moment I walked in." I continued, stroking my chin. "Alright, William. You're off the hook this time."
+
+
+->->
 
 
 == Chef ==
-~ntchef = false //Set trigger for having talked to chef
+~ntchef = false
 "Mon Ami!" He cried. "What is going on in my restaurant?! To think the headmaster would die, under my watchful eye!" Screamed the chef, oh the wailing!
 
 * [Slap some sense into the Chef.]
@@ -63,11 +74,18 @@ changed something
     "There is no situation in my kitchen! I am a man of prestige good sir! The man simply must have had some sort of accident." He spoke unconvincingly. -> Questions
 * "Tell me about... the frog."
     Darting his eyes back and forth. "W-what? There's nothing to tell. That's enough of that." -> Questions
-* ->
+* [StateMachine 2 Option]
+    -> Questions
+* [StacheMachine 3 Option]
+    -> Questions
+* -> 
     "Alright that's enough." I commanded. "Tell me what your part in it all is!" I yelled, hoping to intimidate the Chef into loosing his tongue.
-    //This should probably be where you link up to the main reveal
-     "Alright! Alright!" The Chef admitted. "I know that the Headmistress was planning something quite evil! You should talk to her about her recent plans."
-     -> dontChangeSubject
+     -> Chef_Learn_SECRET_INGREDIENTS
+     -> lineup
+
+
+
+
 
 == slapChef ==
 I slap the Chef, left and right, hoping to calm him down.
@@ -79,7 +97,4 @@ I pat the Chef on the shoulder, showing him that I am a human as well.
     
 == dontChangeSubject ==
 I slap the Chef backwards and forwards. "Don't change the subject!"
-    -> lineup
-
-    
-
+    -> DONE
