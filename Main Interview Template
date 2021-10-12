@@ -1,4 +1,5 @@
 ===Main_Interview===
+//ADD STATEMENT HERE THAT CHANES ntcharacter to false
 {StoryStates == StoryStates.head_explodes: ->State_HEAD}
 {StoryStates == StoryStates.filthy_kitchen: ->State_KITCHEN}
 {StoryStates == StoryStates.secret_ingredients: ->State_INGREDIENTS}
