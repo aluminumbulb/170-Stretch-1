@@ -1,16 +1,14 @@
 ===Ralph_Main_Interview===
 //ADD STATEMENT HERE THAT CHANES ntcharacter to false
-{StoryStates has head_explodes && r_info: ->Ralph_Learn_SECRET_INGREDIENTS}
-{StoryStates has secret_ingredients && r_info: ->Ralph_Learn_FILTHY_KITCHEN}
 {StoryStates has frank_cache && r_info: ->Ralph_Learn_POPROCKS}
 {StoryStates has ralph_pop_rocks && r_info: ->Ralph_Learn_FULL}
 ->lineup //Oops the programmer miscounted again. Classic.
 
 ===Ralph_Intro===
 ~ ntralph = false
-You turn to the customer, who appears to be trying to blend in with the crowd. He is leaning on the wall and slightly hunched over, twiddling his thumbs in an almost, but not quite menacing fashion. He pretends to not notice you approaching until you snap him to attention. "OY! You there! What are you even doing in this corner of the establishment!?"
+You turn to the customer, who appears to be trying to blend in with the crowd. He is leaning on the wall and slightly hunched over, twiddling his thumbs in an almost, but not quite menacing fashion. He pretends to not notice you approaching until you snap him to attention. "OY! You there! What is a customer even doing in this corner of the establishment!?"
 
-No longer fooling anyone, Ralph suddenly adopts a bit of a mischievous grin. "Why, I'm no ordinary customer, fella. Haven't you heard about me, the magnificent connoisseur Ratty Ralph? Documenter of all known flavor combinations, the Guinness World Record holder for strongest sense of smell, the final say on ANY restaurant's reputation in the land-"
+No longer fooling anyone, the customer suddenly adopts a bit of a mischievous grin. "Why, I'm no ordinary customer, fella. Haven't you heard about me, the magnificent connoisseur Ratty Ralph? Documenter of all known flavor combinations, the Guinness World Record holder for strongest sense of smell, the final say on ANY restaurant's reputation in the land-"
 * [You recognize him.]
     ->recognized
 * [You have no idea who the hell he is.]
@@ -29,7 +27,7 @@ He lowers his head in disappointment, but not shame. "Alright then, fella. Go on
 ->enough
 
 ===enough===
-You decide you just want to get this over with. You peruse your head for questions that this dude could possibly comprehend.
+You decide you just want to get this over with, perusing your head for questions that this mess of a person could possibly comprehend.
 ->INTERROGATE_RALPH
 
 ===INTERROGATE_RALPH===
@@ -39,7 +37,7 @@ You decide you just want to get this over with. You peruse your head for questio
     *[What does Ralph know about the Headmaster?]->headmaster
     *[What does Ralph know about the Headmistress?]->headmistress
     *[Why isn't Ralph the most confusing thing here?]->froggo
--> lineup
+-> Ralph_Outro
 
 ===inkitchen===
 "So what are you really doing in the kitchen? Be honest, for goodness sake."
@@ -75,7 +73,30 @@ You sigh. "Well, that doesn't tell me much. Let's move on."
 ->INTERROGATE_RALPH
 
 ===restaurant===
-->lineup
+You're not entirely sure if the question you ask is relevant to the investigation, but as a health inspector, you have to get an opinion. "So, have you found the restaurant to be on par with others you have reviewed?"
+
+At this, Ralph becomes jubilant. "I've been coming here every day for months! There's something special about the textures and flavors of the meals here. Zesty, tender pork, crunchy, fishy prawns, sweet and sour umami soup, frog legs, etc etc. They have it all, fella! However..."
+
+*["What?"]
+"What is it?" you implore.
+
+"Well...I have to admit that the quality in both food and service has been down a peg or two recently. I once tasted ammonia in my pizza! Why, if I want ammonia in my pizza, I'll go to 7/11, not this exquisite dining! And the Cordon Bleu was dry as a rock yesterday! Worst of all, when I asked the chef to remake it, he gave me a plate of ACTUAL rocks! How insulting!"
+
+You find this mildly funny, and maybe a red flag for inspection, but not a direct explanation for the headmaster's explosive demise. "That sounds like quite a pickle," you tell him.
+
+"Oh no, the pickles are very good in comparison."
+->restaurant2
+
+===restaurant2===
+* ["Anything else?"]
+"Anything else you can recall about the practices here?"
+{StoryStates has head_explodes && r_info: ->Ralph_Learn_SECRET_INGREDIENTS}
+{StoryStates has secret_ingredients && r_info: ->Ralph_Learn_FILTHY_KITCHEN}
+->restaurant3
+
+===restaurant3===
+Ralph strokes his chin for a bit, then shakes his head. "I can't think of anything else at the moment. Sorry, fella."
+->INTERROGATE_RALPH
 
 ===headmaster===
 ->lineup
@@ -86,14 +107,29 @@ You sigh. "Well, that doesn't tell me much. Let's move on."
 ===froggo===
 ->lineup
 
+===Ralph_Outro===
+->lineup
+
 ===Ralph_Learn_SECRET_INGREDIENTS===
-"SO HERE'S THE DEAL," Ralph yells, taking you aback. He makes a dramatic hand motion before going on. ""
+Ralph strokes his chin for a bit, then his eyes light up and he makes a dramatic hand motion. "Oh, yeah! There was this time I ordered a cocktail that was very strong, fruity and delicious, but smelled absolutely rotten and revolting. I was intrigued by this dichotomy, so the next day while in the kitchen I tried to figure out what had been put in there to make it so weird."
+
+He pauses conveniently to take a deep breath before moving on. "And fella, guess what I found! The chef had put up a list of so-called 'secret ingredients' that he cycles through every week. Guess what was on there the day before? Durian! No wonder it smelled so bad and still tasted so good! The menu didn't so much as mention it!"
+
+You think this could be useful information. The chef must've been putting secret ingredients into the food without telling his customers about it.
+
+"Thanks for the information, 'fella'," you say to Ralph. He nods aggressively in response.
 ~StoryStates += StoryStates.secret_ingredients
 ~r_info = false
 ->lineup
 
 ===Ralph_Learn_FILTHY_KITCHEN===
-"SO HERE'S THE DEAL," Ralph yells, taking you aback. He makes a dramatic hand motion before going on. ""
+Ralph strokes his chin for a bit, then his eyes light up and he makes a dramatic hand motion. "Oh, yeah! So every time I come in, the chef tells me that my hands need to be washed. Now, it's a bit rude for him to ask this of every customer who comes in - which he does - but it's especially rude for him to do this to me, the magnificent Ratty Ralph! Anyway, that's not the worst part."
+
+He pauses conveniently to take a deep breath before moving on. "You wanna know what he does, fella? He takes every customer to the sink in the back, and not only does he force them to wash, he uses his OWN HANDS to wash theirs! Dreadfully uncouth of him, and quite the overcompensation for cleanliness, I might say! But I've gotten used to it over time, and ultimately, the food is worth it."
+
+Quite the overcompensation indeed. You realize that through enforcing such strict cleanliness guidelines, the cooking environment must actually be incredibly filthy.
+
+"Thanks for the information, 'fella'," you say to Ralph. He nods pensively in response.
 ~StoryStates += StoryStates.filthy_kitchen
 ~r_info = false
 ->lineup
@@ -105,7 +141,7 @@ Ralph stops you. "Oh, hang on a second, fella...actually, I remember seeing a bi
 
 "It looked like everyone had forgotten it was there. I figured the chef wouldn't mind."
 
-You realize that this caviar was definitely the secret ingredient the chef was planning to use for the headmaster's dish. But if it wasn't there when Beauregard cooked it...did he grab something else to use as the secret ingredient? Something random?
+You realize that this caviar was definitely the secret ingredient the chef was planning to use for the headmaster's dish. But if it wasn't there when Beauregard cooked it...he must have grabbed something else to use as the secret ingredient! Something by random!
 
 "Thanks for the information, 'fella'," you say to Ralph. He nods dismissively in response.
 ~StoryStates += StoryStates.beauregard_ingredient
@@ -119,15 +155,17 @@ Ralph stops you. "Oh, hang on a second, fella...actually, I remember finding thi
 
 "It was rather sulfurous and stale. Kind of like gunpowder. I saw that blasted frog sitting by it once."
 
-You are shocked beyond belief. Could gunpowder, of all things, have been tossed into a dish by mistake? Perhaps by Beauregard, in place of the secret ingredient? Did the frog have anything to do with it?
+You are shocked beyond belief. Why was there gunpowder in the kitchen? The frog must've been storing it there!
 
 "Thanks for the information, 'fella'," you say to Ralph. He grins proudly in response.
 ~StoryStates += StoryStates.frank_cache
 ~r_info = false
-->lineup
+->INTERROGATE_RALPH
 
 ===Ralph_Learn_POPROCKS===
 "sO...HeRe'S tH-ThE dEaL...," Ralph clutches his mouth, and he appears to be entering a bit of a panic. ""
+
+Could gunpowder, of all things, have been tossed into a dish by mistake? Beauregard must have done it, in place of the secret ingredient!
 ~StoryStates += StoryStates.ralph_pop_rocks
 ~r_info = false
 ->lineup
