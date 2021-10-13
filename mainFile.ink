@@ -4,6 +4,7 @@ INCLUDE Main Interview Template
 INCLUDE Variables and States
 INCLUDE Wife Interview
 INCLUDE Frank Interview
+INCLUDE Customer Interview
 
 
 
@@ -37,7 +38,7 @@ The suspect line quickly strike a pose, each appropriate for their role in the k
 {ntchef: The chef, standing tall and proud, grabs at his collar confidently.}
 <>{ntbeau:{ntchef: Beside him| Apart from the rest} stands a much younger and much more anxious man, with curled orange hair and an air of underconfidence.}
 <>{ntcath: A woman you easily identify as the Headmaster's wife, Catherine White, stands pompously in the room, a "hmph" emerging from her mouth as you glance in her direction.}
-<>{ntralph: Much to your confusion, a customer appears to be standing in the kitchen.}
+<>{ntralph: Much to your confusion, a suspicious-looking customer appears to be standing in the kitchen, refusing to make eye contact.}
 <>{ntfrank: Even MORE to your confusion, is a bullfrog sitting on a chair, eyelevel with the rest of the cast.}
 <>{ntstern: Finally, you are astonished NOT to see the figure of a waiter next to the frog, rather a suit without a body, topped with a finely curled but false mustache. The clothing sags and shufflles to indicate a spectral form with miserable posture and worse outlook.}
 -
@@ -45,6 +46,8 @@ The suspect line quickly strike a pose, each appropriate for their role in the k
     I selected the chef, because it was clear he understood his kichen.
     -> chefText
     
+* [The Customer.]
+    -> Ralph_Intro
 
 * [The Supernaturally Suspended Waiter's Uniform]
     -> Mileut_Introduction
