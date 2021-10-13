@@ -56,8 +56,8 @@ She tried to avoid your eye contact but eventually stared at you and faltered, "
 ~ntcath = false
 The woman in a red polka dot frock is sobbing in front of the line.
 
-"So ma'am may I please ask you a few questions?" I asked gently, though trying hard to not have eye contact with her, just as hard as to not peep at the wobbling half-piece onion in the basket behinds where she is standing.
-She looked up to me, hesitated for a second and said "okay keep it short."
+"So ma'am may I please ask you a few questions?" You asked gently, though trying hard to not have eye contact with her, just as hard as to not peep at the wobbling half-piece onion in the basket behinds where she is standing.
+She looked up to you, hesitated for a second and said "okay keep it short."
 
 Ask about:
     ->QuestionsForWife
@@ -79,8 +79,11 @@ Ask about:
 * "What did the Headmaster eat?"
     "How would I know? He probably ate something toxic? No way it is going to be a micro-TNT...right?" She hesitated and thought about that for a second, "could he possibly ate a TNT?..."
     -> QuestionsForWife
+* "How is the kitchen condition?"
+    "I don't know, I think the kitchen is fine, it is not me who work in it so I don't care, if it is nasty then they should clean it themselves. Why are you asking that? Is that relevant?"
+    -> QuestionsForWife
 * -> 
-    "Thank you for the answers ma'am," "But!" I turned up my volume to scare her "I don't think our conversation is over yet, aren't you going to have something more to tell me?" I made a direct eye contact with her hoping to dip into her most inward mind. She shuddered a bit.
+        "Thank you for the answers ma'am," "But!" You turned up my volume to scare her "I don't think our conversation is over yet, aren't you going to have something more to tell me?" You made a direct eye contact with her hoping to dip into her most inward mind. She shuddered a bit.
     {StoryStates == StoryStates.head_explodes: -> Wife_Learn_SECRET_INGREDIENTS}
     {StoryStates == StoryStates.secret_ingredients: -> Wife_Learn_FILTHY_KITCHEN}
     {StoryStates == StoryStates.filthy_kitchen: -> Wife_Learn_SECRET_INGREDIENTS}

@@ -55,6 +55,10 @@ The suspect line quickly strike a pose, each appropriate for their role in the k
 * [The Frog.]
     Naturally, I selected the toddler-sized frog.
     -> FrankText
+
+* [The Wife]
+    -> WifeText
+
 *-> ending
 
 
@@ -69,6 +73,10 @@ He smiled at me, and quickly sat us down at a nice dinner table.
 === FrankText ===
 The frog acted without a care in the world.
 -> Frank
+
+=== WifeText ===
+A sobbing woman.
+-> Wife
 
 === ending ===
 
