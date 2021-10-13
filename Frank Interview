@@ -16,9 +16,9 @@ I make my way closer to the frog as they light a cigarette on a gas stove.
     "Oh, that, lets just say I have made a few enemies in my day..."
     Silence deafens the room as the house album playing transitions to the next track. Scanning the room you begin to see more and more tools of destruction hidden in plain sight, marked only by a skull and crossbones. 
     ** "Give me one reason why I shouldn't suspect you killed The Headmaster"
-        "What would I seek to gain from killing my employer? I may be a Socialist but 20$ is twenty dollars." ->Questions_Frank
+        "What would I seek to gain from killing my employer? I may be a Socialist but 20$ is twenty dollars." Frank Says. ->Questions_Frank
 * "What is the Chef around here like?"
-    "Calling him a chef would be an insult to cooking. He's an imbecile in a chef's costume from Spirit Halloween" ->Questions_Frank
+    "Calling him a chef would be an insult to cooking. He's an imbecile in a chef's costume from Spirit Halloween" Frank says.->Questions_Frank
 * ->
     "I'm keeping my eye on you frog"
     ->lineup
