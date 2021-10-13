@@ -3,12 +3,11 @@ Now this is something I never expected to see. A frog, about the size of a toddl
 ->Frank
 
 ===Frank===
-~ntfrank = false
 I make my way closer to the frog as they light a cigarette on a gas stove.
 * "What the [hell are you doing here?"] hell are you doing here?" I inquisit.
     "Trying to save my own skin, considering the circumstances here" the frog snarkily replies "And you?"
     * * "I'd like to ask you a couple of questions my froggy friend"
-        "Please, call me Frank" He replies. ->Questions_Frank
+        "Please, call me Frank" ->Questions_Frank
 ===Questions_Frank===
 
 * "Do you know anything about what happened in the dining room?"
@@ -17,12 +16,11 @@ I make my way closer to the frog as they light a cigarette on a gas stove.
     "Oh, that, lets just say I have made a few enemies in my day..."
     Silence deafens the room as the house album playing transitions to the next track. Scanning the room you begin to see more and more tools of destruction hidden in plain sight, marked only by a skull and crossbones. 
     ** "Give me one reason why I shouldn't suspect you killed The Headmaster"
-        "What would I seek to gain from killing my employer? I may be a Socialist but 20$ is twenty dollars." Frank takes a drag from his cigarette and blows the smoke in my face. ->Questions_Frank
+        "What would I seek to gain from killing my employer? I may be a Socialist but 20$ is twenty dollars." ->Questions_Frank
 * "What is the Chef around here like?"
-    "Calling him a chef would be an insult to cooking. He's an imbecile in a chef's costume from Spirit Halloween"
-    His tone continues to confuse me, his alibi is rock solid, but everything about him screams guilty.->Questions_Frank
+    "Calling him a chef would be an insult to cooking. He's an imbecile in a chef's costume from Spirit Halloween" ->Questions_Frank
 * ->
-    "I'm keeping my eye on you frog" I tell Frank before I leave to speak with the rest of the crew.
+    "I'm keeping my eye on you frog"
     ->lineup
 
 ===DA_Interview===
