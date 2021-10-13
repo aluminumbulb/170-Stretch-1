@@ -81,6 +81,7 @@ In a sudden change of demeanor, the Chef leans back in his chair and stares into
 * "Tell me about... the frog."
     Darting his eyes back and forth. "W-what? There's nothing to tell. That's enough of that."
     * * "I certainly think not! Tell me everything you know about the frog."
+        "Hey came to us! Many a night ago!" The chef began, rising slightyly from his chair, "We needed all the hands we could get, and I do not discriminate! Frank has shown that he is an adamant worker. A bit strange, but adamant! And that's all I could ask for." The chef nodded confidently, sitting back in his chair.
         -> Questions
     * * [Drop this line of questioning.] -> Questions
 * [StateMachine 2 Option]
