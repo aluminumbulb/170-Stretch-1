@@ -1,0 +1,64 @@
+===Frank_introduction===
+Now this is something I never expected to see. A frog, about the size of a toddler, just working in the kitchen and minding their own damn business. My gut instinct tells me to tear this place apart, else I go to sleep tonight knowing a fucking frog is cooking in the kitchen of an Aristocrat. I could hear disco music coming from a cheap speaker somewhere in the kitchen, eventually transitioning into a four-on-the-floor house beat. This frog really enjoys their house music, anything to drown out the chaos occurring outside. I stil had to ask them what their place is here, in a kitchen fit for a king.
+->Frank
+
+===Frank===
+I make my way closer to the frog as they light a cigarette on a gas stove.
+* "What the [hell are you doing here?"] hell are you doing here?" I inquisit.
+    "Trying to save my own skin, considering the circumstances here" the frog snarkily replies "And you?"
+    * * "I'd like to ask you a couple of questions my froggy friend"
+        "Please, call me Frank" ->Questions_Frank
+===Questions_Frank===
+
+* "Do you know anything about what happened in the dining room?"
+    "I heard a little pop outside, must be one of our Chef's 'special ingredients' at work" Frank said with an intoxicating sarcasm that pierced his relatively thick french accent. ->Questions_Frank
+* "What's [that on the wall?"] that machine gun doing on the wall over there?"
+    "Oh, that, lets just say I have made a few enemies in my day..."
+    Silence deafens the room as the house album playing transitions to the next track. Scanning the room you begin to see more and more tools of destruction hidden in plain sight, marked only by a skull and crossbones. 
+    ** "Give me one reason why I shouldn't suspect you killed The Headmaster"
+        "What would I seek to gain from killing my employer? I may be a Socialist but 20$ is twenty dollars." ->Questions_Frank
+* "What is the Chef around here like?"
+    "Calling him a chef would be an insult to cooking. He's an imbecile in a chef's costume from Spirit Halloween" ->Questions_Frank
+* ->
+    "I'm keeping my eye on you frog"
+    ->lineup
+
+===DA_Interview===
+//ADD STATEMENT HERE THAT CHANES ntcharacter to false
+{StoryStates == StoryStates.head_explodes: ->Frank_SECRET_INGREDIENTS}
+{StoryStates == StoryStates.secret_ingredients: ->Frank_FILTHY_KITCHEN}
+{StoryStates == StoryStates.filthy_kitchen: ->Frank_BEAU_INGREDIENTS}
+{StoryStates == StoryStates.beauregard_ingredient: ->Frank_THE_EXPAT}
+{StoryStates == StoryStates.frank_cache: ->Frank_POPROCKS}
+{StoryStates == StoryStates.frank_cache: ->Frank_FULL}
+->lineup //Oops the programmer miscounted again. Classic.
+
+===Frank_SECRET_INGREDIENTS===
+How novel, the chef uses secret ingredients
+~StoryStates++
+->lineup
+
+===Frank_FILTHY_KITCHEN===
+I literally just pee where I want dude. Pee is not only sterile but antiseptic!
+~StoryStates++
+->lineup
+
+===Frank_BEAU_INGREDIENTS===
+Beaurigard revealed to be lethally stupid
+~StoryStates++
+->lineup
+
+===Frank_THE_EXPAT===
+YO IMAGINE IF LENIN WAS A FROG THAT WOULD BE SICK
+~StoryStates++
+->lineup
+
+===Frank_POPROCKS===
+Ratty Ralph Gobbles Poprocks
+~StoryStates++
+->lineup
+
+===Frank_FULL===
+I don't care that you broke your leg
+~StoryStates++
+->lineup
