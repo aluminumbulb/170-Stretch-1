@@ -2,6 +2,8 @@ INCLUDE Chef interview
 INCLUDE Mileut Interview
 INCLUDE Main Interview Template
 INCLUDE Variables and States
+INCLUDE Wife Interview
+
 
 
 KITCHEN, 1857
