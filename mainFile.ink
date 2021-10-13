@@ -2,6 +2,8 @@ INCLUDE Chef interview
 INCLUDE Mileut Interview
 INCLUDE Main Interview Template
 INCLUDE Variables and States
+INCLUDE Wife Interview
+
 
 
 KITCHEN, 1857
@@ -45,6 +47,9 @@ The suspect line quickly strike a pose, each appropriate for their role in the k
 
 * [The Supernaturally Suspended Waiter's Uniform]
     ->Mileut_Introduction
+    
+* [The Wife"]
+    -> Wife
     
 *-> ending
 
