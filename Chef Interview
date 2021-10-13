@@ -62,12 +62,24 @@ changed something
 * "What is the situation in the kitchen?"
     "There is no situation in my kitchen! I am a man of prestige good sir! The man simply must have had some sort of accident." He spoke unconvincingly. -> Questions
 * "Tell me about... the frog."
-    Darting his eyes back and forth. "W-what? There's nothing to tell. That's enough of that." -> Questions
-* ->
-    "Alright that's enough." I commanded. "Tell me what your part in it all is!" I yelled, hoping to intimidate the Chef into loosing his tongue.
-    //This should probably be where you link up to the main reveal
-     "Alright! Alright!" The Chef admitted. "I know that the Headmistress was planning something quite evil! You should talk to her about her recent plans."
-     -> dontChangeSubject
+    Darting his eyes back and forth. "W-what? There's nothing to tell. That's enough of that."
+    * * "I certainly think not! Tell me everything you know about the frog."
+        "Hey came to us! Many a night ago!" The chef began, rising slightyly from his chair, "We needed all the hands we could get, and I do not discriminate! Frank has shown that he is an adamant worker. A bit strange, but adamant! And that's all I could ask for." The chef nodded confidently, sitting back in his chair.
+        -> Questions
+    * * [Drop this line of questioning.] -> Questions
+* [StateMachine 2 Option]
+    -> Questions
+* [StacheMachine 3 Option]
+    -> Questions
+* -> 
+    "Alright that's enough." I commanded. "Tell me what your part in it all is!" I yelled, hoping to intimidate the Chef into loosing his tongue. 
+    {StoryStates == head_explodes: -> Chef_Learn_SECRET_INGREDIENTS}
+    {StoryStates == secret_ingredients: -> Chef_Learn_FILTHY_KITCHEN}
+    {StoryStates == filthy_kitchen: -> Chef_Learn_SECRET_INGREDIENTS}
+    {StoryStates == beauregard_ingredient: -> Chef_Learn_BEAU_INGREDIENTS}
+    {StoryStates == frank_cache: -> Chef_learn_FRANK_EXPAT}
+    {StoryStates == ralph_pop_rocks: -> Chef_Learn_FULL}
+     -> lineup
 
 == slapChef ==
 I slap the Chef, left and right, hoping to calm him down.
