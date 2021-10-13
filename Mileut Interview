@@ -35,22 +35,25 @@ Ask About:
         ->General_Questions
         
     *[{ntcath: The Frog| Frank}]
+        Ah yes, Frank, the only one in the kitchen with any taste. By which I mean he is a decent cook, not that I have personally tasted him. Yes an expatriot from France, I believe. He seems to be on-the-hop from some entity or other. He's never been terribly specific with who or why. The kitchen would not survive without him. 
         
+        {StoryStates has beauregard_ingredient && s_info: ->M_learn_FRANK_EXPAT}
         ->General_Questions
         
     * [Stern]
-    
+        I have been the waiter here for as long as ownership has changed. I, of course, am a spirit tied to the building. I'm afraid I'm along for whatever ride may occur within these walls. I must say, this is the sorriest state I've ever been in. Why, back in the day this used to be a burlesque club! Why, with the willpower and number of employees back then, I was alive and full of energy, if not as clothed. 
+        
+        [They indicate thier waiter's garb matching the restaurant's atmosphere]
+        
+        {StoryStates has ralph_pop_rocks && s_info: ->M_Learn_FULL}
+        
+        I am sorry to say that at the time of delivering the meal, I was entirely unaware of its lethality. The Headmaster was bad for business, but it is time for these old souls to be laid to rest with the building. Had he lived a while longer, I am sure he would have successfully run us into the ground!
         ->General_Questions
     *->lineup
 
-===M_Main_Interview===
-//ADD STATEMENT HERE THAT CHANES ntcharacter to false
-{StoryStates has beauregard_ingredient && s_info: ->M_learn_FRANK_EXPAT}
-
-{StoryStates has ralph_pop_rocks && s_info: ->M_Learn_FULL}
-->lineup //Oops the programmer miscounted again. Classic.
 
 ===M_Learn_SECRET_INGREDIENTS===
+~s_info = false
 It was his idea to add "Secret Special Ingredients" the specials to add a bit of something or other to the dishes. In truth, he just grabs some spice or another from his spicerack and throws it in regardless of composition.
 
 *[like?]
@@ -63,12 +66,14 @@ Oh don't worry, all above board. Not that any poison would result in a man's hea
 ->General_Questions
 
 ===M_Learn_FILTHY_KITCHEN===
+~s_info = false
 The worst part about her involvment is that she feels as though she is making "smart decisions". "Smart" being a one part intellect, and nine parts thriftyness. Look at the state of the kitchen, filthy. Rather than pay for pest control measures AND a night staff, she has instead tied sponges to the stomachs of rats caught such that they may clean while they scurry. I am frankly surprised someone has not died already. I would just close this place down now, if I were you.
 ~StoryStates += StoryStates.filthy_kitchen
 ~s_info = false
 ->lineup
 
 ===M_Learn_BEAU_INGREDIENTS===
+~s_info = false
 Yes today, for instance, the boy was put in charge of selecting the secret ingredient for the meals today. Oh I know! The honor and responsibility involve makes me tremble as well. 
 
 *[Could he have tampered with the food?]
@@ -80,6 +85,7 @@ I doubt greatly that the boy would make a capable assissin if that's what you're
 ->lineup
 
 ===M_learn_FRANK_EXPAT===
+~s_info = false
 I would like to show you something as a means of demonstration. 
 [The empty suit apppears to pat itself down. Out of the breast pocket floats a bullet]
 I am the kitchen in microcausm, so what is stored in there comes out in me in some ways
@@ -92,12 +98,14 @@ As you can see, I have little bullets, buckets of gun powder, and not a few expl
 ->lineup
 
 ===M_Learn_POPROCKS===
+~s_info = false
 The man has the gall to wonder around the kitchen and behave like he is a professional taster while pilfering our stores. When he sampled the dish in question, he said "Ah yes, like pop-rocks I used to eat as a boy. Crunchy, earthy, with a bit of fizzle.". What on earth does that mean? Did the man eat street fireworks as a boy? One can only hope it was as a boy, but he didn't seem too displeased with the flavor.
 ~StoryStates += StoryStates.ralph_pop_rocks
 ~s_info = false
 ->lineup
 
 ===M_Learn_FULL===
+~s_info = false
 Inspector, perhaps I am in a unique position as an embodiment of this kitchen and its staff, but some clues have come together for me. That is, the boy's inability to do anything correct and yet being tasked with delivering a "secret ingredient". The fact that this ingredient's flavor matches none in my culinary experience. Finally the fact that we have become inadvertantly a partial arms manufacture. Well, would you like to know what I think, or shall I let you peice it together yourself?
 
 *[I like trying to figure things out!]
