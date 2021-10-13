@@ -76,19 +76,17 @@ Ask about:
 * "Who is that weirdo?"
     "You mean Ralph? Well he is a good friend of my husband, he usually hanging around in the kitchen, touching this and that." She shaked her head and continued,"god knows how much I hate his wiseacre attitude everytime he came in."
     -> QuestionsForWife
-* ""
-    -> QuestionsForWife
 * "What did the Headmaster eat?"
-    "How would I know, definitely not my caviar--eating my caviar won't kill you nor my husband, you idiot!" She answered pejoratively.
+    "How would I know? He probably ate something toxic? No way it is going to be a micro-TNT...right?" She hesitated and thought about that for a second, "could he possibly ate a TNT?..."
     -> QuestionsForWife
 * -> 
     "Thank you for the answers ma'am," "But!" I turned up my volume to scare her "I don't think our conversation is over yet, aren't you going to have something more to tell me?" I made a direct eye contact with her hoping to dip into her most inward mind. She shuddered a bit.
-    {StoryStates == head_explodes: -> Wife_Learn_SECRET_INGREDIENTS}
-    {StoryStates == secret_ingredients: -> Wife_Learn_FILTHY_KITCHEN}
-    {StoryStates == filthy_kitchen: -> Wife_Learn_SECRET_INGREDIENTS}
-    {StoryStates == beauregard_ingredient: -> Wife_Learn_BEAU_INGREDIENTS}
-    {StoryStates == frank_cache: -> Wife_learn_FRANK_EXPAT}
-    {StoryStates == ralph_pop_rocks: -> Wife_Learn_FULL}
+    {StoryStates == StoryStates.head_explodes: -> Wife_Learn_SECRET_INGREDIENTS}
+    {StoryStates == StoryStates.secret_ingredients: -> Wife_Learn_FILTHY_KITCHEN}
+    {StoryStates == StoryStates.filthy_kitchen: -> Wife_Learn_SECRET_INGREDIENTS}
+    {StoryStates == StoryStates.beauregard_ingredient: -> Wife_Learn_BEAU_INGREDIENTS}
+    {StoryStates == StoryStates.frank_cache: -> Wife_learn_FRANK_EXPAT}
+    {StoryStates == StoryStates.ralph_pop_rocks: -> Wife_Learn_FULL}
      -> lineup
      
 == doneWithWife==
