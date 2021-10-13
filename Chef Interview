@@ -99,6 +99,7 @@ In a sudden change of demeanor, the Chef leans back in his chair and stares into
     {StoryStates == beauregard_ingredient: -> Chef_Learn_BEAU_INGREDIENTS}
     {StoryStates == frank_cache: -> Chef_learn_FRANK_EXPAT}
     {StoryStates == ralph_pop_rocks: -> Chef_Learn_FULL}
+    {StoryStates == conclusion: -> Chef_State_CONCLUSION}
      -> lineup
 
 == slapChef ==
