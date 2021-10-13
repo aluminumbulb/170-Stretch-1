@@ -4,7 +4,6 @@ INCLUDE Main Interview Template
 INCLUDE Variables and States
 INCLUDE Wife Interview
 INCLUDE Frank Interview
-INCLUDE Customer Interview
 
 
 
