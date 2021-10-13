@@ -14,11 +14,11 @@ Ask About:
         ->General_Questions
 
     *[{ntchef: The Chef| William}]
-    Ah, Chef Williams. A competant man capable of producing the swill that hogs continue eagerly feasting on. His son on the other hand is a mess. {StoryStates == StoryStates.head_explodes && s_info: ->M_Learn_SECRET_INGREDIENTS}
+    Ah, Chef Williams. A competant man capable of producing the swill that hogs continue eagerly feasting on. His son on the other hand is a mess. {StoryStates has head_explodes && s_info: ->M_Learn_SECRET_INGREDIENTS}
         ->General_Questions
         
     *[{ntbeau: The Red Haired Kid| Beaurigard}]
-    You mean the Chef's son. The boy is two left sets of table cutlery I'm afraid. He has no business putting on his cloths in the morning, let alone being second in command to his nepotistic father. Perhaps he has realized his son is hopeless, but he's been trying to acclamate the boy to authority. Nevertheless, it's no use grooming the head of a chemotherapy patient, if you catch my meaning. {StoryStates == StoryStates.filthy_kitchen && s_info: ->M_Learn_BEAU_INGREDIENTS} 
+    You mean the Chef's son. The boy is two left sets of table cutlery I'm afraid. He has no business putting on his cloths in the morning, let alone being second in command to his nepotistic father. Perhaps he has realized his son is hopeless, but he's been trying to acclamate the boy to authority. Nevertheless, it's no use grooming the head of a chemotherapy patient, if you catch my meaning. {StoryStates has filthy_kitchen && s_info: ->M_Learn_BEAU_INGREDIENTS} 
         
         ->General_Questions
         
@@ -27,11 +27,11 @@ Ask About:
     
     [He pauses for a moment, the vest visibly heaving with a sigh.]
     
-    He of course trusts her to make nearly all financial decisions. Though through her mismanagement, this place may finally fall apart. Ah to be at rest again. {StoryStates == StoryStates.secret_ingredients && s_info: ->M_Learn_FILTHY_KITCHEN}
+    He of course trusts her to make nearly all financial decisions. Though through her mismanagement, this place may finally fall apart. Ah to be at rest again. {StoryStates has secret_ingredients && s_info: ->M_Learn_FILTHY_KITCHEN}
         ->General_Questions
         
     *[{ntcath: The Arrant Customer| Ralph}]
-        Mmm yes. Him. A friend of the Headmaster I believe. He comes in frequently to "inspect" the kitchen. Of course all he does is snag bites of meals as they go out. It may be of use to you to know that he, in fact, ""sampled"" the supposedly lethal dish himself. {StoryStates == StoryStates.frank_cache && s_info: ->M_Learn_POPROCKS}.
+        Mmm yes. Him. A friend of the Headmaster I believe. He comes in frequently to "inspect" the kitchen. Of course all he does is snag bites of meals as they go out. It may be of use to you to know that he, in fact, ""sampled"" the supposedly lethal dish himself. {StoryStates has frank_cache && s_info: ->M_Learn_POPROCKS}.
         ->General_Questions
         
     *[{ntcath: The Frog| Frank}]
@@ -45,9 +45,9 @@ Ask About:
 
 ===M_Main_Interview===
 //ADD STATEMENT HERE THAT CHANES ntcharacter to false
-{StoryStates == StoryStates.beauregard_ingredient && s_info: ->M_learn_FRANK_EXPAT}
+{StoryStates has beauregard_ingredient && s_info: ->M_learn_FRANK_EXPAT}
 
-{StoryStates == StoryStates.ralph_pop_rocks && s_info: ->M_Learn_FULL}
+{StoryStates has ralph_pop_rocks && s_info: ->M_Learn_FULL}
 ->lineup //Oops the programmer miscounted again. Classic.
 
 ===M_Learn_SECRET_INGREDIENTS===
@@ -58,13 +58,13 @@ It was his idea to add "Secret Special Ingredients" the specials to add a bit of
 -
 
 Oh don't worry, all above board. Not that any poinson would result in a man's head exploding.
-~StoryStates++
+~StoryStates += StoryStates.secret_ingredients
 ~s_info = false
 ->General_Questions
 
 ===M_Learn_FILTHY_KITCHEN===
 The worst part about her involvment is that she feels as though she is making "smart decisions". "Smart" being a one part intellect, and nine parts thriftyness. Look at the state of the kitchen, filthy. Rather than pay for pest control measures AND a night staff, she has instead tied sponges to the stomachs of rats caught such that they may clean while they scurry. I am frankly surprised someone has not died already. I would just close this place down now, if I were you.
-~StoryStates++
+~StoryStates += StoryStates.filthy_kitchen
 ~s_info = false
 ->lineup
 
@@ -75,25 +75,24 @@ Yes today, for instance, the boy was put in charge of selecting the secret ingre
 *[Would he have any reason to kill the chef?]
 -
 I doubt greatly that the boy would make a capable assissin if that's what you're suggesting. One can imagine him dosing some string with poison and immediately picking his nose. No in fact I saw him put the spice on the meal in question. It seemed to be un-crushed pepper on caviar.  Disgusting it is, poison it is not.
-~StoryStates++
+~StoryStates += StoryStates.beauregard_ingredient
 ~s_info = false
 ->lineup
 
 ===M_learn_FRANK_EXPAT===
 F R O G W I T H A G U N
-~StoryStates++
+~StoryStates += StoryStates.frank_cache
 ~s_info = false
 ->lineup
 
 ===M_Learn_POPROCKS===
 The man has the gall to wonder around the kitchen and behave like he is a professional taster while pilfering our stores. When he sampled the dish in question, he said "Ah yes, like pop-rocks I used to eat as a boy. Crunchy, earthy, with a bit of fizzle.". What on earth does that mean? Did the man eat street fireworks as a boy? One can only hope it was as a boy, but he didn't seem too displeased with the flavor.
-~StoryStates++
+~StoryStates += StoryStates.ralph_pop_rocks
 ~s_info = false
 ->lineup
 
 ===M_Learn_FULL===
 Here's all the facts right in front of you.
-~StoryStates++
 ~s_info = false
 ->lineup
 

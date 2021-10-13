@@ -1,11 +1,9 @@
 ===Ralph_Main_Interview===
 //ADD STATEMENT HERE THAT CHANES ntcharacter to false
-{StoryStates has StoryStates.head_explodes: ->Learn_SECRET_INGREDIENTS}
-{StoryStates has StoryStates.secret_ingredients: ->Learn_FILTHY_KITCHEN}
-{StoryStates has StoryStates.filthy_kitchen: ->Learn_BEAU_INGREDIENTS}
-{StoryStates has StoryStates.beauregard_ingredient: ->learn_FRANK_EXPAT}
-{StoryStates has StoryStates.frank_cache: ->Learn_POPROCKS}
-{StoryStates has StoryStates.ralph_pop_rocks: ->Learn_FULL}
+{StoryStates has head_explodes && r_info: ->Ralph_Learn_SECRET_INGREDIENTS}
+{StoryStates has secret_ingredients && r_info: ->Ralph_Learn_FILTHY_KITCHEN}
+{StoryStates has frank_cache && r_info: ->Ralph_Learn_POPROCKS}
+{StoryStates has ralph_pop_rocks && r_info: ->Ralph_Learn_FULL}
 ->lineup //Oops the programmer miscounted again. Classic.
 
 ===Ralph_Intro===
@@ -21,45 +19,129 @@ No longer fooling anyone, Ralph suddenly adopts a bit of a mischievous grin. "Wh
 ===recognized===
 You are amused by his claims. "Yeah yeah I've heard about you, though I definitely don't think you're in the world records, nor have I heard of any restaurant that took your advice seriously."
 
-"...Well, yeah, that's kind of true," he says apologetically, "but I gotta act strong in the face of adversity. And besides, the part about documenting flavor combos IS true. Hehe."
-->INTERROGATE_RALPH
+"...Well, yeah, that's kind of true," he says apologetically, "but I gotta act strong in the face of adversity, fella. And besides, the part about documenting flavor combos IS true. Hehe."
+->enough
 
 ===noideawho===
 You have no idea what he's going on about. "Look here, I don't know who you are or what makes you so special, but someone appears to have just spontaneously combusted over there, and no amount of status is going to save you from being interrogated."
 
-He lowers his head in sadness, but not shame. "Alright, then. Go on with your 'interrogation.' Even though you're not really a detective."
+He lowers his head in disappointment, but not shame. "Alright then, fella. Go on with your 'interrogation.' Even though you're not really a detective."
+->enough
+
+===enough===
+You decide you just want to get this over with. You peruse your head for questions that this dude could possibly comprehend.
 ->INTERROGATE_RALPH
 
 ===INTERROGATE_RALPH===
-You decide you just want to get this over with. You peruse your head for questions that this dude could possibly comprehend. "Aight, let's get down to brass tacks. Tell me about..."
+"Aight, let's get down to brass tacks..."
+    *[Why is Ralph in the kitchen?]->inkitchen
+    *[What does Ralph think of the restaurant?]->restaurant
+    *[What does Ralph know about the Headmaster?]->headmaster
+    *[What does Ralph know about the Headmistress?]->headmistress
+    *[Why isn't Ralph the most confusing thing here?]->froggo
 -> lineup
+
+===inkitchen===
+"So what are you really doing in the kitchen? Be honest, for goodness sake."
+
+"Oh, well...I got a bit of a strategy to writing my riveting food reviews, you see, fella. Don't tell anyone...but...I like hanging out in the kitchen for the food, if you catch my meaning."
+*["So you...taste the food before it's served?"]
+"So you...taste the food...before it's even served?"
+
+"Exactly! That way I can really get a feel for what ingredients are in every dish, how it all tastes, without, you know...spending the cash to order it all."
+
+As a health inspector, this revelation leaves you highly disconcerted. "So that's why they call you Ratty Ralph! You're a damn fiend! Snooping around the kitchen where no one wants you, potentially contaminating everything you touch..."
+->inkitchen2
+
+===inkitchen2===
+*["Does the chef know?"]
+"Does the chef know about this...OUTRAGEOUS offense??"
+
+"Oh, of course he does, fella. He's cool with it. Him and that kid Beauregard, they just let me do my thing and no one bats an eye. And hey, what harm has it done? Not like anyone has died from the food here or anything...uhm, until today."
+
+You can't believe this idiot. With that amount of unprofessional access to the food, he could have snuck anything in. But you decide to put it off for now.
+->inkitchen3
+
+===inkitchen3===
+*["Have you seen anything unusual?"]
+"Well, can you think of anything...unusual that you've seen while you've been back here?"
+
+"Mmm...the crab they use smells a bit funky, and the wine is super cheap."
+
+You sigh. "Well, that doesn't tell me much. Let's move on."
+
+{StoryStates has filthy_kitchen && r_info: ->Ralph_Learn_BEAU_INGREDIENTS}
+{StoryStates has beauregard_ingredient && r_info: ->Ralph_Learn_FRANK_EXPAT}
+->INTERROGATE_RALPH
+
+===restaurant===
+->lineup
+
+===headmaster===
+->lineup
+
+===headmistress===
+->lineup
+
+===froggo===
+->lineup
 
 ===Ralph_Learn_SECRET_INGREDIENTS===
 "SO HERE'S THE DEAL," Ralph yells, taking you aback. He makes a dramatic hand motion before going on. ""
 ~StoryStates += StoryStates.secret_ingredients
+~r_info = false
 ->lineup
 
 ===Ralph_Learn_FILTHY_KITCHEN===
 "SO HERE'S THE DEAL," Ralph yells, taking you aback. He makes a dramatic hand motion before going on. ""
 ~StoryStates += StoryStates.filthy_kitchen
+~r_info = false
 ->lineup
 
 ===Ralph_Learn_BEAU_INGREDIENTS===
-"SO HERE'S THE DEAL," Ralph yells, taking you aback. He makes a dramatic hand motion before going on. ""
+Ralph stops you. "Oh, hang on a second, fella...actually, I remember seeing a big jar of caviar just sitting on a table somewhere. I waited for a while to see if anyone would use it, but when they didn't...well, I borrowed it."
+
+"You mean you stole it for yourself." You look at him crossly.
+
+"It looked like everyone had forgotten it was there. I figured the chef wouldn't mind."
+
+You realize that this caviar was definitely the secret ingredient the chef was planning to use for the headmaster's dish. But if it wasn't there when Beauregard cooked it...did he grab something else to use as the secret ingredient? Something random?
+
+"Thanks for the information, 'fella'," you say to Ralph. He nods dismissively in response.
 ~StoryStates += StoryStates.beauregard_ingredient
-->lineup
+~r_info = false
+->INTERROGATE_RALPH
 
 ===Ralph_Learn_FRANK_EXPAT===
-"SO HERE'S THE DEAL," Ralph yells, taking you aback. He makes a dramatic hand motion before going on. ""
+Ralph stops you. "Oh, hang on a second, fella...actually, I remember finding this strange compartment in the back of the kitchen. I would've opened it, but it had a lock to it. I smelled something very odd in there, something that didn't smell like it belonged in a kitchen...
+
+"What did it smell like?" You look at him inquiringly.
+
+"It was rather sulfurous and stale. Kind of like gunpowder. I saw that blasted frog sitting by it once."
+
+You are shocked beyond belief. Could gunpowder, of all things, have been tossed into a dish by mistake? Perhaps by Beauregard, in place of the secret ingredient? Did the frog have anything to do with it?
+
+"Thanks for the information, 'fella'," you say to Ralph. He grins proudly in response.
 ~StoryStates += StoryStates.frank_cache
+~r_info = false
 ->lineup
 
 ===Ralph_Learn_POPROCKS===
 "sO...HeRe'S tH-ThE dEaL...," Ralph clutches his mouth, and he appears to be entering a bit of a panic. ""
 ~StoryStates += StoryStates.ralph_pop_rocks
+~r_info = false
 ->lineup
 
 ===Ralph_Learn_FULL===
-Here's all the facts right in front of you.
+"I...m-mY mOuTh Is On FiRe, FeLlA....." Ralph groans, and you can see sparks flashing inside of his mouth, making pop-pop-pop noises. He clutches his mouth again in an attempt to keep it in, but you can hear the pops getting louder and his face begins to puff up. Aghast, you stand back as Ralph emits a final, high-pitched, horrific scream and explodes into many Ralph-parts all over the kitchen.
+
+...
+
+...
+
+...
+
+"Well, that just about explains it," you say after a long pause, aloud for some reason. "The poor headmaster must've been done in by those dastardly poprocks. Simply tragic. Well, you can join your friend in the afterlife now, 'fella'."
 ~StoryStates += StoryStates.conclusion
+~r_info = false
 ->lineup

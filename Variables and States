@@ -9,3 +9,4 @@ VAR ntralph = true
 VAR ntstern = true
 
 VAR s_info = true
+VAR r_info = true
