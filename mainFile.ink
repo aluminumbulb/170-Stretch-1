@@ -2,6 +2,7 @@ INCLUDE Chef Interview
 INCLUDE Mileut Interview
 INCLUDE Main Interview Template
 INCLUDE Variables and States
+INCLUDE Wife Interview
 INCLUDE Frank Interview
 
 
@@ -48,6 +49,9 @@ The suspect line quickly strike a pose, each appropriate for their role in the k
 * [The Supernaturally Suspended Waiter's Uniform]
     -> Mileut_Introduction
     
+* [The Frog.]
+    Naturally, I selected the toddler-sized frog.
+    -> FrankText
 *-> ending
 
 
@@ -59,6 +63,9 @@ I nodded curtly. "Quickly, into the kitchen with you!" I yipped.
 He smiled at me, and quickly sat us down at a nice dinner table.
 -> Chef
 
+=== FrankText ===
+The frog acted without a care in the world.
+-> Frank
 
 === ending ===
 
