@@ -1,0 +1,95 @@
+===Wife_Main_Interview===
+{StoryStates == StoryStates.head_explodes: ->Wife_Learn_SECRET_INGREDIENTS}
+{StoryStates == StoryStates.secret_ingredients: ->Wife_Learn_FILTHY_KITCHEN}
+{StoryStates == StoryStates.filthy_kitchen: ->Wife_Learn_BEAU_INGREDIENTS}
+{StoryStates == StoryStates.beauregard_ingredient: ->Wife_learn_FRANK_EXPAT}
+{StoryStates == StoryStates.frank_cache: ->Wife_Learn_POPROCKS}
+{StoryStates == StoryStates.ralph_pop_rocks: ->Wife_Learn_FULL}
+->->
+
+// Secret ingredient reveal
+===Wife_Learn_SECRET_INGREDIENTS===
+She tried to avoid your eye contact but eventually stared at you and faltered, "Well...I love creative people, that is why I fell in love with my husband, a true artist with a lot of wealth, properties......"She halted a bit before she would spilt out more inappropriate words, "and I hired our head chef William because he is absolutely a genius in cooking--he has his own secret recipe as if he is putting magic in the dishes. He must be thinking that I have no clue what he has done to the plates, but Imma tell you, I saw him pouring some unexpected ingredients quite a few times, it must have been the secret why the restructured meat tasted like angus beef..." Her tongue flicked across her lips as she finished.
+~StoryStates += StoryStates.secret_ingredients
+    -> doneWithWife
+
+
+// Double hand washing reveal
+===Wife_Learn_FILTHY_KITCHEN===
+She tried to avoid your eye contact but eventually stared at you and faltered, "Well...I own...my husband and I own the restaurant, we are out here to make money, why are we responsible for cleaning up the kitchen and stuff? They should clean up the working place if they can't live with that! Not my business!" She yelled fiercely as if she has nothing to do with the filthy kitchen. "And look at how they deal with that, all the staffs are forced to wash their hands! Good sign but why in the world my hands should also be washed? Everytime I came I was forced to wash away my perfume on my fine hands...blah blah blah..." Ignoring her complain, I started to skim through the kitchen that is nastier than the worst one in the 'Hell Kitchen' episodes, and soon my eyes stopped at a door that was left ajar: that's a bright and neat room behind, a few abstract paintings that seem worth thousands of bucks are hanging on the wall where underneath is a lether coach. Catherine followed my line of sight and realized that I was looking at the room, she dashed and slammed the door as if there are something unrevealable. "Th...that's my...and my husband's room. I swear I didn't spend a lot on the decoration." 
+~StoryStates += StoryStates.filthy_kitchen
+-> doneWithWife
+
+// Beauregard put gunpowder in the food reveal 
+===Wife_Learn_BEAU_INGREDIENTS===
+She tried to avoid your eye contact but eventually stared at you and faltered, "I bought a can of caviar and put that on the kitchen table...but now that it's gone. I have literally no idea where it went, probably someone took that." She paused for a second and seemed to remember something, as she continued,"I do remember William told me that he was going to make a new dish to serve my darling, but he was pretty busy and has asked his son to give him a hand...but that wasn't my caviar what he served, it was gunpowder!" She yelled so loud with excitement as if she has just revealed the truth.
+~StoryStates += StoryStates.beauregard_ingredient
+-> doneWithWife
+
+// Frog reveal and contraband
+===Wife_learn_FRANK_EXPAT===
+She tried to avoid your eye contact but eventually stared at you and faltered, "okay...I actually do know we have a frog living in the restaurant, there was a time that I asked William for something...yes something, that doesn't matter...and I saw that ugly creature lying on a bed, few broken wine glasses on the floor right next to his bedside cabinet. Oh and also miniguns...I really wondered what the heck is this frog doing in my...my darning's restaurant! This frog even has a name Frank!" She suddenly goggled, "he must be the gunpowder provider! He must be the one behinds every-single-evil-thing!" 
+~StoryStates += StoryStates.frank_cache
+-> doneWithWife
+
+// Gunpowder poprocks reveal
+===Wife_Learn_POPROCKS===
+She tried to avoid your eye contact but eventually stared at you and faltered, "I know Ralph was hanging around in the kitchen, as always...he took a bite of that dish, and he mentioned some poping taste or texture that I can't really recall, if that is the gunpowder, then it is surprised that his head hasn't exploded into pieces. Well...I wish that happens..." Her voice was getting lower but you could still hear the last sentence that she murmured.
+~StoryStates += StoryStates.ralph_pop_rocks
+-> doneWithWife
+
+
+// Headmaster died because of gunpowder
+===Wife_Learn_FULL===
+She tried to avoid your eye contact but eventually stared at you and faltered, "if my husband ate the food William made, and it was Beauregard who in charged of pouring in the secret ingredients which supposed to MY caivar," she emphasized the word 'my' as she continued her speech,"then I guess my poor darling died from eating a gunpowder-filled dish. It mustn't tasted good." She started to cry but with no tears in her eyes, wasn't that hypocractic?
+~StoryStates += StoryStates.conclusion
+-> doneWithWife
+
+// Conclude it all
+===Wife_State_CONCLUSION===
+She tried to avoid your eye contact but eventually stared at you and faltered, "I...I think I have figured out the cause of my husband's death..." she paused, sniffled, and continued, "if my husband ate the food William made, and it was Beauregard who in charged of pouring in the secret ingredients which supposed to my caivar, you should also know what Ralph mentioned, the popping sensation of the dish! It must be the gunpowder of Frank! Everything is on the table! Beauregard, the idiot, put the Frank's gunpowder as the secret ingredients in the dish instead of my expensive caviar, my poor darling ate that and boommed! Sir I have nothing to do with this...at all, you gotta trust me. I just lost my beloved husband!" She started to sob again, but without tears, probably because the onion has lost its effect...
+
+->->
+
+
+== Wife ==
+~ntcath = false
+The woman in a red polka dot frock is sobbing in front of the line.
+
+"So ma'am may I please ask you a few questions?" I asked gently, though trying hard to not have eye contact with her, just as hard as to not peep at the wobbling half-piece onion in the basket behinds where she is standing.
+She looked up to me, hesitated for a second and said "okay keep it short."
+
+Ask about:
+    ->QuestionsForWife
+
+== QuestionsForWife ==
+
+* "Who are you?"
+    "Catherine White! I am the only woman in the restaurant, who do you think I am?" She picked up her innocent face and turned to you quite impatiently.
+    -> QuestionsForWife
+* "Do you know anything about the death of the headmaster"
+    "I was with him this morning, but I haven't seen him for the rest of the day, so how would I know anything...are you suspecting me huh?"
+    -> QuestionsForWife
+* "Do you know about the frog?"
+    "What the frog?" She shouted inconceivably, "I don't know anything about a frog, you animal!"
+    -> QuestionsForWife
+* "Who is that weirdo?"
+    "You mean Ralph? Well he is a good friend of my husband, he usually hanging around in the kitchen, touching this and that." She shaked her head and continued,"god knows how much I hate his wiseacre attitude everytime he came in."
+    -> QuestionsForWife
+* "What did the Headmaster eat?"
+    "How would I know? He probably ate something toxic? No way it is going to be a micro-TNT...right?" She hesitated and thought about that for a second, "could he possibly ate a TNT?..."
+    -> QuestionsForWife
+* -> 
+    "Thank you for the answers ma'am," "But!" I turned up my volume to scare her "I don't think our conversation is over yet, aren't you going to have something more to tell me?" I made a direct eye contact with her hoping to dip into her most inward mind. She shuddered a bit.
+    {StoryStates == StoryStates.head_explodes: -> Wife_Learn_SECRET_INGREDIENTS}
+    {StoryStates == StoryStates.secret_ingredients: -> Wife_Learn_FILTHY_KITCHEN}
+    {StoryStates == StoryStates.filthy_kitchen: -> Wife_Learn_SECRET_INGREDIENTS}
+    {StoryStates == StoryStates.beauregard_ingredient: -> Wife_Learn_BEAU_INGREDIENTS}
+    {StoryStates == StoryStates.frank_cache: -> Wife_learn_FRANK_EXPAT}
+    {StoryStates == StoryStates.ralph_pop_rocks: -> Wife_Learn_FULL}
+     -> lineup
+     
+== doneWithWife==
+Having done all you can to wring information out of the wife, you turn back to the rest of the lineup.
+    -> lineup
+
