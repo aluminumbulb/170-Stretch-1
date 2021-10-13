@@ -1,8 +1,11 @@
-INCLUDE Chef interview
+INCLUDE Chef Interview
 INCLUDE Mileut Interview
 INCLUDE Main Interview Template
 INCLUDE Variables and States
+INCLUDE Wife Interview
+INCLUDE Frank Interview
 INCLUDE Customer Interview
+
 
 
 KITCHEN, 1857
@@ -12,7 +15,7 @@ Residence of Headmaster Parsennon White.
 === kitchen ===
 You are a health inspector. Given special permissions to bring any restaurant out of order back into the fold with stern command and authority. Parsennon White's kitchen has spent much too long without an inspection, and it is time for you to do your duty.
 Upon entering the establishment, your eyes scan the room. Brick walls, white tables, adorned cloths all around to lighten up the air. A man who you can only designate as the Headmaster of the residence sits on the far side of the room, enjoying some caviar.
-A curt nod later, you  begin to strut towards the man, who looks up at you, smiles, and with a comical "pop" sound, his head explodes. Taken aback, you decide that the best course of action is to round up all the possible suspects (that being everyone in the kitchen,) and to narrow it down. Who served the poisoned plate, and why was it sabotaged?
+A curt nod later, you  begin to strut towards the man, who looks up at you, smiles, and with a comical "pop" sound, his head explodes. Taken aback, you decide that the best course of action is to round up all the possible suspects (that being everyone in the kitchen,) and narrow it down. Who served the poisoned plate, and why was it sabotaged?
 A larger man quickly emerges from the kitchen, gasping and putting his hands on his face.
     "E-gads!" Sceamed the man who appeared to be the chef, his white overalls and toque blanche outlining him. "What has happened to the headmaster?"
 
@@ -43,12 +46,15 @@ The suspect line quickly strike a pose, each appropriate for their role in the k
     I selected the chef, because it was clear he understood his kichen.
     -> chefText
     
-* [The Mildly Out-of-Place Customer.]
+* [The Customer.]
     -> Ralph_Intro
 
 * [The Supernaturally Suspended Waiter's Uniform]
-    ->Mileut_Introduction
+    -> Mileut_Introduction
     
+* [The Frog.]
+    Naturally, I selected the toddler-sized frog.
+    -> FrankText
 *-> ending
 
 
@@ -60,6 +66,9 @@ I nodded curtly. "Quickly, into the kitchen with you!" I yipped.
 He smiled at me, and quickly sat us down at a nice dinner table.
 -> Chef
 
+=== FrankText ===
+The frog acted without a care in the world.
+-> Frank
 
 === ending ===
 
