@@ -13,7 +13,7 @@
 In a sudden change of demeanor, the Chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is I like to put secret ingredients into the meals. The Headmaster and Headmistress don't approve, but they don't know how much they like it! I've been doing it for months now, and have never had an issue like this!" In a harumph, the Chef turns in his seat. "Please now, that's all I know!" He whimpers. It appears he is telling the truth, but you cannot make it out for certain. 
     You turn back to the lineup.
 ~StoryStates += StoryStates.secret_ingredients
-    -> chefFinished
+-> chefFinished
 
 // Double hand washing reveal
 ===Chef_Learn_FILTHY_KITCHEN===
@@ -50,7 +50,7 @@ In a sudden change of demeanor, the Chef leans back in his chair and stares into
 In a sudden change of demeanor, the Chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is, I think the Headmaster ate a gunpowder-filled caviar!" He exclaimed. "That must be it! Think about it: Ralph tasted a popping sensation in his mouth and Beauregard was in charge of the secret ingredient! With Frank leaving his contraband around-" I cut him off. 
 "I imagine Beauregard, clumsy as he is, must have accidentally grabbed gunpowder and put it in the caviar! Frank's gunpowder, specifically! The Headmaster must have had some strange chemical reaction, causing his head to burst the moment I walked in." I continued, stroking my chin. "Alright, William. You're off the hook this time."
 
-->->
+-> ending
 
 == Chef ==
 ~ntchef = false //Set trigger for having talked to chef
@@ -80,7 +80,7 @@ In a sudden change of demeanor, the Chef leans back in his chair and stares into
 * "Tell me about... the frog."
     Darting his eyes back and forth. "W-what? There's nothing to tell. That's enough of that."
     * * "I certainly think not! Tell me everything you know about the frog."
-         "Hey came to us! Many a night ago!" The chef began, rising slightyly from his chair, "We needed all the hands we could get, and I do not discriminate! Frank has shown that he is an adamant worker. A bit strange, but adamant! And that's all I could ask for." The chef nodded confidently, sitting back in his chair.
+         "He came to us! Many a night ago!" The chef began, rising slightyly from his chair, "We needed all the hands we could get, and I do not discriminate! Frank has shown that he is an adamant worker. A bit strange, but adamant! And that's all I could ask for." The chef nodded confidently, sitting back in his chair.
         -> Questions
     * * [Drop this line of questioning.] -> Questions
 * [StateMachine 2 Option]
@@ -96,7 +96,7 @@ In a sudden change of demeanor, the Chef leans back in his chair and stares into
     {StoryStates == frank_cache: -> Chef_learn_FRANK_EXPAT}
     {StoryStates == ralph_pop_rocks: -> Chef_Learn_FULL}
     {StoryStates == conclusion: -> Chef_State_CONCLUSION}
-     -> lineup
+
 
 == slapChef ==
 I slap the Chef, left and right, hoping to calm him down.

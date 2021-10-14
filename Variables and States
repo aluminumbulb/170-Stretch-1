@@ -1,5 +1,7 @@
 LIST StoryStates = (head_explodes), secret_ingredients, filthy_kitchen, beauregard_ingredient, frank_cache, ralph_pop_rocks, conclusion
 
+LIST feudStates = (wifeNotHappy), wifeFeudRevealed, wifePlanMurder, wifeFailMurder
+
 //characters not spoken to (nt = not talked)
 VAR ntchef = true
 VAR ntbeau = true
