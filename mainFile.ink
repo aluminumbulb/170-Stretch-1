@@ -69,7 +69,7 @@ I nodded curtly. "Quickly, into the kitchen with you!" I yipped.
 
 === chefText ===
 He smiled at me, and quickly sat us down at a nice dinner table.
--> Chef
+-> chef
 
 === FrankText ===
 The frog acted without a care in the world.
