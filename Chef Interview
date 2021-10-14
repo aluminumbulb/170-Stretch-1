@@ -1,65 +1,106 @@
-===Chef_Main_Interview===
-{StoryStates == StoryStates.head_explodes: ->Chef_Learn_SECRET_INGREDIENTS}
-{StoryStates == StoryStates.secret_ingredients: ->Chef_Learn_FILTHY_KITCHEN}
-{StoryStates == StoryStates.filthy_kitchen: ->Chef_Learn_BEAU_INGREDIENTS}
-{StoryStates == StoryStates.beauregard_ingredient: ->Chef_learn_FRANK_EXPAT}
-{StoryStates == StoryStates.frank_cache: ->Chef_Learn_POPROCKS}
-{StoryStates == StoryStates.ralph_pop_rocks: ->Chef_Learn_FULL}
+===chef_Main_Interview===
+{StoryStates == StoryStates.head_explodes: ->chef_Learn_SECRET_INGREDIENTS}
+{StoryStates == StoryStates.secret_ingredients: ->chef_Learn_FILTHY_KITCHEN}
+{StoryStates == StoryStates.filthy_kitchen: ->chef_Learn_BEAU_INGREDIENTS}
+{StoryStates == StoryStates.beauregard_ingredient: ->chef_learn_FRANK_EXPAT}
+{StoryStates == StoryStates.frank_cache: ->chef_Learn_POPROCKS}
+{StoryStates == StoryStates.ralph_pop_rocks: ->chef_Learn_FULL}
+->->
+
+==chef_Catherine_Feud==
+{feudStates == feudStates.wifeNotHappy: -> chef_Learn_wifeNotHappy}
+{feudStates == feudStates.wifeFeudRevealed: -> chef_Learn_wifeFeudRevealed}
+{feudStates == feudStates.wifePlanMurder: -> chef_Learn_wifePlanMurder}
+{feudStates == feudStates.wifeFailMurder: -> chef_Learn_wifeFailMurder}
+{feudStates == feudStates.wifeConclusion: -> chef_Learn_wifeConclusion}
 ->->
 
 
+// Main State Machine Knots
+
 // Secret ingredient reveal
-===Chef_Learn_SECRET_INGREDIENTS===
-In a sudden change of demeanor, the Chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is I like to put secret ingredients into the meals. The Headmaster and Headmistress don't approve, but they don't know how much they like it! I've been doing it for months now, and have never had an issue like this!" In a harumph, the Chef turns in his seat. "Please now, that's all I know!" He whimpers. It appears he is telling the truth, but you cannot make it out for certain. 
-    You turn back to the lineup.
+===chef_Learn_SECRET_INGREDIENTS===
+In a sudden change of demeanor, the chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is I like to put secret ingredients into the meals. The Headmaster and Headmistress don't approve, but they don't know how much they like it! I've been doing it for months now, and have never had an issue like this!" In a harumph, the chef turns in his seat. "Please now, that's all I know!" He whimpers. It appears he is telling the truth, but you cannot make it out for certain. 
 ~StoryStates += StoryStates.secret_ingredients
-    -> chefFinished
+-> chefFinished
 
 // Double hand washing reveal
-===Chef_Learn_FILTHY_KITCHEN===
-In a sudden change of demeanor, the Chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is my son, Beauregard." He gestures to the curled haired individual. "Is quite the unclean fellow. In an effort to bar the spread of disease in my kitchen, I implemented new cleaning standards for everyone! No hand will be left unwashed in MY kitchen!" He proudly announces, causing some of the other individuals in the kitchen to roll their eyes. "But I certainly don't know how that would relate to the death of the Headmaster!" He announced, and it seemed to me that I wasn't going to get any other good information out of him.
+===chef_Learn_FILTHY_KITCHEN===
+In a sudden change of demeanor, the chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is my son, Beauregard." He gestures to the curled haired individual. "Is quite the unclean fellow. In an effort to bar the spread of disease in my kitchen, I implemented new cleaning standards for everyone! No hand will be left unwashed in MY kitchen!" He proudly announces, causing some of the other individuals in the kitchen to roll their eyes. "But I certainly don't know how that would relate to the death of the Headmaster!" He announced, and it seemed to me that I wasn't going to get any other good information out of him.
 ~StoryStates += StoryStates.filthy_kitchen
 -> chefFinished
 
 // Beauregard put gunpowder in the food reveal 
-===Chef_Learn_BEAU_INGREDIENTS===
-In a sudden change of demeanor, the Chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is, for this occasion, due to how busy my responsibilities make me, I allowed my son Beauregard to include our secret ingredient. Clumsy as he is, I imagine he grabbed the wrong item! But I can't imagine something so horrid being stored in my kitchen! I promise, I've nothing peculiar here!" He claimed, and it seemed that's all he would say.
+===chef_Learn_BEAU_INGREDIENTS===
+In a sudden change of demeanor, the chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is, for this occasion, due to how busy my responsibilities make me, I allowed my son Beauregard to include our secret ingredient. Clumsy as he is, I imagine he grabbed the wrong item! But I can't imagine something so horrid being stored in my kitchen! I promise, I've nothing peculiar here!" He claimed, and it seemed that's all he would say.
 ~StoryStates += StoryStates.beauregard_ingredient
 -> chefFinished
 
 // Frog reveal and contraband
-===Chef_learn_FRANK_EXPAT===
-In a sudden change of demeanor, the Chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is..." He darted his eyes left and right, moving his head and shoulders slightly to gesture to the small bullfrog sitting neatly on his chair. "Frank..." He spat. "He has some hidden contraband tucked away into the kitchen. If I had to guess, he had something to do with this! Don't look at me like that! He threatened me! I had no choice but to let him store his things here." He whimpered, turning to look at the Frog with contempt. After that, the Chef sat in silence, in a sullen anger.
+===chef_learn_FRANK_EXPAT===
+In a sudden change of demeanor, the chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is..." He darted his eyes left and right, moving his head and shoulders slightly to gesture to the small bullfrog sitting neatly on his chair. "Frank..." He spat. "He has some hidden contraband tucked away into the kitchen. If I had to guess, he had something to do with this! Don't look at me like that! He threatened me! I had no choice but to let him store his things here." He whimpered, turning to look at the Frog with contempt. After that, the chef sat in silence, in a sullen anger.
 ~StoryStates += StoryStates.frank_cache
 -> chefFinished
 
 // Gunpowder poprocks reveal
-===Chef_Learn_POPROCKS===
-In a sudden change of demeanor, the Chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is, I think Ralph was the taste-tester for the Headmaster. Unofficially, of course. They were very friendly. If anyone were to know more about what the Headmaster ate, it would be Ralph! I recall that he mentioned a tingling sensation upon his taste test, but his head hasn't exploded!" He weeped. It appears that the Chef is no longer able to conduct the interview. 
+===chef_Learn_POPROCKS===
+In a sudden change of demeanor, the chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is, I think Ralph was the taste-tester for the Headmaster. Unofficially, of course. They were very friendly. If anyone were to know more about what the Headmaster ate, it would be Ralph! I recall that he mentioned a tingling sensation upon his taste test, but his head hasn't exploded!" He weeped. It appears that the chef is no longer able to conduct the interview. 
 ~StoryStates += StoryStates.ralph_pop_rocks
 -> chefFinished
 
 // Headmaster died because of gunpowder
-===Chef_Learn_FULL===
-In a sudden change of demeanor, the Chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is, I think the Headmaster ate a gunpowder-filled caviar!" He exclaimed. "That must be it! Think about it: Ralph tasted a popping sensation in his mouth and Beauregard was in charge of the secret ingredient! It certainly wasn't me!" He pleaded. "I imagine it was some crazed chemical reaction that popped the Headmaster's skull! Stranger things have happened you know!" He finished, leaning back in his seat. "It can't be me!" He stated one last time, and I believed him.
+===chef_Learn_FULL===
+In a sudden change of demeanor, the chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is, I think the Headmaster ate a gunpowder-filled caviar!" He exclaimed. "That must be it! Think about it: Ralph tasted a popping sensation in his mouth and Beauregard was in charge of the secret ingredient! It certainly wasn't me!" He pleaded. "I imagine it was some crazed chemical reaction that popped the Headmaster's skull! Stranger things have happened you know!" He finished, leaning back in his seat. "It can't be me!" He stated one last time, and I believed him.
 ~StoryStates += StoryStates.conclusion
 -> chefFinished
 
 // Conclude it all
-===Chef_State_CONCLUSION===
-In a sudden change of demeanor, the Chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is, I think the Headmaster ate a gunpowder-filled caviar!" He exclaimed. "That must be it! Think about it: Ralph tasted a popping sensation in his mouth and Beauregard was in charge of the secret ingredient! With Frank leaving his contraband around-" I cut him off. 
+===chef_State_CONCLUSION===
+In a sudden change of demeanor, the chef leans back in his chair and stares into my eyes. "Alright." He begins. "The truth is, I think the Headmaster ate a gunpowder-filled caviar!" He exclaimed. "That must be it! Think about it: Ralph tasted a popping sensation in his mouth and Beauregard was in charge of the secret ingredient! With Frank leaving his contraband around-" I cut him off. 
 "I imagine Beauregard, clumsy as he is, must have accidentally grabbed gunpowder and put it in the caviar! Frank's gunpowder, specifically! The Headmaster must have had some strange chemical reaction, causing his head to burst the moment I walked in." I continued, stroking my chin. "Alright, William. You're off the hook this time."
 
-->->
+-> ending
 
-== Chef ==
+//
+// Feud Machine Knots
+
+
+==chef_Learn_wifeNotHappy==
+"Well, she wasn't very happy with my sudden incoming into the kitchen, that's for certain. Catherine wasn't as excited as the Headmaster and I were about the eccentric state of affairs in my kitchen." He shrugs. "In regards to his death I suppose her reaction is... different? She doesn't appear quite upset about the whole thing."
+~feudStates += feudStates.wifeNotHappy
+->Questions
+
+==chef_Learn_wifeFeudRevealed==
+"If it's all the same with you, inspector, I'd rather stay out of this feud. Catherine and the Headmaster have been going back and forth with arguments nearly since I arrived. My involvment is strictly in regards to my job. As long as I am not fired, I'd rather stay out of it." He shuffles a bit slightly in his seat. 
+~feudStates += feudStates.wifeFeudRevealed
+->Questions
+
+==chef_Learn_wifePlanMurder==
+Quickly glancing towards Catherine, the chef leans in to whisper. "You didn't hear it from me, but I suspect that she's been up to something. She never used to spend time in my kitchen, yet these past few weeks she's been in here nearly from dawn to dusk!" 
+An inhale of breath later, the chef continues, "I bet she's been planning something. Something to sabotage me!" He quickly jumps back to his seat, glancing at Catherine once again.
+~feudStates += feudStates.wifePlanMurder
+->Questions
+
+==chef_Learn_wifeFailMurder==
+Pondering for a moment before opening his mouth, William begins to speak. "To my knowledge, Catherine was planning to do away with the Headmaster to begin with, so I imagine she isn't quite broken up about the whole thing. My involvment in that whole affair begins and ends with my career, respectfully. As long as I can continue working and making my dishes, I've little care for the state of affairs between my employer and his significant other. However, I don't think it was Catherine. If she couldn't handle my food, she certainly couldn't stomache being a murderer."
+~feudStates += feudStates.wifeFailMurder
+->Questions
+
+==chef_Learn_wifeConclusion==
+Pondering for a moment before opening his mouth, William begins to speak. "To my knowledge, Catherine was planning to do away with the Headmaster by stabbing him repeatedly. One of my knives vanished a few days ago, which is odd as I have Beauregard do a count of everything in the kitchen before we close. I imagine she must have taken it during one of her visits. It's clear to me that there was never much love in that relationship, at least from my perspective. My involvment begins and ends with my career, inspector. I surely do not want to get involved in whatever feud was going on there." 
+He glances towards Catherine, then back to the conversation. "It's clear to me that the Headmaster's accident was not related to Catherine's dubious motives. Although I would not put it past her to do something malicious."
+->Questions
+
+//
+// chef interview proper
+== chef ==
 ~ntchef = false //Set trigger for having talked to chef
 "Mon Ami!" He cried. "What is going on in my restaurant?! To think the headmaster would die, under my watchful eye!" Screamed the chef, oh the wailing!
 
-* [Slap some sense into the Chef.]
-    -> slapChef
-* [Calm the Chef down.]
-    -> calmChef
+* [Slap some sense into the chef.]
+    -> slapchef
+* [Calm the chef down.]
+    -> calmchef
 
 == Questions ==
 
@@ -80,36 +121,40 @@ In a sudden change of demeanor, the Chef leans back in his chair and stares into
 * "Tell me about... the frog."
     Darting his eyes back and forth. "W-what? There's nothing to tell. That's enough of that."
     * * "I certainly think not! Tell me everything you know about the frog."
-         "Hey came to us! Many a night ago!" The chef began, rising slightyly from his chair, "We needed all the hands we could get, and I do not discriminate! Frank has shown that he is an adamant worker. A bit strange, but adamant! And that's all I could ask for." The chef nodded confidently, sitting back in his chair.
+         "He came to us! Many a night ago!" The chef began, rising slightyly from his chair, "We needed all the hands we could get, and I do not discriminate! Frank has shown that he is an adamant worker. A bit strange, but adamant! And that's all I could ask for." The chef nodded confidently, sitting back in his chair.
         -> Questions
     * * [Drop this line of questioning.] -> Questions
-* [StateMachine 2 Option]
-    -> Questions
+* "How is the Headmistress handling his death?"
+    {feudStates == wifeNotHappy: -> chef_Learn_wifeNotHappy}
+    {feudStates == wifeFeudRevealed: -> chef_Learn_wifeFeudRevealed}
+    {feudStates == wifePlanMurder: -> chef_Learn_wifePlanMurder}
+    {feudStates == wifeFailMurder: -> chef_Learn_wifeFailMurder}
+    {feudStates == wifeConclusion: -> chef_Learn_wifeConclusion}
 * [StacheMachine 3 Option]
     -> Questions
 * -> 
-    "Alright that's enough." I commanded. "Tell me what your part in it all is!" I yelled, hoping to intimidate the Chef into loosing his tongue. 
-    {StoryStates == head_explodes: -> Chef_Learn_SECRET_INGREDIENTS}
-    {StoryStates == secret_ingredients: -> Chef_Learn_FILTHY_KITCHEN}
-    {StoryStates == filthy_kitchen: -> Chef_Learn_SECRET_INGREDIENTS}
-    {StoryStates == beauregard_ingredient: -> Chef_Learn_BEAU_INGREDIENTS}
-    {StoryStates == frank_cache: -> Chef_learn_FRANK_EXPAT}
-    {StoryStates == ralph_pop_rocks: -> Chef_Learn_FULL}
-    {StoryStates == conclusion: -> Chef_State_CONCLUSION}
-     -> lineup
+    "Alright that's enough." I commanded. "Tell me what your part in it all is!" I yelled, hoping to intimidate the chef into loosing his tongue. 
+    {StoryStates == head_explodes: -> chef_Learn_SECRET_INGREDIENTS}
+    {StoryStates == secret_ingredients: -> chef_Learn_FILTHY_KITCHEN}
+    {StoryStates == filthy_kitchen: -> chef_Learn_SECRET_INGREDIENTS}
+    {StoryStates == beauregard_ingredient: -> chef_Learn_BEAU_INGREDIENTS}
+    {StoryStates == frank_cache: -> chef_learn_FRANK_EXPAT}
+    {StoryStates == ralph_pop_rocks: -> chef_Learn_FULL}
+    {StoryStates == conclusion: -> chef_State_CONCLUSION}
 
-== slapChef ==
-I slap the Chef, left and right, hoping to calm him down.
-"Now, I need you to answer some questions." I harshly spoke, the lights around us dimming as the room morphed from a kitchen into my domain of choice: the classic interview room. The Chef hardly noticed as our surroundings changed. I smirked.
+
+== slapchef ==
+I slap the chef, left and right, hoping to calm him down.
+"Now, I need you to answer some questions." I harshly spoke, the lights around us dimming as the room morphed from a kitchen into my domain of choice: the classic interview room. The chef hardly noticed as our surroundings changed. I smirked.
     -> Questions
 
-== calmChef ==
-I pat the Chef on the shoulder, showing him that I am a human as well.
-"Now, I need you to answer some questions." I harshly spoke, the lights around us dimming as the room morphed from a kitchen into my domain of choice: the classic interview room. The Chef hardly noticed as our surroundings changed. I smirked.
+== calmchef ==
+I pat the chef on the shoulder, showing him that I am a human as well.
+"Now, I need you to answer some questions." I harshly spoke, the lights around us dimming as the room morphed from a kitchen into my domain of choice: the classic interview room. The chef hardly noticed as our surroundings changed. I smirked.
     -> Questions
 
 == dontChangeSubject ==
-I slap the Chef backwards and forwards. "Don't change the subject!"
+I slap the chef backwards and forwards. "Don't change the subject!"
     -> DONE
 
 == chefFinished ==
