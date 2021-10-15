@@ -7,7 +7,7 @@
 {StoryStates == StoryStates.ralph_pop_rocks: ->Wife_Learn_FULL}
 ->->
 
-==wife_Catherine_Feud==
+===wife_Catherine_Feud===
 {feudStates == feudStates.wifeNotHappy: -> Wife_Learn_wifeNotHappy}
 {feudStates == feudStates.wifeFeudRevealed: -> Wife_Learn_wifeFeudRevealed}
 {feudStates == feudStates.wifePlanMurder: -> Wife_Learn_wifePlanMurder}
@@ -65,32 +65,38 @@ She tried to avoid your eye contact but eventually stared at you and faltered, "
 
 //2nd state machine
 
-==Wife_Learn_wifeNotHappy==
+===Wife_Learn_wifeNotHappy===
 She instinctly turned her head around and caught a glimpse at the hidden onion...and she turned back to you with wide eyes. Your question tensed up the atmosphere, as she started to rub her hands, a sign of getting nervous. After a moment of silence, she spoke, "well...I admit, that I am not so sad about his death, because he has certainly mistreated me, and our relationship! I was living miserable life since the arrival of his crafty-looking friend Ralph, and stuff has gone so wrong since then! Now, are you happy about that, Mr Know-It-All?"
 ~feudStates += feudStates.wifeNotHappy
 -> QuestionsForWife
 
-==Wife_Learn_wifeFeudRevealed==
+===Wife_Learn_wifeFeudRevealed===
 She instinctly turned her head around and caught a glimpse at the hidden onion...and she turned back to you with wide eyes. Your question tensed up the atmosphere, as she started to rub her hands, a sign of getting nervous. After a moment of silence, she spoke, "yes as you see, I am not sad about my husband's death, indeed. He used to love me so much...but everything has gone wrong since Ralph's arrival. This crafty-looking dude just disliked everything I did for the restaurant, I've been grumbling about that to my husband, but he just ignored my complains everytime!" She paused, took a deep breath which didn't seem to calm her rage, and continued with the story, "but, that wasn't all! The most raging thing was, he had an affair with another woman! He said I was the most shining star in the sky, and I heard him saying the same to that homewrecker! Just a week before his death, I quarrelled with him right here in this place where you are standing! He refused to admit the affair and, he even called me a vixen! God knows how angry and disappointed I was! Now, are you happy hearing our family disputes, Mr Know-It-All?" 
 ~feudStates += feudStates.wifeFeudRevealed
 -> QuestionsForWife
 
-==Wife_Learn_wifePlanMurder==
+===Wife_Learn_wifePlanMurder===
 She instinctly turned her head around and caught a glimpse at the hidden onion...and she turned back to you with wide eyes. Your question tensed up the atmosphere, as she started to rub her hands, a sign of getting nervous. After a moment of silence, she spoke, "it seems like you have already known something...yes, I planned to kill my husband. He doesn't love me anymore, and I of course didn't want to hand over the inheritance to that homewrecker. He would not have changed his mind even if I killed that woman, so I was left no choice, I had to kill him! I started to prepare myself a few days ago, I even sneaked a knife from the kitchen. But I must tell you, I didn't kill him! I really didn't kill him!"
 ~feudStates += feudStates.wifePlanMurder
 -> QuestionsForWife
 
-==Wife_Learn_wifeFailMurder==
+===Wife_Learn_wifeFailMurder===
 She instinctly turned her head around and caught a glimpse at the hidden onion...and she turned back to you with wide eyes. Your question tensed up the atmosphere, as she started to rub her hands, a sign of getting nervous. After a moment of silence, she spoke, "e...even I have everything prepared to kill him...but I'm just a woman. Yes I love wealth and his affair did trigger me, but that didn't give me enough courage to take down someone by stabbing him to death; to be honest, I can't even have the strength to cut raw meat. The plan was fantastic, but I just couldn't execute it because I am afraid of blood..." As soon as she finished, her eyes gazed around fearing that someone would have heard the whole course, "you know, I don't trust anyone in this restaurant right now besides myself...and probably you Mr Know-It-All, if you will promise not to disclose it."
 ~feudStates += feudStates.wifeFailMurder
 -> QuestionsForWife
 
-==Wife_Learn_wifeConclusion==
+===Wife_Learn_wifeConclusion===
 She instinctly turned her head around and caught a glimpse at the hidden onion...and she turned back to you with wide eyes. Your question tensed up the atmosphere, as she started to rub her hands, a sign of getting nervous. After a moment of silence, she spoke, "ok...if you can promise not to disclose the whole thing to anyone...Imma tell you the truth. The relationship between my husband and I had started to be rocky since the arrival of Ralph, the crafty-looking man. Moreover my husband had an affair with another woman...that wasn't a good sign to our marriage. So...I planned to stab him to death then fake a crime scene to deceive the cops, lawyers, and insurance company so that I can intrigue the inheritance...but that doesn't matter anymore because I didn't have the courage to kill him, at all; I can't even cut a raw meat without shaking my hands, how was I gonna stab him to death? Now apparently his sudden death happened before I could have decided to give up the murderer plan. For god sake, I didn't kill him, for real!" She gave you a firm look.
 -> QuestionsForWife
 
 
-== Wife ==
+
+
+//3rd state machine
+//Wife_Learn_frogOnRun
+
+
+=== Wife ===
 ~ntcath = false
 The woman in a red polka dot frock is sobbing in front of the line.
 
@@ -100,7 +106,7 @@ She looked up to you, hesitated for a second and said "okay keep it short."
 Ask about:
     ->QuestionsForWife
 
-== QuestionsForWife ==
+=== QuestionsForWife ===
 
 * "Who are you?"
     "Catherine White! I am the only woman in the restaurant, who do you think I am?" She picked up her innocent face and turned to you quite impatiently.
@@ -139,7 +145,7 @@ Ask about:
         {StoryStates == ralph_pop_rocks: -> Wife_Learn_FULL}
         -> lineup
      
-== doneWithWife==
+=== doneWithWife===
 * Having done all you can to wring information out of the wife, you turn back to the rest of the lineup.
     -> lineup
 
