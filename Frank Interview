@@ -11,14 +11,14 @@ I make my way closer to the frog as they light a cigarette on a gas stove.
 ===Questions_Frank===
 
 * "Do you know anything about what happened in the dining room?"
-    "I heard a little pop outside, must be one of our Chef's 'special ingredients' at work" Frank said with an intoxicating sarcasm that pierced his relatively thick french accent. ->Questions_Frank
-* "What's [that on the wall?"] that machine gun doing on the wall over there?"
-    "Oh, that, lets just say I have made a few enemies in my day..."
+    "I heard a little pop outside, some commotion, and our melodramatic chef sobbing as if he owes that man anything more than the bare minimum." Frank said with an intoxicating sarcasm that pierced his relatively thick french accent. ->Questions_Frank
+* "What's that Machine Gun doing mounted on the wall?"
+    Frank makes the decision to exercise his right to remain silent, even though he wasn't under arrest.
     Silence deafens the room as the house album playing transitions to the next track. Scanning the room you begin to see more and more tools of destruction hidden in plain sight, marked only by a skull and crossbones. 
     ** "Give me one reason why I shouldn't suspect you killed The Headmaster"
-        "What would I seek to gain from killing my employer? I may be a Socialist but 20$ is twenty dollars." Frank Says. ->Questions_Frank
+        "What would I seek to gain from killing my employer? I may be a Socialist but twenty dollars is twenty dollars." Frank Says. ->Questions_Frank
 * "What is the Chef around here like?"
-    "Calling him a chef would be an insult to cooking. He's an imbecile in a chef's costume from Spirit Halloween" Frank says.->Questions_Frank
+    "Calling him a chef would be an insult to cooking. He's an imbecile in a chef's costume, a mere approximation" Frank says.->Questions_Frank
 * ->
     "I'm keeping my eye on you frog"
     ->lineup
@@ -62,3 +62,28 @@ Ratty Ralph Gobbles Poprocks
 I don't care that you broke your leg
 ~StoryStates++
 ->lineup
+
+===Frank_frog_Reveal===
+"Do you know anymore about the frog?"
+    *"I don't know!"
+    {frogStates == frogWho && c3_info: -> Frank_Learn_frogContraband}
+    -> frog_Reveal
+    *"Please!"
+    {frogStates == frogContraband && c3_info: -> Frank_Learn_frogOnRun}
+    -> frog_Reveal
+    * "I hate that creature!"
+    {frogStates == frogOnRun && c3_info: -> Frank_Learn_frogCriminal}
+    -> frog_Reveal
+    *"Let me out!"
+    {frogStates == frogCriminal && c3_info: -> Frank_Learn_frogConclusion}
+    -> frog_Reveal
+    *->
+        Nothing you can tell anymore. ->Questions_Frank
+        
+===Frank_Learn_frogContraband===
+
+===Frank_Learn_frogOnRun===
+
+===Frank_Learn_frogCriminal===
+
+===Frank_Learn_frogConclusion===
