@@ -10,5 +10,8 @@ VAR ntfrank = true
 VAR ntralph = true
 VAR ntstern = true
 
-VAR s_info = true
+VAR s1_info = true
+VAR s2_info = true
+VAR s3_info = true
+
 VAR r_info = true
