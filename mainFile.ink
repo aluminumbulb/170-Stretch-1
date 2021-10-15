@@ -5,6 +5,8 @@ INCLUDE Variables and States
 INCLUDE Wife Interview
 INCLUDE Frank Interview
 INCLUDE Customer Interview
+INCLUDE Beauregarde Interview
+
 
 
 
@@ -57,8 +59,11 @@ The suspect line quickly strike a pose, each appropriate for their role in the k
     Naturally, I selected the toddler-sized frog.
     -> FrankText
 
-* [The Wife]
+* [The Wife.]
     -> WifeText
+    
+* [The Redhead.]
+    ->BeauText
 
 *-> ending
 
@@ -79,6 +84,9 @@ The frog acted without a care in the world.
 A sobbing woman.
 -> Wife
 
+=== BeauText ===
+A nervous looking young man, wringing the hem of his apron.
+->Beau_Intro
 
 === ending ===
 

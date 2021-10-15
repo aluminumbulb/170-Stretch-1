@@ -1,0 +1,54 @@
+===Beau_Intro===
+~ntbeau = false
+I step closer to the young man, 
+->Beau_Questions
+
+===Beau_Questions===
+* "Who are you?"
+    "Beauregard Smith. I'm err... a member of the staff here. I was recently promoted from janitor, thanks to the good graces of the head chef."
+    ->Beau_Questions
+* ""
+
+->Beau_Done
+
+===Beau_Learn_SECRET_INGREDIENTS===
+"Fath-err, the head chef is unlike any other, his recipies are a well-kept secret. I myself am in charge of the care and organizaiton of the finest ingredients in here! Of course.. where did I put that basket of..." he trails off, clearly realizing he would have revealed the chef's secrets.
+"Nevermind. I'm in charge of restocking the shelves and that includes the chef's secret ingredients. It's just part of the way things are done here."
+~StoryStates += StoryStates.secret_ingredients
+->Beau_Done
+
+===Beau_Learn_FILTHY_KITCHEN===
+"I'm still in charge of keeping this place clean, I've got a list of messes to deal with, and one's I've already dealt with, like that one tile right there!" 
+He points to a tile that does not appear to be cleaned, and continues looking down a list that he wasn't holding a moment ago. 
+"I keep the kitchen organized and clean! If you'll excuse me, I've got to go wash Frank's hands right about now."
+~StoryStates += StoryStates.filthy_kitchen
+->Beau_Done
+
+===Beau_Learn_BEAU_INGREDIENTS===
+"I was in charge of the final plating for the food tonight! I remember it clearly because the recipe called for caviar, and I had just moved that into place earlier today. It was a very quick trip into the pantry and back for the caviar." He gasps, covering his mouth.
+"Err. Just don't tell anyone I told you what it was.
+~StoryStates += StoryStates.beauregard_ingredient
+->Beau_Done
+
+===Beau_learn_FRANK_EXPAT===
+"That frog.. he's brought some odd ingredients into the kitchen before, muttering something about his past? I didn't think much of them, it's not like I have any place to tell him how to cook the food."
+~StoryStates += StoryStates.frank_cache
+->Beau_Done
+
+===Beau_Learn_POPROCKS===
+"I was cleaning the kitchen door window at the time, and I think I saw that man.. Ralph? I think I saw him taste some of the food earlier...I didn't think anything of it at the time but he made a face, like he had something sour or zingy to eat... he could probably tell you more than I could." He laughs awkwardly, trailiing off.
+~StoryStates += StoryStates.ralph_pop_rocks
+->Beau_Done 
+
+===Beau_Learn_FULL===
+The young man looks sick to his stomach, practically as green as the frog.
+"I suppose the caviar must have gone bad? It smelled almost like rotten eggs..."
+He wipes his hand with his face, looking nervous.
+"It also didn't have the usual texture of the caviar now that I think about it..."
+~StoryStates += StoryStates.conclusion
+->Beau_Done
+
+
+===Beau_Done ===
+I clearly had learned all I could from the young man.
+->lineup
