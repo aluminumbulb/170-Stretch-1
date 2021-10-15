@@ -19,9 +19,7 @@ I make my way closer to the frog as they light a cigarette on a gas stove.
         "What would I seek to gain from killing my employer? I may be a Socialist but twenty dollars is twenty dollars." Frank Says. ->Questions_Frank
 * "What is the Chef around here like?"
     "Calling him a chef would be an insult to cooking. He's an imbecile in a chef's costume, a mere approximation" Frank says.->Questions_Frank
-* ->
-    "I'm keeping my eye on you frog"
-    ->lineup
+* ->lineup
 
 ===DA_Interview===
 //ADD STATEMENT HERE THAT CHANES ntcharacter to false
@@ -34,32 +32,49 @@ I make my way closer to the frog as they light a cigarette on a gas stove.
 ->lineup //Oops the programmer miscounted again. Classic.
 
 ===Frank_SECRET_INGREDIENTS===
-How novel, the chef uses secret ingredients
+"Well, thank you for your time, now if you'll excuse me I have to get back to interviewing the other suspects, hopefully they will be more cooperative."
+"Wait! Before you go. " Frank takes an unusual tone before quickly correcting himself. "The chef has this obsession with including 'secret ingredients' in all of his foods." Frank says spitefully. "I don't understand, why would you try to keep an ingredient secret if you weren't trying to hide something poisonous. He thinks he is the 'Kentucky Fried Chicken' man, coming up with these spice blends that completely boggle the mind!" Frank sounds as if he is genuinely confused at the methodology of Chef William. He also sounds like he has more information regarding the method of poisoning the Headmaster.
+* "Do you think that the Chef poisoned the Headmaster?"
+    "If he did, he sure didn't do it intentionally"
+    ** "Thank you for your input Frank"
 ~StoryStates++
 ->lineup
 
 ===Frank_FILTHY_KITCHEN===
-I literally just pee where I want dude. Pee is not only sterile but antiseptic!
+"Well, thank you for your time, now if you'll excuse me I have to get back to interviewing the other suspects, hopefully they will be more cooperative."
+"You better not stay too long or else you'll get the kitchen flu" Frank says.
+* Man...
 ~StoryStates++
 ->lineup
 
 ===Frank_BEAU_INGREDIENTS===
-Beaurigard revealed to be lethally stupid
+"One more thing before I leave, how do you feel about Beaurigard?" I ask Frank, hoping to crack the nut that is this kitchen right down the middle.
+"I feel bad for him, he shows much potential but is forced upon too many stressful situations. He is the most exploited of us all." Frank says. "I would suspect him if he wasn't so stressed out from daily kitchen duties that poor boy."
+* "Interesting, thank you very much"
 ~StoryStates++
 ->lineup
 
 ===Frank_THE_EXPAT===
-YO IMAGINE IF LENIN WAS A FROG THAT WOULD BE SICK
+"Well, thank you for your time, now if you'll excuse me I have to get back to interviewing the other suspects, hopefully they will be more cooperative."
+"My pleasure, but I must apologise for being too harsh on you, as I am quite paranoid. You see, I am on the run from a foreign power that I will not continue to elaborate upon." Frank says.
+* "Thank you for telling me this Frank."
+What the fuck have I gotten myself into?
 ~StoryStates++
 ->lineup
 
 ===Frank_POPROCKS===
-Ratty Ralph Gobbles Poprocks
+"Well, thank you for your time, now if you'll excuse me I have to get back to interviewing the other suspects, hopefully they will be more cooperative."
+"Before you go!" Frank yells, grabbing my attention. "I would be wary of that customer. You know food critics are no good."
+* "Interesting, thank you very much"
+
 ~StoryStates++
 ->lineup
 
 ===Frank_FULL===
-I don't care that you broke your leg
+Before you even had the chance to leave, you hear Frank scream "HOLY SHIT"
+* "What is it?"
+    "My gunpowder must have made it into the caviar!"
+    ** "At this point I'm not surprised" one bit.
 ~StoryStates++
 ->lineup
 
