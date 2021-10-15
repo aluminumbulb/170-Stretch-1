@@ -51,7 +51,7 @@ Ask About:
         ->General_Questions
         
     *[{ntcath: The Frog| Frank}]
-        Ah yes, Frank, the only one in the kitchen with any taste. By which I mean he is a decent cook, not that I have personally tasted him. . 
+        Ah yes, Frank, the only one in the kitchen with any taste. By which I mean he is a decent cook, not that I have personally tasted him.
     
        ->frank_reveal->
         
@@ -114,7 +114,8 @@ I am the kitchen in microcausm, so what is stored in there comes out in me in so
 *And you're saying a bullet is on the menu?
 *So do you have a miniature cordon bleu tucked away?
 - No, not quite. Anything in my person is just a small trinket, of no real value besides representative.
-As you can see, I have little bullets, buckets of gun powder, and not a few explosive devices infesting my garments. 
+
+As you can see, I have little bullets, thimbles of gun powder, and not a few explosive devices infesting my garments. 
 
 This is due to the toad. If you'll forgive the expression, he seems to be in a persitant state of "feeling froggy". He's hidden weapon caches all over the kitchen in case I don't know who comes for him.
 
@@ -152,8 +153,7 @@ The fact that this ingredient's flavor matches none in my culinary experience. F
 ===Cath_Reveal===
 {feudStates has feudStates.wifeNotHappy && s2_info: ->M_Learn_FEUD->} 
 {feudStates has feudStates.wifeFeudRevealed and s2_info: ->M_Learn_PLAN->} 
-{feudStates has feudStates.wifePlanMurder and s2_info: ->M_Learn_FAIL->} 
-{feudStates has feudStates.wifeFailMurder and s2_info: ->M_Learn_CONCLUDE->}
+{feudStates has feudStates.wifePlanMurder and s2_info: ->M_Learn_FAIL->}
 ->->
 
 ===M_Learn_FEUD===
@@ -163,34 +163,69 @@ Actually, come to think of it, things have been tense between the two for some t
 ->->
 
 ===M_Learn_PLAN===
+I'm afraid I have no recourse but to tell you the following. I am privy in some ways to the expenses made using the funds of this place. Our freshly minted Miss Parsennon has spared no expence on a series of interesting purchases. Poisons, pistols, even the occational blade. 
 
+If I didn't know any better, I would say the widow was planning to make herself so one way or another. 
 ~   feudStates+=feudStates.wifePlanMurder
 ~   s2_info = false
 ->->
 
 
 ===M_Learn_FAIL===
+ I must make something clear. I know you have been hearing rumors about our freshly minted Miss Parsennon. I would like to make a detail clear. As I heard the pop, I noticed her put something back in her bag.
+ 
+ By the looks of the thing, it was a small caliber revolver. 
+ 
+ *[The Murder Weapon!]
+ *[That doesn't match up with the evidence I've collected so far...]
+ -
+ 
+ No, I'm afraid this item does not appear capable of doing the deed. Firstly, such a caliber could hardly remove a head. Furthermore, its saftey seemed to be in the 'on' position.
  
 ~   feudStates+=feudStates.wifeFailMurder
 ~    s2_info = false
 ->->
 
-===M_Learn_CONCLUDE===
 
-~   feudStates+=feudStates.wifeConclusion
-~    s2_info = false
-->->
-
+# State Machine 3
 ===frank_reveal===
-{feudStates has feudStates.wifeNotHappy && s3_info: ->M_Learn_FEUD->} 
-{feudStates has feudStates.wifeFeudRevealed and s3_info: ->M_Learn_PLAN->} 
-{feudStates has feudStates.wifePlanMurder and s3_info: ->M_Learn_FAIL->} 
-{feudStates has feudStates.wifeFailMurder and s3_info: ->M_Learn_CONCLUDE->}
+{StoryStates has StoryStates.frank_cache && s3_info: ->M_Learn_ONRUN->} 
+{frogStates has frogStates.frogOnRun and s3_info: ->M_Learn_CRIMINAL->} 
+{frogStates has frogStates.frogCriminal and s3_info: ->M_Learn_F_CONCLUDE->}
+
 ->->
 
-===M_Learn_AUTHORITIES===
+
+===M_Learn_ONRUN===
+Between you and me, it seems perfectly obvious what our little friend is doing. He is on the run from someone or something. The entity in question is unkown to me, but you can tell that wherever he's sitting, his eyes are peering out the windows. Usually ones on opposite sides of the room. 
+
+~frogStates += frogStates.frogCriminal
 ~s3_info = false
 ->->
-===M_Learn_WINEMAKING===
+
+===M_Learn_CRIMINAL===
+Something that must be noted about Frank. He is a good chef, and in his own way a friendly individual. However he is not without pursuers. Not long after he first arrived, and the chef gave him a job, people came asking for him. 
+
+Let me tell you, it is difficult to lie about having seen a chain-smoking, self-hating, french-frog. On that note, the men had accents to. They dressed in all black, even their barrets.
+~frogStates += frogStates.frogConclusion
+~s3_info = false
+->->
+
+===M_Learn_F_CONCLUDE===
+You have no doubt, at this point, heard rumors about Frank. What do you think of him, at this point in your investigation?
+
+*[A domestic terrorist, ready to bomb the whole block if set off]
+*[A militia enthusiast who needs to purchase a storage locker]
+*[A handsome and devilish rogue, hunted by agencies which might not mind collateral damage]
+-
+A good guess! No in fact our dear frog is a gentle soul. He was once a strong croak foor a populist socialist movement in France. When it failed, he was sent to an exclusion zone. There he did his utmost to develop a community. 
+
+And what bolsters a community more than spirits? So he willingly violated french Wine Laws, and produced spirits for his commune. So as not to feed into the country that turned its back on him, he produced his champagne in Portugal. This of course, made him a target for the french Wine Purity Agency.
+
+I assure you they are surprisingly strong, and brutal. 
+
+Would they allow our headmaster to be killed? No I think not. No windows were shattered, and no men in black were present. 
+
+~frogStates += frogStates.frogConclusion 
 ~s3_info = false
 ->->
