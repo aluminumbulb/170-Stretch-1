@@ -15,6 +15,14 @@
 {feudStates == feudStates.wifeConclusion: -> chef_Learn_wifeConclusion}
 ->->
 
+==chef_Frank_Criminal==
+{frogStates == frogStates.frogWho: -> chef_Learn_frogOnRun}
+{frogStates == frogStates.frogContraband: -> chef_Learn_frogContraband}
+{frogStates == frogStates.frogOnRun: -> chef_Learn_illegalChampagne}
+{frogStates == frogStates.frogCriminal: -> chef_Learn_frankIsCriminal}
+{frogStates == frogStates.frogConclusion: -> chef_Learn_frankConclusion}
+->->
+
 
 // Main State Machine Knots
 
@@ -92,6 +100,32 @@ He glances towards Catherine, then back to the conversation. "It's clear to me t
 ->Questions
 
 //
+// Frank Machine Knots
+
+== chef_Learn_frogOnRun ==
+After a momentary silence, William began to speak again. "And that's not it," He announced, glancing over his shoulder back to the bullfrog and then quickly returning to his position, "To my knowledge, certain amphibians have been on the run from French authorities. But I know nothing about that." He said, nodding at you slightly. "I'll leave it at that." It appears you won't be getting much more out of the chef through this line of questioning.
+~frogStates += frogStates.frogWho
+->Questions
+
+== chef_Learn_frogContraband ==
+After a momentary silence, William began to speak again. "Frank is an excellent worker." He said loudly, making sure all could hear as he leaned in. "But I've seen him inside of a strange compartment, built in my kitchen without my knowledge! I never cared much for his strange antics, but that made me quite suspicious on what he could be hiding. Why store it in my kitchen?" He finishes as he retreats back in his chair, a sullen look on his face. It appears you won't be getting much more out of the chef through this line of questioning.
+~frogStates += frogStates.frogContraband
+->Questions
+    
+== chef_Learn_illegalChampagne ==
+After a momentary silence, William began to speak again, albeit quietly. "Alright inspector. I'll budge. I've been using champagne that Frank provides us. I don't know how he gets it, but I've let him stay for as long as I'm allowed to use his champagne. No questions asked, of course." He retreats back in his chair, a sullen look on his face. It appears you won't be getting much more out of the chef through this line of questioning.
+~frogStates += frogStates.frogOnRun
+->Questions
+
+== chef_Learn_frankIsCriminal ==
+After a momentary silence, William began to speak again. "Frank is quite the criminal, you know. I don't know exactly what he's done, but he's earned the animosity of the French. Which, admittedly, is not a difficult task." He lets out an exhale of air from his nose, proud of himself. "I digress. He's definitely keeping some sort of contraband in my kitche, that's for certain. I let him stay as long as he continues to provide the champagne that we pride ourselves over here in my kitchen. I daresay, it's impossible to find a champagne like this anywhere else!" He smirks to himself. "Whatever issues you may have with Frank, I suggest you speak to him yourself!"
+~frogStates += frogStates.frogCriminal
+->Questions
+
+== chef_Learn_frankConclusion ==
+After a momentary silence, William began to speak again. "Alright, inspector. Frank has been hiding out here for as long as I've been a chef here. He gives me a special champagne, I don't know where he makes it, in exchange for this service. I've noticed him hiding around and putting things in peculiar places but... to be honest with you inspector, Frank scares me." He shudders. "Why is he on the run from the French? What could he possibly have done? I assure you I haven't the faintest idea of what might be hiding in that hidden compartment of his." He pauses, taking a breath. "I'm afraid I don't know much more than that, inspector."
+->Questions
+
 // chef interview proper
 == chef ==
 ~ntchef = false //Set trigger for having talked to chef
@@ -121,8 +155,12 @@ He glances towards Catherine, then back to the conversation. "It's clear to me t
 * "Tell me about... the frog."
     Darting his eyes back and forth. "W-what? There's nothing to tell. That's enough of that."
     * * "I certainly think not! Tell me everything you know about the frog."
-         "He came to us! Many a night ago!" The chef began, rising slightyly from his chair, "We needed all the hands we could get, and I do not discriminate! Frank has shown that he is an adamant worker. A bit strange, but adamant! And that's all I could ask for." The chef nodded confidently, sitting back in his chair.
-        -> Questions
+         "He came to us! Many a night ago!" The chef began, rising slightly from his chair, "We needed all the hands we could get, and I do not discriminate! Frank has shown that he is an adamant worker. A bit strange, but adamant! And that's all I could ask for." The chef nodded confidently, sitting back in his chair.
+                {frogStates == frogStates.frogWho: -> chef_Learn_frogOnRun}
+                {frogStates == frogStates.frogContraband: -> chef_Learn_frogContraband}
+                {frogStates == frogStates.frogOnRun: -> chef_Learn_illegalChampagne}
+                {frogStates == frogStates.frogCriminal: -> chef_Learn_frankIsCriminal}
+                {frogStates == frogStates.frogConclusion: -> chef_Learn_frankConclusion}
     * * [Drop this line of questioning.] -> Questions
 * "How is the Headmistress handling his death?"
     {feudStates == wifeNotHappy: -> chef_Learn_wifeNotHappy}
@@ -130,8 +168,7 @@ He glances towards Catherine, then back to the conversation. "It's clear to me t
     {feudStates == wifePlanMurder: -> chef_Learn_wifePlanMurder}
     {feudStates == wifeFailMurder: -> chef_Learn_wifeFailMurder}
     {feudStates == wifeConclusion: -> chef_Learn_wifeConclusion}
-* [StacheMachine 3 Option]
-    -> Questions
+
 * -> 
     "Alright that's enough." I commanded. "Tell me what your part in it all is!" I yelled, hoping to intimidate the chef into loosing his tongue. 
     {StoryStates == head_explodes: -> chef_Learn_SECRET_INGREDIENTS}
