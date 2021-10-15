@@ -7,52 +7,16 @@
 {StoryStates == StoryStates.ralph_pop_rocks: ->Wife_Learn_FULL}
 ->->
 
-// Secret ingredient reveal
-===Wife_Learn_SECRET_INGREDIENTS===
-She tried to avoid your eye contact but eventually stared at you and faltered, "Well...I love creative people, that is why I fell in love with my husband, a true artist with a lot of wealth, properties......"She halted a bit before she would spilt out more inappropriate words, "and I hired our head chef William because he is absolutely a genius in cooking--he has his own secret recipe as if he is putting magic in the dishes. He must be thinking that I have no clue what he has done to the plates, but Imma tell you, I saw him pouring some unexpected ingredients quite a few times, it must have been the secret why the restructured meat tasted like angus beef..." Her tongue flicked across her lips as she finished.
-~StoryStates += StoryStates.secret_ingredients
-    -> doneWithWife
-
-
-// Double hand washing reveal
-===Wife_Learn_FILTHY_KITCHEN===
-She tried to avoid your eye contact but eventually stared at you and faltered, "Well...I own...my husband and I own the restaurant, we are out here to make money, why are we responsible for cleaning up the kitchen and stuff? They should clean up the working place if they can't live with that! Not my business!" She yelled fiercely as if she has nothing to do with the filthy kitchen. "And look at how they deal with that, all the staffs are forced to wash their hands! Good sign but why in the world my hands should also be washed? Everytime I came I was forced to wash away my perfume on my fine hands...blah blah blah..." Ignoring her complain, I started to skim through the kitchen that is nastier than the worst one in the 'Hell Kitchen' episodes, and soon my eyes stopped at a door that was left ajar: that's a bright and neat room behind, a few abstract paintings that seem worth thousands of bucks are hanging on the wall where underneath is a lether coach. Catherine followed my line of sight and realized that I was looking at the room, she dashed and slammed the door as if there are something unrevealable. "Th...that's my...and my husband's room. I swear I didn't spend a lot on the decoration." 
-~StoryStates += StoryStates.filthy_kitchen
--> doneWithWife
-
-// Beauregard put gunpowder in the food reveal 
-===Wife_Learn_BEAU_INGREDIENTS===
-She tried to avoid your eye contact but eventually stared at you and faltered, "I bought a can of caviar and put that on the kitchen table...but now that it's gone. I have literally no idea where it went, probably someone took that." She paused for a second and seemed to remember something, as she continued,"I do remember William told me that he was going to make a new dish to serve my darling, but he was pretty busy and has asked his son to give him a hand...but that wasn't my caviar what he served, it was gunpowder!" She yelled so loud with excitement as if she has just revealed the truth.
-~StoryStates += StoryStates.beauregard_ingredient
--> doneWithWife
-
-// Frog reveal and contraband
-===Wife_learn_FRANK_EXPAT===
-She tried to avoid your eye contact but eventually stared at you and faltered, "okay...I actually do know we have a frog living in the restaurant, there was a time that I asked William for something...yes something, that doesn't matter...and I saw that ugly creature lying on a bed, few broken wine glasses on the floor right next to his bedside cabinet. Oh and also miniguns...I really wondered what the heck is this frog doing in my...my darning's restaurant! This frog even has a name Frank!" She suddenly goggled, "he must be the gunpowder provider! He must be the one behinds every-single-evil-thing!" 
-~StoryStates += StoryStates.frank_cache
--> doneWithWife
-
-// Gunpowder poprocks reveal
-===Wife_Learn_POPROCKS===
-She tried to avoid your eye contact but eventually stared at you and faltered, "I know Ralph was hanging around in the kitchen, as always...he took a bite of that dish, and he mentioned some poping taste or texture that I can't really recall, if that is the gunpowder, then it is surprised that his head hasn't exploded into pieces. Well...I wish that happens..." Her voice was getting lower but you could still hear the last sentence that she murmured.
-~StoryStates += StoryStates.ralph_pop_rocks
--> doneWithWife
-
-
-// Headmaster died because of gunpowder
-===Wife_Learn_FULL===
-She tried to avoid your eye contact but eventually stared at you and faltered, "if my husband ate the food William made, and it was Beauregard who in charged of pouring in the secret ingredients which supposed to MY caivar," she emphasized the word 'my' as she continued her speech,"then I guess my poor darling died from eating a gunpowder-filled dish. It mustn't tasted good." She started to cry but with no tears in her eyes, wasn't that hypocractic?
-~StoryStates += StoryStates.conclusion
--> doneWithWife
-
-// Conclude it all
-===Wife_State_CONCLUSION===
-She tried to avoid your eye contact but eventually stared at you and faltered, "I...I think I have figured out the cause of my husband's death..." she paused, sniffled, and continued, "if my husband ate the food William made, and it was Beauregard who in charged of pouring in the secret ingredients which supposed to my caivar, you should also know what Ralph mentioned, the popping sensation of the dish! It must be the gunpowder of Frank! Everything is on the table! Beauregard, the idiot, put the Frank's gunpowder as the secret ingredients in the dish instead of my expensive caviar, my poor darling ate that and boommed! Sir I have nothing to do with this...at all, you gotta trust me. I just lost my beloved husband!" She started to sob again, but without tears, probably because the onion has lost its effect...
-
+===wife_Catherine_Feud===
+{feudStates == feudStates.wifeNotHappy: -> Wife_Learn_wifeNotHappy}
+{feudStates == feudStates.wifeFeudRevealed: -> Wife_Learn_wifeFeudRevealed}
+{feudStates == feudStates.wifePlanMurder: -> Wife_Learn_wifePlanMurder}
+{feudStates == feudStates.wifeFailMurder: -> Wife_Learn_wifeFailMurder}
+{feudStates == feudStates.wifeConclusion: -> Wife_Learn_wifeConclusion}
 ->->
 
 
-== Wife ==
+=== Wife ===
 ~ntcath = false
 The woman in a red polka dot frock is sobbing in front of the line.
 
@@ -62,37 +26,218 @@ She looked up to you, hesitated for a second and said "okay keep it short."
 Ask about:
     ->QuestionsForWife
 
-== QuestionsForWife ==
+=== QuestionsForWife ===
 
 * "Who are you?"
     "Catherine White! I am the only woman in the restaurant, who do you think I am?" She picked up her innocent face and turned to you quite impatiently.
     -> QuestionsForWife
-* "Do you know anything about the death of the headmaster"
-    "I was with him this morning, but I haven't seen him for the rest of the day, so how would I know anything...are you suspecting me huh?"
-    -> QuestionsForWife
 * "Do you know about the frog?"
     "What the frog?" She shouted inconceivably, "I don't know anything about a frog, you animal!"
+    {StoryStates == beauregard_ingredient && c1_info: -> Wife_learn_FRANK_EXPAT}
+    -> frog_Reveal
     -> QuestionsForWife
 * "Who is that weirdo?"
     "You mean Ralph? Well he is a good friend of my husband, he usually hanging around in the kitchen, touching this and that." She shaked her head and continued,"god knows how much I hate his wiseacre attitude everytime he came in."
+    {StoryStates == frank_cache && c1_info: -> Wife_Learn_POPROCKS}
+    -> QuestionsForWife
+* "Do you love your husband?"
+    ->wife_Reveal
+
+* "Any thought on the chef?"
+    "Yes of course, he is very talented and diligent, absolutely the best one in the kitchen I would say!"
+    {StoryStates == head_explodes && c1_info: -> Wife_Learn_SECRET_INGREDIENTS}
     -> QuestionsForWife
 * "What did the Headmaster eat?"
     "How would I know? He probably ate something toxic? No way it is going to be a micro-TNT...right?" She hesitated and thought about that for a second, "could he possibly ate a TNT?..."
+    {StoryStates == filthy_kitchen && c1_info: -> Wife_Learn_BEAU_INGREDIENTS}
     -> QuestionsForWife
 * "How is the kitchen condition?"
     "I don't know, I think the kitchen is fine, it is not me who work in it so I don't care, if it is nasty then they should clean it themselves. Why are you asking that? Is that relevant?"
+    {StoryStates == secret_ingredients && c1_info: -> Wife_Learn_FILTHY_KITCHEN}
+    -> QuestionsForWife
+    
+* "Do you know anything about the death of the headmaster, your husband?"
+    "I was with him this morning, but I haven't seen him for the rest of the day, so how would I know anything...are you suspecting me huh?" She wasn't quite happy with your question, "so mr inspector, may I please ask, what does this question do with your job?"
+    ** "Well the headmaster is dead, shouldn't miss any clue I must. So once again, are you sure about what you just said?"
+        "Yes of course!"
+    {StoryStates == ralph_pop_rocks && c1_info: -> Wife_Learn_FULL}
     -> QuestionsForWife
 * -> 
-        "Thank you for the answers ma'am," "But!" You turned up my volume to scare her "I don't think our conversation is over yet, aren't you going to have something more to tell me?" You made a direct eye contact with her hoping to dip into her most inward mind. She shuddered a bit.
-    {StoryStates == StoryStates.head_explodes: -> Wife_Learn_SECRET_INGREDIENTS}
-    {StoryStates == StoryStates.secret_ingredients: -> Wife_Learn_FILTHY_KITCHEN}
-    {StoryStates == StoryStates.filthy_kitchen: -> Wife_Learn_SECRET_INGREDIENTS}
-    {StoryStates == StoryStates.beauregard_ingredient: -> Wife_Learn_BEAU_INGREDIENTS}
-    {StoryStates == StoryStates.frank_cache: -> Wife_learn_FRANK_EXPAT}
-    {StoryStates == StoryStates.ralph_pop_rocks: -> Wife_Learn_FULL}
-     -> lineup
-     
-== doneWithWife==
-Having done all you can to wring information out of the wife, you turn back to the rest of the lineup.
+    Having done all you can to wring information out of the wife, you turn back to the rest of the lineup.
     -> lineup
+       
 
+
+
+//1st state machine
+
+
+
+// Secret ingredient reveal
+===Wife_Learn_SECRET_INGREDIENTS===
+"Well thank you for the answers ma'am," "but!" You turned up your volume to scare her "I don't think our conversation is over yet, aren't you going to have something more to tell me besides these?" You made a direct eye contact with her hoping to dip into her most inward mind. She shuddered a bit.
+*[umm]
+She tried to avoid your eye contact but eventually stared at you and faltered, "Well...I love creative people, that is why I fell in love with my husband, a true artist with a lot of wealth, properties......"She halted a bit before she would spilt out more inappropriate words, "and I hired our head chef William because he is absolutely a genius in cooking--he has his own secret recipe as if he is putting magic in the dishes. He must be thinking that I have no clue what he has done to the plates, but Imma tell you, I saw him pouring some unexpected ingredients quite a few times, it must have been the secret why the restructured meat tasted like angus beef..." Her tongue flicked across her lips as she finished.
+~StoryStates += StoryStates.secret_ingredients
+~c1_info = false
+-> QuestionsForWife
+
+
+// Double hand washing reveal
+===Wife_Learn_FILTHY_KITCHEN===
+ "Well thank you for the answers ma'am," "but!" You turned up your volume to scare her "I don't think our conversation is over yet, aren't you going to have something more to tell me besides these?" You made a direct eye contact with her hoping to dip into her most inward mind. She shuddered a bit.
+*[umm]
+She tried to avoid your eye contact but eventually stared at you and faltered, "Well...I own...my husband and I own the restaurant, we are out here to make money, why are we responsible for cleaning up the kitchen and stuff? They should clean up the working place if they can't live with that! Not my business!" She yelled fiercely as if she has nothing to do with the filthy kitchen. "And look at how they deal with that, all the staffs are forced to wash their hands! Good sign but why in the world my hands should also be washed? Everytime I came I was forced to wash away my perfume on my fine hands...blah blah blah..." Ignoring her complain, I started to skim through the kitchen that is nastier than the worst one in the 'Hell Kitchen' episodes, and soon my eyes stopped at a door that was left ajar: that's a bright and neat room behind, a few abstract paintings that seem worth thousands of bucks are hanging on the wall where underneath is a lether coach. Catherine followed my line of sight and realized that I was looking at the room, she dashed and slammed the door as if there are something unrevealable. "Th...that's my...and my husband's room. I swear I didn't spend a lot on the decoration." 
+~StoryStates += StoryStates.filthy_kitchen
+~c1_info = false
+-> QuestionsForWife
+
+// Beauregard put gunpowder in the food reveal 
+===Wife_Learn_BEAU_INGREDIENTS===
+ "Well thank you for the answers ma'am," "but!" You turned up your volume to scare her "I don't think our conversation is over yet, aren't you going to have something more to tell me besides these?" You made a direct eye contact with her hoping to dip into her most inward mind. She shuddered a bit.
+*[umm]
+She tried to avoid your eye contact but eventually stared at you and faltered, "I bought a can of caviar and put that on the kitchen table...but now that it's gone. I have literally no idea where it went, probably someone took that." She paused for a second and seemed to remember something, as she continued,"I do remember William told me that he was going to make a new dish to serve my darling, but he was pretty busy and has asked his son to give him a hand...but that wasn't my caviar what he served, it was gunpowder!" She yelled so loud with excitement as if she has just revealed the truth.
+~StoryStates += StoryStates.beauregard_ingredient
+~c1_info = false
+-> QuestionsForWife
+
+// Frog reveal and contraband
+===Wife_learn_FRANK_EXPAT===
+ "Well thank you for the answers ma'am," "but!" You turned up your volume to scare her "I don't think our conversation is over yet, aren't you going to have something more to tell me besides these?" You made a direct eye contact with her hoping to dip into her most inward mind. She shuddered a bit.
+*[umm]
+She tried to avoid your eye contact but eventually stared at you and faltered, "okay...I actually do know we have a frog living in the restaurant, there was a time that I asked William for something...yes something, that doesn't matter...and I saw that ugly creature lying on a bed, few broken wine glasses on the floor right next to his bedside cabinet. Oh and also miniguns...I really wondered what the heck is this frog doing in my...my darning's restaurant! This frog even has a name Frank!" She suddenly goggled, "he must be the gunpowder provider! He must be the one behinds every-single-evil-thing!" 
+~StoryStates += StoryStates.frank_cache
+~c1_info = false
+-> QuestionsForWife
+
+// Gunpowder poprocks reveal
+===Wife_Learn_POPROCKS===
+ "Well thank you for the answers ma'am," "but!" You turned up your volume to scare her "I don't think our conversation is over yet, aren't you going to have something more to tell me besides these?" You made a direct eye contact with her hoping to dip into her most inward mind. She shuddered a bit.
+*[umm]
+She tried to avoid your eye contact but eventually stared at you and faltered, "I know Ralph was hanging around in the kitchen, as always...he took a bite of that dish, and he mentioned some poping taste or texture that I can't really recall, if that is the gunpowder, then it is surprised that his head hasn't exploded into pieces. Well...I wish that happens..." Her voice was getting lower but you could still hear the last sentence that she murmured.
+~StoryStates += StoryStates.ralph_pop_rocks
+~c1_info = false
+-> QuestionsForWife
+
+
+// Headmaster died because of gunpowder
+===Wife_Learn_FULL===
+ "Well thank you for the answers ma'am," "but!" You turned up your volume to scare her "I don't think our conversation is over yet, aren't you going to have something more to tell me besides these?" You made a direct eye contact with her hoping to dip into her most inward mind. She shuddered a bit.
+*[umm]
+She tried to avoid your eye contact but eventually stared at you and faltered, "if my husband ate the food William made, and it was Beauregard who in charged of pouring in the secret ingredients which supposed to MY caivar," she emphasized the word 'my' as she continued her speech,"then I guess my poor darling died from eating a gunpowder-filled dish. It mustn't tasted good." She started to cry but with no tears in her eyes, wasn't that hypocractic?
+~StoryStates += StoryStates.conclusion
+~c1_info = false
+-> QuestionsForWife
+
+// Conclude it all
+===Wife_State_CONCLUSION===
+ "Well thank you for the answers ma'am," "but!" You turned up your volume to scare her "I don't think our conversation is over yet, aren't you going to have something more to tell me besides these?" You made a direct eye contact with her hoping to dip into her most inward mind. She shuddered a bit.
+*[umm]
+She decided to speak of the truth, the whole story that has happened in this restaurant, "I...I think I have figured out the cause of my husband's death..." she paused, sniffled, and continued, "if my husband ate the food William made, and it was Beauregard who in charged of pouring in the secret ingredients which supposed to be my caivar, you should also know what Ralph mentioned, the popping sensation of the dish! It must be the gunpowder of Frank! Everything is on the table! Beauregard, the idiot, put the Frank's gunpowder as the secret ingredients in the dish instead of my expensive caviar, my poor darling ate that and boommed! Sir I have nothing to do with this...at all, you gotta trust me!" She started to sob again, tears were not for her dead husband, but for worrying about if she is going to be put into jail.
+    -> ending
+
+
+
+
+//2nd state machine
+
+
+===wife_Reveal===
+* "Yes I do."
+{feudStates == wifeNotHappy && c2_info: -> Wife_Learn_wifeFeudRevealed}
+-> wife_Reveal
+* "Why not?"
+{feudStates == wifeFeudRevealed && c2_info: -> Wife_Learn_wifePlanMurder}
+-> wife_Reveal
+* "What is this question?"
+{feudStates == wifePlanMurder && c2_info: -> Wife_Learn_wifeFailMurder}
+-> wife_Reveal
+* "Are you doubting my love to him?"
+{feudStates == wifeFailMurder && c2_info: -> Wife_Learn_wifeConclusion}
+-> wife_Reveal
+*->
+    Nothing you can tell anymore. ->QuestionsForWife
+
+    
+===Wife_Learn_wifeNotHappy===
+"Ok cool, but umm...I don't think you are sad about the death of your husband...what does that half piece of onion do by the way?"
+She instinctly turned her head around and caught a glimpse at the hidden onion...and she turned back to you with wide eyes. Your question tensed up the atmosphere, as she started to rub her hands, a sign of getting nervous. After a moment of silence, she spoke, "well...I admit, that I am not so sad about his death, because he has certainly mistreated me, and our relationship! I was living miserable life since the arrival of his crafty-looking friend Ralph, and stuff has gone so wrong since then! Now, are you happy about that, Mr Know-It-All?"
+~feudStates ++
+~c2_info = false
+-> QuestionsForWife
+
+===Wife_Learn_wifeFeudRevealed===
+"Ok cool, but umm...I don't think you are sad about the death of your husband...what does that half piece of onion do by the way?"
+She instinctly turned her head around and caught a glimpse at the hidden onion...and she turned back to you with wide eyes. Your question tensed up the atmosphere, as she started to rub her hands, a sign of getting nervous. After a moment of silence, she spoke, "yes as you see, I am not sad about my husband's death, indeed. He used to love me so much...but everything has gone wrong since Ralph's arrival. This crafty-looking dude just disliked everything I did for the restaurant, I've been grumbling about that to my husband, but he just ignored my complains everytime!" She paused, took a deep breath which didn't seem to calm her rage, and continued with the story, "but, that wasn't all! The most raging thing was, he had an affair with another woman! He said I was the most shining star in the sky, and I heard him saying the same to that homewrecker! Just a week before his death, I quarrelled with him right here in this place where you are standing! He refused to admit the affair and, he even called me a vixen! God knows how angry and disappointed I was! Now, are you happy hearing our family disputes, Mr Know-It-All?" 
+~feudStates ++
+~c2_info = false
+-> QuestionsForWife
+
+===Wife_Learn_wifePlanMurder===
+"Ok cool, but umm...I don't think you are sad about the death of your husband...what does that half piece of onion do by the way?"
+She instinctly turned her head around and caught a glimpse at the hidden onion...and she turned back to you with wide eyes. Your question tensed up the atmosphere, as she started to rub her hands, a sign of getting nervous. After a moment of silence, she spoke, "it seems like you have already known something...yes, I planned to kill my husband. He doesn't love me anymore, and I of course didn't want to hand over the inheritance to that homewrecker. He would not have changed his mind even if I killed that woman, so I was left no choice, I had to kill him! I started to prepare myself a few days ago, I even sneaked a knife from the kitchen. But I must tell you, I didn't kill him! I really didn't kill him!"
+~feudStates ++
+~c2_info = false
+-> QuestionsForWife
+
+===Wife_Learn_wifeFailMurder===
+"Ok cool, but umm...I don't think you are sad about the death of your husband...what does that half piece of onion do by the way?"
+She instinctly turned her head around and caught a glimpse at the hidden onion...and she turned back to you with wide eyes. Your question tensed up the atmosphere, as she started to rub her hands, a sign of getting nervous. After a moment of silence, she spoke, "e...even I have everything prepared to kill him...but I'm just a woman. Yes I love wealth and his affair did trigger me, but that didn't give me enough courage to take down someone by stabbing him to death; to be honest, I can't even have the strength to cut raw meat. The plan was fantastic, but I just couldn't execute it because I am afraid of blood..." As soon as she finished, her eyes gazed around fearing that someone would have heard the whole course, "you know, I don't trust anyone in this restaurant right now besides myself...and probably you Mr Know-It-All, if you will promise not to disclose it."
+~feudStates ++
+~c2_info = false
+-> QuestionsForWife
+
+===Wife_Learn_wifeConclusion===
+"Ok cool, but umm...I don't think you are sad about the death of your husband...what does that half piece of onion do by the way?"
+She instinctly turned her head around and caught a glimpse at the hidden onion...and she turned back to you with wide eyes. Your question tensed up the atmosphere, as she started to rub her hands, a sign of getting nervous. After a moment of silence, she spoke, "ok...if you can promise not to disclose the whole thing to anyone...Imma tell you the truth. The relationship between my husband and I had started to be rocky since the arrival of Ralph, the crafty-looking man. Moreover my husband had an affair with another woman...that wasn't a good sign to our marriage. So...I planned to stab him to death then fake a crime scene to deceive the cops, lawyers, and insurance company so that I can intrigue the inheritance...but that doesn't matter anymore because I didn't have the courage to kill him, at all; I can't even cut a raw meat without shaking my hands, how was I gonna stab him to death? Now apparently his sudden death happened before I could have decided to give up the murderer plan. For god sake, I didn't kill him, for real!" She gave you a firm look.
+~feudStates ++
+~c2_info = false
+-> QuestionsForWife
+
+
+
+
+//3rd state machine
+
+
+===frog_Reveal===
+"Do you know anymore about the frog?"
+    *"I don't know!"
+    {frogStates == frogWho && c3_info: -> Wife_Learn_frogContraband}
+    -> frog_Reveal
+    *"Please!"
+    {frogStates == frogContraband && c3_info: -> Wife_Learn_frogOnRun}
+    -> frog_Reveal
+    * "I hate that creature!"
+    {frogStates == frogOnRun && c3_info: -> Wife_Learn_frogCriminal}
+    -> frog_Reveal
+    *"Let me out!"
+    {frogStates == frogCriminal && c3_info: -> Wife_Learn_frogConclusion}
+    -> frog_Reveal
+    *->
+        Nothing you can tell anymore. ->QuestionsForWife
+        
+        
+===Wife_Learn_frogContraband===
+You tried to get more information of that weird frog from her, she was annoyed by that but eventually committed, "well then, the first time I saw him was in the basement of my...my husband's restaurant. He was wrecked lying on his bed, broken wine bottles all over the place...and most importantly, he had so many contraband stacked in that little place! What's more, he stored weapons like Miniguns and AK-47, I swear to god I even saw a rocket launcher somewhere in the corner! Holy!"
+~frogStates ++
+~c3_info = false
+-> QuestionsForWife
+
+===Wife_Learn_frogOnRun===
+You tried to get more information of that weird frog from her, she was annoyed by that but eventually committed, "well yes, this guy, or actually this frog--has been living in the basement for I don't know how long. One day I found him speaking with someone and I merely heard that he was actually on the run from the French government. Dude he is a dangerous creature, I feel like my life is under threat!
+~frogStates ++
+~c3_info = false
+-> QuestionsForWife
+
+===Wife_Learn_frogCriminal===
+You tried to get more information of that weird frog from her, she was annoyed by that but eventually committed, "okay, yes he has been living in the basement for a long long time, and one time I saw a post somewhere on the internet, this freaking frog, violated the French Winemaking law because he sold the champagne produced in Portugal...well what a stupid law...but dude! Just imagine the restaurant has been a refuge since I don't know when! God knows if one day the FBI or ECTLO will be coming to the restaurant! Mr Inspector can you please kindly take this frog with you? Just get him out of my place, literally!"
+~frogStates ++
+~c3_info = false
+-> QuestionsForWife
+
+===Wife_Learn_frogConclusion===
+She finally committed, "I found this frog in the basement under the restaurant. There are countless contraband and arms in that little place, you know what is more panicking? He stored weapons like miniguns and AK-47, I swear to god I even saw a rocket launcher somewhere in the corner! This creature was on the run from the French government because he broke the French Winemaking law by selling champagne that produced in Portugal! I'm just...holy moly, a dangerous criminal has been living in our place for I don't know how long, I really should count my blessing that the FBI hasn't got to the place!"
+~frogStates ++
+~c3_info = false
+-> QuestionsForWife

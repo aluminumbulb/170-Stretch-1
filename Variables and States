@@ -2,6 +2,8 @@ LIST StoryStates = (head_explodes), secret_ingredients, filthy_kitchen, beaurega
 
 LIST feudStates = (wifeNotHappy), wifeFeudRevealed, wifePlanMurder, wifeFailMurder, wifeConclusion
 
+LIST frogStates = (frogWho), frogContraband, frogOnRun, frogCriminal, frogConclusion
+
 //characters not spoken to (nt = not talked)
 VAR ntchef = true
 VAR ntbeau = true
@@ -10,5 +12,13 @@ VAR ntfrank = true
 VAR ntralph = true
 VAR ntstern = true
 
-VAR s_info = true
+VAR s1_info = true
+VAR s2_info = true
+VAR s3_info = true
+
+VAR c1_info = true
+VAR c2_info = true
+VAR c3_info = true
+
 VAR r_info = true
+VAR r_info_2 = true
