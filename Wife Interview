@@ -70,6 +70,9 @@ Ask about:
 
 
 //1st state machine
+
+
+
 // Secret ingredient reveal
 ===Wife_Learn_SECRET_INGREDIENTS===
 "Well thank you for the answers ma'am," "but!" You turned up your volume to scare her "I don't think our conversation is over yet, aren't you going to have something more to tell me besides these?" You made a direct eye contact with her hoping to dip into her most inward mind. She shuddered a bit.
@@ -134,6 +137,11 @@ She decided to speak of the truth, the whole story that has happened in this res
     -> ending
 
 
+
+
+//2nd state machine
+
+
 ===wife_Reveal===
 * "Yes I do."
 {feudStates == wifeNotHappy && c2_info: -> Wife_Learn_wifeFeudRevealed}
@@ -149,9 +157,6 @@ She decided to speak of the truth, the whole story that has happened in this res
 -> wife_Reveal
 *->
     Nothing you can tell anymore. ->QuestionsForWife
-
-
-//2nd state machine
 
     
 ===Wife_Learn_wifeNotHappy===
@@ -191,6 +196,10 @@ She instinctly turned her head around and caught a glimpse at the hidden onion..
 
 
 
+
+//3rd state machine
+
+
 ===frog_Reveal===
 "Do you know anymore about the frog?"
     *"I don't know!"
@@ -210,34 +219,25 @@ She instinctly turned her head around and caught a glimpse at the hidden onion..
         
         
 ===Wife_Learn_frogContraband===
-"xxx"
+You tried to get more information of that weird frog from her, she was annoyed by that but eventually committed, "well then, the first time I saw him was in the basement of my...my husband's restaurant. He was wrecked lying on his bed, broken wine bottles all over the place...and most importantly, he had so many contraband stacked in that little place! What's more, he stored weapons like Miniguns and AK-47, I swear to god I even saw a rocket launcher somewhere in the corner! Holy!"
 ~frogStates ++
 ~c3_info = false
 -> QuestionsForWife
 
 ===Wife_Learn_frogOnRun===
-"xxx"
+You tried to get more information of that weird frog from her, she was annoyed by that but eventually committed, "well yes, this guy, or actually this frog--has been living in the basement for I don't know how long. One day I found him speaking with someone and I merely heard that he was actually on the run from the French government. Dude he is a dangerous creature, I feel like my life is under threat!
 ~frogStates ++
 ~c3_info = false
 -> QuestionsForWife
 
 ===Wife_Learn_frogCriminal===
-"xxx"
+You tried to get more information of that weird frog from her, she was annoyed by that but eventually committed, "okay, yes he has been living in the basement for a long long time, and one time I saw a post somewhere on the internet, this freaking frog, violated the French Winemaking law because he sold the champagne produced in Portugal...well what a stupid law...but dude! Just imagine the restaurant has been a refuge since I don't know when! God knows if one day the FBI or ECTLO will be coming to the restaurant! Mr Inspector can you please kindly take this frog with you? Just get him out of my place, literally!"
 ~frogStates ++
 ~c3_info = false
 -> QuestionsForWife
 
 ===Wife_Learn_frogConclusion===
-"xxx"
+She finally committed, "I found this frog in the basement under the restaurant. There are countless contraband and arms in that little place, you know what is more panicking? He stored weapons like miniguns and AK-47, I swear to god I even saw a rocket launcher somewhere in the corner! This creature was on the run from the French government because he broke the French Winemaking law by selling champagne that produced in Portugal! I'm just...holy moly, a dangerous criminal has been living in our place for I don't know how long, I really should count my blessing that the FBI hasn't got to the place!"
 ~frogStates ++
 ~c3_info = false
 -> QuestionsForWife
-
-
-
-
-//3rd state machine
-//Wife_Learn_frogOnRun
-     
-
-
