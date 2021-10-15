@@ -41,7 +41,7 @@ You decide you just want to get this over with, perusing your head for questions
 "So what are you really doing in the kitchen? Be honest, for goodness sake."
 
 "Oh, well...I got a bit of a strategy to writing my riveting food reviews, you see, fella. Don't tell anyone...but...I like hanging out in the kitchen for the food, if you catch my meaning."
-*[Ask if he tastes the food.]
+*["So you taste the food?"]
 "So you...taste the food...before it's even served?"
 
 "Exactly! That way I can really get a feel for what ingredients are in every dish, how it all tastes, without, you know...spending the cash to order it all."
@@ -50,7 +50,7 @@ As a health inspector, this revelation leaves you highly disconcerted. "So that'
 ->inkitchen2
 
 ===inkitchen2===
-*[Ask if the chef knows.]
+*["Does the chef know?"]
 "Does the chef know about this...OUTRAGEOUS offense??"
 
 "Oh, of course he does, fella. He's cool with it. Him and that kid Beauregard, they just let me do my thing and no one bats an eye. And hey, what harm has it done? Not like anyone has died from the food here or anything...uhm, until today."
@@ -59,7 +59,7 @@ You can't believe this idiot. With that amount of unprofessional access to the f
 ->inkitchen3
 
 ===inkitchen3===
-*[Ask if he's seen anything unusual.]
+*["Anything else unusual?"]
 "Well, can you think of anything...unusual that you've seen while you've been back here?"
 
 "Mmm...the crab they use smells a bit funky, and the wine is super cheap."
@@ -75,10 +75,10 @@ You're not entirely sure if the question you ask is relevant to the investigatio
 
 At this, Ralph becomes jubilant. "I've been coming here every day for months! There's something special about the textures and flavors of the meals here. Zesty, tender pork, crunchy, fishy prawns, sweet and sour umami soup, frog legs, etc etc. They have it all, fella! However..."
 
-*[Ask him to go on.]
+*["Go on..."]
 "What is it?" you implore.
 
-"Well...I have to admit that the quality in both food and service has been down a peg or two recently. I once tasted ammonia in my pizza! Why, if I want ammonia in my pizza, I'll go to 7/11, not this exquisite dining! And the Cordon Bleu was dry as a rock yesterday! Worst of all, when I asked the chef to remake it, he gave me a plate of ACTUAL rocks! How insulting!"
+"Well...I have to admit that the quality in both food and service has been down a peg or two recently. I once tasted ammonia in my pizza! Why, if I want ammonia in my pizza, I'll go to Seven Eleven, not this exquisite dining! And the Cordon Bleu was dry as a rock yesterday! Worst of all, when I asked the chef to remake it, he gave me a plate of ACTUAL rocks! How insulting!"
 
 You find this mildly funny, and maybe a red flag for inspection, but not a direct explanation for the headmaster's explosive demise. "That sounds like quite a pickle," you tell him.
 
@@ -97,13 +97,42 @@ Ralph strokes his chin for a bit, then shakes his head. "I can't think of anythi
 ->INTERROGATE_RALPH
 
 ===headmaster===
-//for husband/wife feud machine, beat 1 or 2
-(Placeholder text) Yeah I knew the headmaster, he was a friend back in the day, etc.
+"You know anything about the headmaster of this business?"
+
+"I knew plenty about him, back in the day, fella," Ralph confided. "He is...uhm, was...a good ol' friend from school - we were in many of the same classes, you see. We used to run a pop-up cart where we'd sell all sorts of edible goodies like hunks of fresh buzzard, non-pretzel wheels, some literal snake oil, you know. We shared a bond over our love of real AND legitimate food!"
+
+*["What about now?"]
+"But what's your present relationship with him?" You ask, really just wanting to get to the point.
+
+"Oh..." Ralph grumbles to himself a bit before going on. "Well, I don't know much about his recent antics. We dropped out of contact after school, and I only rediscovered him and his restaurant a few months back. We haven't gotten to talking all that much, fella."
+
+There's a glint in his eyes when he speaks that unnerves you.
+->headmaster2
+
+===headmaster2===
+*[Press the subject.]->headmaster4
+*[Put off the subject for now.]->headmaster3
+
+===headmaster3===
+"Well, let's forget about this line of discussion for the moment," you say.
+
+"Roger roger," says Ralph, rather flatly.
+->headmaster2
+
+===headmaster4===
+{feudStates has wifeFeudRevealed && r_info_2: ->Ralph_Learn_wifeFeudRevealed}
+{feudStates has wifeFailMurder && r_info_2: ->Ralph_Learn_wifeFailMurder}
+You begin looming over Ralph angrily, physically growing in size. Ralph cowers in fear, physically shrinking in size. You ask calmly, "WHAT DO YOU KNOW ABOUT THE HEADMASTER, YOU BUMBLING BAFFOON!??!?!?!?!?!??!"
+
+Ralph is taken aback. "I-I've told you all I know, f-fella, I swear it by my beard!"
+
+You both abruptly return to normal physical size. "Okay, that's all I've got," you say, "You win. Let's forget about this line of discussion."
+
+"Roger roger," says Ralph, rather flatly.
 ->INTERROGATE_RALPH
 
 ===headmistress===
-//for husband/wife feud machine, beat 3 or 4
-(Placeholder text) I don't know anything about the headmaster's wife I swear, etc.
+"What about the headmistress? You know anything about her deal?"
 ->INTERROGATE_RALPH
 
 ===froggo===
@@ -212,3 +241,50 @@ You hear Ralph making a commotion behind you and turn back around.
 ~StoryStates += StoryStates.conclusion
 ~r_info = false
 ->lineup
+
+==Ralph_Learn_wifeNotHappy==
+
+~feudStates += feudStates.wifeNotHappy
+~r_info_2 = false
+->INTERROGATE_RALPH
+
+==Ralph_Learn_wifeFeudRevealed==
+You begin looming over Ralph angrily, physically growing in size. Ralph cowers in fear, physically shrinking in size. You say calmly, "I ALREADY KNOW THAT THE WIFE WASN'T HAPPY, AND I SUSPECT YOU KNEW WHY. WHAT DO YOU KNOW ABOUT THE HEADMASTER, YOU BUMBLING BAFFOON!??!?!?!?!?!??!"
+
+Ralph is taken aback. "O-okay, okay! Chill it, f-fella! I'll tell you."
+
+"All I know is that my friend has been real distant from his wife. Why, just about anyone could tell when they were walking in! They refused to look at each other, they barely spoke, Catherine just sat crossly doing her 'hmph' thing. They looked like they were having marital problems, it's quite possible that an affair took place. That's truly all I know! I swear it by my beard!"
+
+You both abruptly return to normal physical size. "Okay, I believe you," you say, "even if my tommy gun don't."
+
+"Roger roger," says Ralph, rather attentively.
+~feudStates += feudStates.wifeFeudRevealed
+~r_info_2 = false
+->INTERROGATE_RALPH
+
+==Ralph_Learn_wifePlanMurder==
+
+~feudStates += feudStates.wifePlanMurder
+~r_info_2 = false
+->INTERROGATE_RALPH
+
+==Ralph_Learn_wifeFailMurder==
+You begin looming over Ralph angrily, physically growing in size. Ralph cowers in fear, physically shrinking in size. You say calmly, "I ALREADY KNOW THAT THE WIFE WAS PLANNING TO MURDER HIM, AND I SUSPECT YOU KNEW TOO. WHAT DO YOU KNOW ABOUT THE HEADMASTER, YOU BUMBLING BAFFOON!??!?!?!?!?!??!"
+
+Ralph is taken aback. "O-okay, okay! Chill it, f-fella! I'll tell you."
+
+"You're right, I knew about the planned murder attempt. I overheard her talking through her plan in the kitchen when she thought no one was around, brandishing a knife in her hand. She already hates my guts, and when she saw me she threatened my life if I told anyone about it, fella! She practically chased me outta there!
+
+"I didn't even tell my friend - I know, I know, I'm terrible, but I was terrified! Anyway, doesn't seem like it mattered in the end, cause he clearly didn't die from a stab wound. Unless she changed her plans, I doubt she got around to it in the end."
+
+You both abruptly return to normal physical size. "Okay, okay...I believe you," you say, "even if my tommy gun don't."
+
+"Roger roger," says Ralph, rather attentively.
+~feudStates += feudStates.wifeFailMurder
+~r_info_2 = false
+->INTERROGATE_RALPH
+
+==Ralph_Learn_wifeConclusion==
+
+~r_info_2 = false
+->INTERROGATE_RALPH
