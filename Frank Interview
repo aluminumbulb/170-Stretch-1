@@ -41,21 +41,21 @@ I make my way closer to the frog as they light a cigarette on a gas stove.
 * "Do you think that the Chef poisoned the Headmaster?"
     "If he did, he sure didn't do it intentionally"
     ** "Thank you for your input Frank"
-~StoryStates++
+~StoryStates += StoryStates.secret_ingredients
 ->lineup
 
 ===Frank_FILTHY_KITCHEN===
 "Well, thank you for your time, now if you'll excuse me I have to get back to interviewing the other suspects, hopefully they will be more cooperative."
 "You better not stay too long or else you'll get the kitchen flu" Frank says.
 * Man...
-~StoryStates++
+~StoryStates += StoryStates.filthy_kitchen
 ->lineup
 
 ===Frank_BEAU_INGREDIENTS===
 "One more thing before I leave, how do you feel about Beaurigard?" I ask Frank, hoping to crack the nut that is this kitchen right down the middle.
 "I feel bad for him, he shows much potential but is forced upon too many stressful situations. He is the most exploited of us all." Frank says. "I would suspect him if he wasn't so stressed out from daily kitchen duties that poor boy."
 * "Interesting, thank you very much"
-~StoryStates++
+~StoryStates += StoryStates.beauregard_ingredient
 ->lineup
 
 ===Frank_THE_EXPAT===
@@ -63,7 +63,7 @@ I make my way closer to the frog as they light a cigarette on a gas stove.
 "My pleasure, but I must apologise for being too harsh on you, as I am quite paranoid. You see, I am on the run from a foreign power that I will not continue to elaborate upon." Frank says.
 * "Thank you for telling me this Frank."
 What the fuck have I gotten myself into?
-~StoryStates++
+~StoryStates += StoryStates.frank_cache
 ->lineup
 
 ===Frank_POPROCKS===
@@ -71,7 +71,7 @@ What the fuck have I gotten myself into?
 "Before you go!" Frank yells, grabbing my attention. "I would be wary of that customer. You know food critics are no good."
 * "Interesting, thank you very much"
 
-~StoryStates++
+~StoryStates += StoryStates.ralph_pop_rocks
 ->lineup
 
 ===Frank_FULL===
@@ -79,7 +79,7 @@ Before you even had the chance to leave, you hear Frank scream "HOLY SHIT"
 * "What is it?"
     "My gunpowder must have made it into the caviar!"
     ** "At this point I'm not surprised" one bit.
-~StoryStates++
+~StoryStates += StoryStates.conclusion
 ->lineup
 
 ===Frank_wife_Reveal===
@@ -105,11 +105,15 @@ Frank lights another cigarette on the gas stove.
 ===Frank_Learn_wifeFeudRevealed===
 "Oh they were so bad to eachother." Frank's eyes light up as if he found an oasis in the middle of the Mojave Desert. "See the Headmaster loved the Headmistress at one point, but he loved sex even more, and when he couldn't get enough from his beloved he would begin to act erratic." Frank then began to describe sex acts between the Headmaster and his lovers in just absolutely disgusting detail. "There was this one time that the mistress caught them, or so I heard. I would not be surprised if she was the one who killed the Headmaster."
     * Thanks for the info... I guess
+    ~feudStates += feudStates.wifeFeudRevealed
+    
     ->Questions_Frank
     
 ===Frank_Learn_wifePlanMurder===
 "I think I overheard the Headmistress talk about a plan to cut the Headmaster out of the picture a week ago..." Frank takes a drag from his cigarette "Something about the inheritance not going to the other woman in the picture."
     * "Wow, thanks a lot Frank!"
+    ~feudStates += feudStates.wifePlanMurder
+    
     ->Questions_Frank
     
 ===Frank_Learn_wifeFailMurder===
@@ -118,10 +122,13 @@ Frank takes a drag from his cigarette. A long one. About half his cigarette is g
 * "So you don't think the mistress killed Parsennon White?"
     "Of course not! I thought you knew already!"
     ** "Thanks for the intrigue asshole"
+    ~feudStates += feudStates.wifeFailMurder
     ->Questions_Frank
     
 ===Frank_Learn_wifeConclusion===
 "I knew she didn't do it" Frank said
+* Of course you did Frank...
+~feudStates += feudStates.wifeConclusion
 ->Questions_Frank
 # STATE MACHINE 3
 ===Frank_frog_Reveal===
@@ -144,20 +151,22 @@ Frank takes a drag from his cigarette. A long one. About half his cigarette is g
 ===Frank_Learn_frogContraband===
 Frank tells you about the various weapons and contraband he keeps around the kitchen. The machine gun was the most obvious, but the extent to which the tools of destruction were present is quite alarming.
 * Why does he have all of these arms available to him? In the kitchen no less?
+~frogStates += frogStates.frogContraband
     ->Questions_Frank 
 ===Frank_Learn_frogOnRun===
 Frank tells you that he is a fugitive on the run from the French Government. Not willing to elaborate on the details, he requests that you don't tell this to anyone who might tip him off to the French Government. His demeanor has changed such that he has lost his snark, his quips turning into nervous warbles. He cannot be trusted yet, as his crimes are not yet known.
-* What did this frog do to draw the wrath of the French Government.
+* What did this frog do to draw the wrath of the French Government?
+~frogStates += frogStates.frogOnRun
     ->Questions_Frank
+    
 ===Frank_Learn_frogCriminal===
 Frank spills the beans. He is on the run from the French Government for the crime of producing and selling champagne in Portugal. 
 * What the Fuck.
+~frogStates += frogStates.frogCriminal
     ->Questions_Frank
 ===Frank_Learn_frogConclusion===
-<<<<<<< HEAD
-
-=======
 Frank has nothing more to say, it is clear that he must leave this cursed kitchen and move on to the next chapter of his life.
 * See you later my froggy friend.
+~frogStates += frogStates.frogConclusion
     ->Questions_Frank
->>>>>>> james
+
