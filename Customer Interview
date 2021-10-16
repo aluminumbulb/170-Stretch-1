@@ -1,7 +1,3 @@
-===Ralph_Main_Interview===
-//ADD STATEMENT HERE THAT CHANES ntcharacter to false
-->lineup //Oops the programmer miscounted again. Classic.
-
 ===Ralph_Intro===
 ~ ntralph = false
 You turn to the customer, who appears to be trying to blend in with the crowd. He is leaning on the wall and slightly hunched over, twiddling his thumbs in an almost, but not quite menacing fashion. He pretends to not notice you approaching until you snap him to attention. "OY! You there! What is a customer even doing in this corner of the establishment!?"
@@ -65,9 +61,8 @@ You can't believe this idiot. With that amount of unprofessional access to the f
 "Mmm...the crab they use smells a bit funky, and the wine is super cheap."
 
 You sigh. "Well, that doesn't tell me much. Let's move on."
-
-{StoryStates has filthy_kitchen && r_info: ->Ralph_Learn_BEAU_INGREDIENTS}
 {StoryStates has beauregard_ingredient && r_info: ->Ralph_Learn_FRANK_EXPAT}
+{StoryStates has filthy_kitchen && r_info: ->Ralph_Learn_BEAU_INGREDIENTS}
 ->INTERROGATE_RALPH
 
 ===restaurant===
@@ -86,10 +81,10 @@ You find this mildly funny, and maybe a red flag for inspection, but not a direc
 ->restaurant2
 
 ===restaurant2===
-* [Ask him if there's anything else.]
+* ["Anything else problematic?"]
 "Anything else you can recall about the practices here?"
-{StoryStates has head_explodes && r_info: ->Ralph_Learn_SECRET_INGREDIENTS}
 {StoryStates has secret_ingredients && r_info: ->Ralph_Learn_FILTHY_KITCHEN}
+{StoryStates has head_explodes && r_info: ->Ralph_Learn_SECRET_INGREDIENTS}
 ->restaurant3
 
 ===restaurant3===
@@ -117,12 +112,12 @@ There's a glint in his eyes when he speaks that unnerves you.
 "Well, let's forget about this line of discussion for the moment," you say.
 
 "Roger roger," says Ralph, rather flatly.
-->headmaster2
+->INTERROGATE_RALPH
 
 ===headmaster4===
-{feudStates has wifeFeudRevealed && r_info_2: ->Ralph_Learn_wifeFeudRevealed}
-{feudStates has wifeFailMurder && r_info_2: ->Ralph_Learn_wifeFailMurder}
 {feudStates has wifeConclusion && r_info_2: ->Ralph_Learn_wifeConclusion}
+{feudStates has wifeFailMurder && r_info_2: ->Ralph_Learn_wifeFailMurder}
+{feudStates has wifeFeudRevealed && r_info_2: ->Ralph_Learn_wifeFeudRevealed}
 You begin looming over Ralph angrily, physically growing in size. Ralph cowers in fear, physically shrinking in size. You ask calmly, "WHAT DO YOU KNOW ABOUT THE HEADMASTER, YOU BUMBLING BAFFOON!??!?!?!?!?!??!"
 
 Ralph is taken aback. "I-I've told you all I know, f-fella, I swear it by my beard!"
@@ -150,9 +145,9 @@ Ralph does not hesitate. "Why, she's got layers and layers of secrets, I'm certa
 *[Put off the subject for now.]->INTERROGATE_RALPH
 
 ===headmistress3===
-{feudStates has wifeNotHappy && r_info_2: ->Ralph_Learn_wifeNotHappy}
-{feudStates has wifePlanMurder && r_info_2: ->Ralph_Learn_wifePlanMurder}
 {feudStates has wifeConclusion && r_info_2: ->Ralph_Learn_wifeConclusion}
+{feudStates has wifePlanMurder && r_info_2: ->Ralph_Learn_wifePlanMurder}
+{feudStates has wifeNotHappy && r_info_2: ->Ralph_Learn_wifeNotHappy}
 Sensing how much of a scoundrel Ralph is, you do not believe his lies. "Oh really now? I think you may very well be connected with it, you ratty fiend!"
 
 Ralph protests vehemently. "Am not!"
@@ -161,8 +156,32 @@ As childish of a response as that is, you give up. "I suppose that's all I'm goi
 ->INTERROGATE_RALPH
 
 ===froggo===
-//for FRANK machine, any beat
-(Placeholder text) I hate that stupid frog get it outta here, etc.
+"Alright, so the fact that you're in the kitchen is weird and all, but has anyone realized a sentient frog has been working here!?"
+
+"Ah yes, Frank..." Ralph makes an expression that is an off-putting mix between awesome and awful. "Truly, an ipitomy of perfection in our age, that being Frank is. He gets a bad rap from the other customers around here. Not I, fella. In fact, he has become the greatest hero in my life - and my greatest downfall."
+
+*["What does that mean?"]
+"What on earth could that possibly mean?" You have only become more confused so far.
+
+"I admire Frank, I really do. I look up to him." Ralph drops to a whisper, as if what he says next is something that will rock the world. "But he's so much better than me. So much weirder, out-of-place, downright sure of himself than I can ever hope to be. He eclipses my presence totally, and I have to admit I'm jealous."
+
+You realize that Ralph clearly has deep, complicated feelings about Frank that you may never understand.
+->froggo2
+
+===froggo2===
+*["What do you know about him?"]->froggo3
+*[That's all I need to know.]->INTERROGATE_RALPH
+
+===froggo3===
+{frogStates has frogCriminal && r_info_3: ->Ralph_Learn_frogConclusion}
+{frogStates has frogOnRun && r_info_3: ->Ralph_Learn_frogCriminal}
+{frogStates has frogContraband && r_info_3: ->Ralph_Learn_frogOnRun}
+{frogStates has frogWho && r_info_3: ->Ralph_Learn_frogContraband}
+"What do you actually know about Frank, though?" You ask.
+
+Ralph looks upon you with a wistful, unknowable gaze. "I sense you already know everything about Frank that you need to know. I will not disclose any more, fella."
+
+You get the feeling you're dealing with things you could never comprehend, and decide not to press further.
 ->INTERROGATE_RALPH
 
 ===Ralph_Outro===
@@ -171,8 +190,8 @@ As childish of a response as that is, you give up. "I suppose that's all I'm goi
 "Good riddance," Ralph mutters under his breath.
 
 Satisfied that you've wrangled all the information out of this charlatan as you possibly could, you head back towards the rest of the suspects.
-{StoryStates has frank_cache && r_info: ->Ralph_Learn_POPROCKS}
 {StoryStates has ralph_pop_rocks && r_info: ->Ralph_Learn_FULL}
+{StoryStates has frank_cache && r_info: ->Ralph_Learn_POPROCKS}
 ->lineup
 
 ===Ralph_Learn_SECRET_INGREDIENTS===
@@ -183,7 +202,7 @@ He pauses conveniently to take a deep breath before moving on. "And fella, guess
 You think this could be useful information. The chef must've been putting secret ingredients into the food without telling his customers about it.
 
 "Thanks for the information, 'fella'," you say to Ralph. He nods aggressively in response.
-~StoryStates += StoryStates.secret_ingredients
+~StoryStates ++
 ~r_info = false
 ->INTERROGATE_RALPH
 
@@ -195,7 +214,7 @@ He pauses conveniently to take a deep breath before moving on. "You wanna know w
 Quite the overcompensation indeed. You realize that through enforcing such strict cleanliness guidelines, the cooking environment must actually be incredibly filthy.
 
 "Thanks for the information, 'fella'," you say to Ralph. He nods pensively in response.
-~StoryStates += StoryStates.filthy_kitchen
+~StoryStates ++
 ~r_info = false
 ->INTERROGATE_RALPH
 
@@ -209,7 +228,7 @@ Ralph stops you. "Oh, hang on a second, fella...actually, I remember seeing a bi
 You realize that this caviar was definitely the secret ingredient the chef was planning to use for the headmaster's dish. But if it wasn't there when Beauregard cooked it...he must have grabbed something else to use as the secret ingredient! Something by random!
 
 "Thanks for the information, 'fella'," you say to Ralph. He nods dismissively in response.
-~StoryStates += StoryStates.beauregard_ingredient
+~StoryStates ++
 ~r_info = false
 ->INTERROGATE_RALPH
 
@@ -218,12 +237,12 @@ Ralph stops you. "Oh, hang on a second, fella...actually, I remember finding thi
 
 "What did it smell like?" You look at him inquiringly.
 
-"It was rather sulfurous and stale. Kind of like gunpowder. I saw that blasted frog sitting by it once."
+"It was rather sulfurous and stale. Kind of like gunpowder. I saw that enigmatic amphibian, Frank, sitting by it once."
 
 You are shocked beyond belief. Why was there gunpowder in the kitchen? The frog must've been storing it there!
 
 "Thanks for the information, 'fella'," you say to Ralph. He grins proudly in response.
-~StoryStates += StoryStates.frank_cache
+~StoryStates ++
 ~r_info = false
 ->INTERROGATE_RALPH
 
@@ -247,7 +266,7 @@ Ralph seems to have recovered a bit, and the popping has died down. "I think I'm
 "Nah I'm good, Fella. Don't believe in that hOspital business. I'm a tOugh cooKie."
 
 You know you should really protest more, but you're so unbelievably done with Ratty Ralph that you can't be bothered to help him anymore. You head back towards the rest of the suspects.
-~StoryStates += StoryStates.ralph_pop_rocks
+~StoryStates ++
 ~r_info = false
 ->lineup
 
@@ -263,7 +282,7 @@ You hear Ralph making a commotion behind you and turn back around.
 ...
 
 "Well, that just about explains it," you say after a long pause, aloud for some reason. "The poor headmaster must've been done in by those dastardly poprocks that Beauregard foolishly stuffed in his dish. Simply tragic. Well, you can join your friend in the afterlife now, 'fella'."
-~StoryStates += StoryStates.conclusion
+~StoryStates ++
 ~r_info = false
 ->lineup
 
@@ -273,7 +292,7 @@ Sensing how much of a scoundrel Ralph is, you do not believe his lies. "Oh reall
 Ralph protests vehemently. "Am not! I just know that Catherine has been awfully cold and distant about the death of her husband. Not that she isn't usually cold and distant anyways, but you might think she'd have a genuine looking reaction to such an event? No! I saw her just rubbing her eyes into a cut-open raw onion? Who does that!?"
 
 "You, probably," you retort, "but I suppose that's all I'm going to get from you."
-~feudStates += feudStates.wifeNotHappy
+~feudStates ++
 ~r_info_2 = false
 ->INTERROGATE_RALPH
 
@@ -287,7 +306,7 @@ Ralph is taken aback. "O-okay, okay! Chill it, f-fella! I'll tell you."
 You both abruptly return to normal physical size. "Okay, I believe you," you say, "even if my tommy gun don't."
 
 "Roger roger," says Ralph, rather attentively.
-~feudStates += feudStates.wifeFeudRevealed
+~feudStates ++
 ~r_info_2 = false
 ->INTERROGATE_RALPH
 
@@ -300,12 +319,12 @@ You feel the very fabric of the universe emit an audible "GASP, FELLA!" before h
 
 "How do I know of this, you may ask? Well, there was a time within the last week where I was in the kitchen late at night, later than usual. Catherine was the only other one there, and in the dark, I overheard her talking through a plan to stab her husband and snag his inheritance! She was even brandishing a knife in her hand! I ran straight out of there!"
 
-Could the headmistress have killed her husband this very night? You ponder at the possibility. Then you realize something. "Why didn't you tell your friend about it!?"
+Could the headmistress have killed her husband this very night? You ponder at the possibility. Then you realize something. "Why didn't you tell the headmaster about it!?"
 
 "I did, I did! But he didn't believe me!"
 
 You're not sure that last bit makes any sense or if it's at all true, but this revelation alone is enough for now.
-~feudStates += feudStates.wifePlanMurder
+~feudStates ++
 ~r_info_2 = false
 ->INTERROGATE_RALPH
 
@@ -321,7 +340,7 @@ Ralph is taken aback. "O-okay, okay! Chill it, f-fella! I'll tell you."
 You both abruptly return to normal physical size. "Okay, okay...I believe you," you say, "even if my tommy gun don't."
 
 "Roger roger," says Ralph, rather attentively.
-~feudStates += feudStates.wifeFailMurder
+~feudStates ++
 ~r_info_2 = false
 ->INTERROGATE_RALPH
 
@@ -330,6 +349,110 @@ Sensing how much of a scoundrel Ralph is, you do not believe his lies. You begin
 
 Ralph is barely disturbed by your intimidation tactics. He simply states, "I had no beef with my friend, fella. We were as close as could be, back in the day. And then we weren't. Life got in the way, that's it. I suspect the same thing happened to Catherine, fella - life simply got in the way, and she didn't have the time to do away with him before something else happened. There's something else going on, and I'd try my hand talking to the others around here instead of me. You're barking at the wrong fella, fella."
 
-Having been soundly defeated, and having wasted all of your energy on this side plot, you abruptly shrink in size permanently.
+Having been soundly defeated, and having wasted all of your energy on this side plot, you abruptly physically shrink in size permanently.
 ~r_info_2 = false
+->INTERROGATE_RALPH
+
+==Ralph_Learn_frogContraband==
+"What do you actually know about Frank, though?" You ask.
+
+Ralph looks upon you with a wistful, unknowable gaze. "I shall peruse my Glass Platter for the knowledge you seek."
+
+You leap back in agony as Ralph pulls a glass platter out of his pocket somehow. He closes his eyes and holds the accursed glass platter up to the sky, or rather, the kitchen ceiling.
+
+...
+
+...
+
+...
+
+After several minutes of waiting around impatiently, Ralph finally opens his eyes again. He seems as shocked as you are when he speaks, "It would appear that Frank has been storing some highly volatile and dangerous contraband in a secret compartment in the kitchen! Anything from miniguns to AK-47s to quite possibly a nuke!"
+
+Surprisingly, the revelation about the frog concerns you less than what just occurred in front of you. "Where did you get a glass platter that lets you discover locked-away secrets!?"
+
+"Frank gave it to me himself. One of many relics he has apparently collected during his adventures." Ralph makes direct eye contact with you for the first time since you started talking to him.
+
+"...Could you use that thing to discover how the headmaster died?"
+
+"Most certainly not, fella." Ralph returns to sneering at you as he always does.
+
+You get the feeling you're dealing with things you could never comprehend, and decide not to press further.
+~frogStates ++
+~r_info_3 = false
+->INTERROGATE_RALPH
+
+==Ralph_Learn_frogOnRun==
+"What do you actually know about Frank, though?" You ask.
+
+Ralph looks upon you with a wistful, unknowable gaze. "I shall peruse my Glass Platter for the knowledge you seek."
+
+You leap back in agony as Ralph pulls a glass platter out of his pocket somehow. He closes his eyes and holds the accursed glass platter up to the sky, or rather, the kitchen ceiling.
+
+...
+
+...
+
+...
+
+After several minutes of waiting around impatiently, Ralph finally opens his eyes again. He seems as shocked as you are when he speaks, "It would appear that Frank has been on the run from French authorities for unspeakable crimes! He has taken up work in this restaurant in an effort to conceal his true identity!"
+
+Surprisingly, the revelation about the frog concerns you less than what just occurred in front of you. "Where did you get a glass platter that lets you discover locked-away secrets!?"
+
+"Frank gave it to me himself. One of many relics he has apparently collected during his adventures." Ralph makes direct eye contact with you for the first time since you started talking to him.
+
+"...Could you use that thing to discover how the headmaster died?"
+
+"Most certainly not, fella." Ralph returns to sneering at you as he always does.
+
+You get the feeling you're dealing with things you could never comprehend, and decide not to press further.
+~frogStates ++
+~r_info_3 = false
+->INTERROGATE_RALPH
+
+==Ralph_Learn_frogCriminal==
+"What do you actually know about Frank, though?" You ask.
+
+Ralph looks upon you with a wistful, unknowable gaze. "I shall peruse my Glass Platter for the knowledge you seek."
+
+You leap back in agony as Ralph pulls a glass platter out of his pocket somehow. He closes his eyes and holds the accursed glass platter up to the sky, or rather, the kitchen ceiling.
+
+...
+
+...
+
+...
+
+After several minutes of waiting around impatiently, Ralph finally opens his eyes again. He seems as shocked as you are when he speaks, "It would appear that Frank has been accused of, among other things, violating winemaking laws in France! Specifically, he marketed his signature sparkling wine as Champagne, even though it was created in Portugal! I guess that explains why the champagne here tastes like fishy chicken!"
+
+Surprisingly, the revelation about the frog concerns you less than what just occurred in front of you. "Where did you get a glass platter that lets you discover locked-away secrets!?"
+
+"Frank gave it to me himself. One of many relics he has apparently collected during his adventures." Ralph makes direct eye contact with you for the first time since you started talking to him.
+
+"...Could you use that thing to discover how the headmaster died?"
+
+"Most certainly not, fella." Ralph returns to sneering at you as he always does.
+
+You get the feeling you're dealing with things you could never comprehend, and decide not to press further.
+~frogStates ++
+~r_info_3 = false
+->INTERROGATE_RALPH
+
+==Ralph_Learn_frogConclusion==
+"What do you actually know about Frank, though?" You ask.
+
+Ralph looks upon you with a wistful, unknowable gaze. "I sense you already know everything about Frank that you should know."
+
+"Well, I know now that he's been storing a bunch of contraband in this very kitchen. And I know that he's been on the run from French authorities for violating their winemaking laws."
+
+"He also gave me this." You leap back in agony as Ralph pulls a glass platter out of his pocket somehow. "He told me that he found this glass platter, among other relics, during his adventures. He claims it can reveal secrets previously unknown, but for whatever reason I haven't tried using it yet."
+
+"How does it work?" you ask. "Could it reveal how the headmaster died?"
+
+"I can try," Ralph explains, "He said that to use it, I should close my eyes and hold it up to the sky, and think of the question I seek an answer to in my mind." Ralph proceeds to follow the instructions, closing his eyes. But when he tries to hold it up to the kitchen ceiling, it accidentally slips out of his hand, and the glass platter falls to the ground, shattering into innumerable pieces.
+
+"Oh, what a shame. Guess you aren't going to figure out this mystery the easy way, fella."
+
+You are more disappointed than you've ever been in your entire life.
+~frogStates ++
+~r_info_3 = false
 ->INTERROGATE_RALPH
