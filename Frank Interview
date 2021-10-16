@@ -19,7 +19,11 @@ I make my way closer to the frog as they light a cigarette on a gas stove.
         "What would I seek to gain from killing my employer? I may be a Socialist but twenty dollars is twenty dollars." Frank Says. ->Questions_Frank
 * "What is the Chef around here like?"
     "Calling him a chef would be an insult to cooking. He's an imbecile in a chef's costume, a mere approximation" Frank says.->Questions_Frank
-* ->lineup
+* "Tell me about the Headmistress"
+    ->Frank_wife_Reveal
+* "Tell me about yourself..."
+    ->Frank_frog_Reveal
+* ->DA_Interview
 
 ===DA_Interview===
 //ADD STATEMENT HERE THAT CHANES ntcharacter to false
@@ -78,28 +82,82 @@ Before you even had the chance to leave, you hear Frank scream "HOLY SHIT"
 ~StoryStates++
 ->lineup
 
+===Frank_wife_Reveal===
+* "Tell me more about the Headmaster and Headmistress..."
+Frank lights another cigarette on the gas stove.
+{feudStates == wifeNotHappy && c2_info: -> Frank_Learn_wifeFeudRevealed}
+-> Frank_wife_Reveal
+* "Tell me more about the Headmaster and Headmistress..."
+Frank lights another cigarette on the gas stove.
+{feudStates == wifeFeudRevealed && c2_info: -> Frank_Learn_wifePlanMurder}
+-> Frank_wife_Reveal
+* "Tell me more about the Headmaster and Headmistress..."
+Frank lights another cigarette on the gas stove.
+{feudStates == wifePlanMurder && c2_info: -> Frank_Learn_wifeFailMurder}
+-> Frank_wife_Reveal
+* "Tell me more about the Headmaster and Headmistress..."
+Frank lights another cigarette on the gas stove.
+{feudStates == wifeFailMurder && c2_info: -> Frank_Learn_wifeConclusion}
+-> Frank_wife_Reveal
+*->
+    Nothing you can tell anymore. ->Questions_Frank
+
+===Frank_Learn_wifeFeudRevealed===
+"Oh they were so bad to eachother." Frank's eyes light up as if he found an oasis in the middle of the Mojave Desert. "See the Headmaster loved the Headmistress at one point, but he loved sex even more, and when he couldn't get enough from his beloved he would begin to act erratic." Frank then began to describe sex acts between the Headmaster and his lovers in just absolutely disgusting detail. "There was this one time that the mistress caught them, or so I heard. I would not be surprised if she was the one who killed the Headmaster."
+    * Thanks for the info... I guess
+    ->Questions_Frank
+    
+===Frank_Learn_wifePlanMurder===
+"I think I overheard the Headmistress talk about a plan to cut the Headmaster out of the picture a week ago..." Frank takes a drag from his cigarette "Something about the inheritance not going to the other woman in the picture."
+    * "Wow, thanks a lot Frank!"
+    ->Questions_Frank
+    
+===Frank_Learn_wifeFailMurder===
+"It was obvious that she would not be able to will herself to kill her husband, murder is a crime of passion, and if she is not able to satisfy her husband then she surely does not have enough passion to kill him"
+Frank takes a drag from his cigarette. A long one. About half his cigarette is gone and he just lit it.
+* "So you don't think the mistress killed Parsennon White?"
+    "Of course not! I thought you knew already!"
+    ** "Thanks for the intrigue asshole"
+    ->Questions_Frank
+    
+===Frank_Learn_wifeConclusion===
+"I knew she didn't do it" Frank said
+->Questions_Frank
+# STATE MACHINE 3
 ===Frank_frog_Reveal===
-"Do you know anymore about the frog?"
-    *"I don't know!"
+"Tell me about yourself..."
     {frogStates == frogWho && c3_info: -> Frank_Learn_frogContraband}
-    -> frog_Reveal
-    *"Please!"
+    -> Frank_frog_Reveal
+    
     {frogStates == frogContraband && c3_info: -> Frank_Learn_frogOnRun}
-    -> frog_Reveal
-    * "I hate that creature!"
+    -> Frank_frog_Reveal
+    
     {frogStates == frogOnRun && c3_info: -> Frank_Learn_frogCriminal}
-    -> frog_Reveal
-    *"Let me out!"
+    -> Frank_frog_Reveal
+    
     {frogStates == frogCriminal && c3_info: -> Frank_Learn_frogConclusion}
-    -> frog_Reveal
+    -> Frank_frog_Reveal
+    
     *->
         Nothing you can tell anymore. ->Questions_Frank
         
 ===Frank_Learn_frogContraband===
-
+Frank tells you about the various weapons and contraband he keeps around the kitchen. The machine gun was the most obvious, but the extent to which the tools of destruction were present is quite alarming.
+* Why does he have all of these arms available to him? In the kitchen no less?
+    ->Questions_Frank 
 ===Frank_Learn_frogOnRun===
-
+Frank tells you that he is a fugitive on the run from the French Government. Not willing to elaborate on the details, he requests that you don't tell this to anyone who might tip him off to the French Government. His demeanor has changed such that he has lost his snark, his quips turning into nervous warbles. He cannot be trusted yet, as his crimes are not yet known.
+* What did this frog do to draw the wrath of the French Government.
+    ->Questions_Frank
 ===Frank_Learn_frogCriminal===
-
+Frank spills the beans. He is on the run from the French Government for the crime of producing and selling champagne in Portugal. 
+* What the Fuck.
+    ->Questions_Frank
 ===Frank_Learn_frogConclusion===
+<<<<<<< HEAD
 
+=======
+Frank has nothing more to say, it is clear that he must leave this cursed kitchen and move on to the next chapter of his life.
+* See you later my froggy friend.
+    ->Questions_Frank
+>>>>>>> james
