@@ -154,6 +154,7 @@ She decided to speak of the truth, the whole story that has happened in this res
 * "Are you doubting my love to him?"
 {feudStates == wifeFailMurder && c2_info: -> Wife_Learn_wifeConclusion}
 -> wife_Reveal
+//fallback option
 *->
     Nothing you can tell anymore. ->QuestionsForWife
 
@@ -213,6 +214,7 @@ She instinctly turned her head around and caught a glimpse at the hidden onion..
     *"Let me out!"
     {frogStates == frogCriminal && c3_info: -> Wife_Learn_frogConclusion}
     -> frog_Reveal
+    //fallback option
     *->
         Nothing you can tell anymore. ->QuestionsForWife
         
