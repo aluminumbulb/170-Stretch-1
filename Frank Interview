@@ -83,24 +83,28 @@ Before you even had the chance to leave, you hear Frank scream "HOLY SHIT"
 ->lineup
 
 ===Frank_wife_Reveal===
-* "Tell me more about the Headmaster and Headmistress..."
+
 Frank lights another cigarette on the gas stove.
 {LIST_MAX(feudStates) == wifeNotHappy && c2_info: -> Frank_Learn_wifeFeudRevealed}
 -> Frank_wife_Reveal
-* "Tell me more about the Headmaster and Headmistress..."
-Frank lights another cigarette on the gas stove.
+
 {LIST_MAX(feudStates) == wifeFeudRevealed && c2_info: -> Frank_Learn_wifePlanMurder}
 -> Frank_wife_Reveal
-* "Tell me more about the Headmaster and Headmistress..."
-Frank lights another cigarette on the gas stove.
+
 {LIST_MAX(feudStates) == wifePlanMurder && c2_info: -> Frank_Learn_wifeFailMurder}
 -> Frank_wife_Reveal
-* "Tell me more about the Headmaster and Headmistress..."
-Frank lights another cigarette on the gas stove.
+
 {LIST_MAX(feudStates) == wifeFailMurder && c2_info: -> Frank_Learn_wifeConclusion}
 -> Frank_wife_Reveal
 *->
     Nothing you can tell anymore. ->Questions_Frank
+
+===Frank_Learn_wifeNotHappy===
+"Was it really any surprise that they had troubles with their marriage? I mean, you get to a certain level of high society and this is just bound to happen"
+    * It does tend to be like that...
+    ~feudStates += feudStates.wifeFeudRevealed
+    
+    ->Questions_Frank
 
 ===Frank_Learn_wifeFeudRevealed===
 "Oh they were so bad to eachother." Frank's eyes light up as if he found an oasis in the middle of the Mojave Desert. "See the Headmaster loved the Headmistress at one point, but he loved sex even more, and when he couldn't get enough from his beloved he would begin to act erratic." Frank then began to describe sex acts between the Headmaster and his lovers in just absolutely disgusting detail. "There was this one time that the mistress caught them, or so I heard. I would not be surprised if she was the one who killed the Headmaster."
@@ -132,7 +136,7 @@ Frank takes a drag from his cigarette. A long one. About half his cigarette is g
 ->Questions_Frank
 # STATE MACHINE 3
 ===Frank_frog_Reveal===
-"Tell me about yourself..."
+
     {LIST_MAX(frogStates) == frogWho && c3_info: -> Frank_Learn_frogContraband}
     -> Frank_frog_Reveal
     
@@ -149,7 +153,8 @@ Frank takes a drag from his cigarette. A long one. About half his cigarette is g
         Nothing you can tell anymore. ->Questions_Frank
         
 ===Frank_Learn_frogContraband===
-Frank tells you about the various weapons and contraband he keeps around the kitchen. The machine gun was the most obvious, but the extent to which the tools of destruction were present is quite alarming.
+Frank tells you about the various weapons and contraband he keeps around the kitchen in detail. If it "disappeared" in the last 30 years from a major government it's in this kitchen. The machine gun was the most obvious, but the extent to which the tools of destruction were present is quite alarming. 
+"I always keep a loaded AK under my workspace just in case" Frank remarks. 
 * Why does he have all of these arms available to him? In the kitchen no less?
 ~frogStates += frogStates.frogContraband
     ->Questions_Frank 
