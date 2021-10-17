@@ -174,15 +174,38 @@ You realize that Ralph clearly has deep, complicated feelings about Frank that y
 
 ===froggo3===
 {LIST_MAX(frogStates) == frogCriminal && r_info_3: ->Ralph_Learn_frogConclusion}
-{LIST_MAX(frogStates) ==  frogOnRun && r_info_3: ->Ralph_Learn_frogCriminal}
-{LIST_MAX(frogStates) ==  frogContraband && r_info_3: ->Ralph_Learn_frogOnRun}
-{LIST_MAX(frogStates) == frogWho && r_info_3: ->Ralph_Learn_frogContraband}
+{LIST_MAX(frogStates) ==  frogOnRun && r_info_3: ->froggo_inquire}
+{LIST_MAX(frogStates) ==  frogContraband && r_info_3: ->froggo_inquire}
+{LIST_MAX(frogStates) == frogWho && r_info_3: ->froggo_inquire}
 "What do you actually know about Frank, though?" You ask.
 
 Ralph looks upon you with a wistful, unknowable gaze. "I sense you already know everything about Frank that you need to know. I will not disclose any more, fella."
 
 You get the feeling you're dealing with things you could never comprehend, and decide not to press further.
 ->INTERROGATE_RALPH
+
+===froggo_inquire===
+"What do you actually know about Frank, though?" You ask.
+
+Ralph looks upon you with a wistful, unknowable gaze. "I shall peruse my Glass Platter for the knowledge you seek."
+
+You leap back in agony as Ralph pulls a glass platter out of his pocket somehow. He closes his eyes and holds the accursed glass platter up to the sky, or rather, the kitchen ceiling.
+
+*[...]->froggo_inquire2
+
+===froggo_inquire2===
+...
+*[...]->froggo_inquire3
+
+===froggo_inquire3===
+...
+*[...]->froggo_inquire4
+
+===froggo_inquire4===
+...
+{LIST_MAX(frogStates) ==  frogOnRun && r_info_3: ->Ralph_Learn_frogCriminal}
+{LIST_MAX(frogStates) ==  frogContraband && r_info_3: ->Ralph_Learn_frogOnRun}
+{LIST_MAX(frogStates) == frogWho && r_info_3: ->Ralph_Learn_frogContraband}
 
 ===Ralph_Outro===
 "Well, I think that's everything, Ralph."
@@ -275,12 +298,17 @@ You hear Ralph making a commotion behind you and turn back around.
 
 "I...m-mY mOuTh Is On FiRe, FeLlA....." Ralph groans, and you can see sparks flashing inside of his mouth, making pop-pop-pop noises. He clutches his mouth in an attempt to keep it in, but you can hear the pops getting louder and his face begins to puff up. Aghast, you stand back as Ralph emits a final, high-pitched, horrific scream and pops, exploding into many Ralph-parts all over the kitchen.
 
-...
+*[...]->Ralph_FULL2
 
+===Ralph_FULL2===
 ...
+*[...]->Ralph_FULL3
 
+===Ralph_FULL3===
 ...
+*[...]->Ralph_FULL4
 
+===Ralph_FULL4===
 "Well, that just about explains it," you say after a long pause, aloud for some reason. "The poor headmaster must've been done in by those dastardly poprocks that Beauregard foolishly stuffed in his dish. Simply tragic. Well, you can join your friend in the afterlife now, 'fella'."
 ~StoryStates ++
 ~r_info = false
@@ -354,18 +382,6 @@ Having been soundly defeated, and having wasted all of your energy on this side 
 ->INTERROGATE_RALPH
 
 ==Ralph_Learn_frogContraband==
-"What do you actually know about Frank, though?" You ask.
-
-Ralph looks upon you with a wistful, unknowable gaze. "I shall peruse my Glass Platter for the knowledge you seek."
-
-You leap back in agony as Ralph pulls a glass platter out of his pocket somehow. He closes his eyes and holds the accursed glass platter up to the sky, or rather, the kitchen ceiling.
-
-...
-
-...
-
-...
-
 After several minutes of waiting around impatiently, Ralph finally opens his eyes again. He seems as shocked as you are when he speaks, "It would appear that Frank has been storing some highly volatile and dangerous contraband in a secret compartment in the kitchen! Anything from miniguns to AK-47s to quite possibly a nuke!"
 
 Surprisingly, the revelation about the frog concerns you less than what just occurred in front of you. "Where did you get a glass platter that lets you discover locked-away secrets!?"
@@ -382,18 +398,6 @@ You get the feeling you're dealing with things you could never comprehend, and d
 ->INTERROGATE_RALPH
 
 ==Ralph_Learn_frogOnRun==
-"What do you actually know about Frank, though?" You ask.
-
-Ralph looks upon you with a wistful, unknowable gaze. "I shall peruse my Glass Platter for the knowledge you seek."
-
-You leap back in agony as Ralph pulls a glass platter out of his pocket somehow. He closes his eyes and holds the accursed glass platter up to the sky, or rather, the kitchen ceiling.
-
-...
-
-...
-
-...
-
 After several minutes of waiting around impatiently, Ralph finally opens his eyes again. He seems as shocked as you are when he speaks, "It would appear that Frank has been on the run from French authorities for unspeakable crimes! He has taken up work in this restaurant in an effort to conceal his true identity!"
 
 Surprisingly, the revelation about the frog concerns you less than what just occurred in front of you. "Where did you get a glass platter that lets you discover locked-away secrets!?"
@@ -410,18 +414,6 @@ You get the feeling you're dealing with things you could never comprehend, and d
 ->INTERROGATE_RALPH
 
 ==Ralph_Learn_frogCriminal==
-"What do you actually know about Frank, though?" You ask.
-
-Ralph looks upon you with a wistful, unknowable gaze. "I shall peruse my Glass Platter for the knowledge you seek."
-
-You leap back in agony as Ralph pulls a glass platter out of his pocket somehow. He closes his eyes and holds the accursed glass platter up to the sky, or rather, the kitchen ceiling.
-
-...
-
-...
-
-...
-
 After several minutes of waiting around impatiently, Ralph finally opens his eyes again. He seems as shocked as you are when he speaks, "It would appear that Frank has been accused of, among other things, violating winemaking laws in France! Specifically, he marketed his signature sparkling wine as Champagne, even though it was created in Portugal! I guess that explains why the champagne here tastes like fishy chicken!"
 
 Surprisingly, the revelation about the frog concerns you less than what just occurred in front of you. "Where did you get a glass platter that lets you discover locked-away secrets!?"
