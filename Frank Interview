@@ -27,12 +27,12 @@ I make my way closer to the frog as they light a cigarette on a gas stove.
 
 ===DA_Interview===
 //ADD STATEMENT HERE THAT CHANES ntcharacter to false
-{StoryStates == StoryStates.head_explodes: ->Frank_SECRET_INGREDIENTS}
-{StoryStates == StoryStates.secret_ingredients: ->Frank_FILTHY_KITCHEN}
-{StoryStates == StoryStates.filthy_kitchen: ->Frank_BEAU_INGREDIENTS}
-{StoryStates == StoryStates.beauregard_ingredient: ->Frank_THE_EXPAT}
-{StoryStates == StoryStates.frank_cache: ->Frank_POPROCKS}
-{StoryStates == StoryStates.frank_cache: ->Frank_FULL}
+{LIST_MAX(StoryStates) == StoryStates.head_explodes: ->Frank_SECRET_INGREDIENTS}
+{LIST_MAX(StoryStates)  == StoryStates.secret_ingredients: ->Frank_FILTHY_KITCHEN}
+{LIST_MAX(StoryStates)  == StoryStates.filthy_kitchen: ->Frank_BEAU_INGREDIENTS}
+{LIST_MAX(StoryStates)  == StoryStates.beauregard_ingredient: ->Frank_THE_EXPAT}
+{LIST_MAX(StoryStates)  == StoryStates.frank_cache: ->Frank_POPROCKS}
+{LIST_MAX(StoryStates)  == StoryStates.ralph_pop_rocks: ->Frank_FULL}
 ->lineup //Oops the programmer miscounted again. Classic.
 
 ===Frank_SECRET_INGREDIENTS===
@@ -85,19 +85,19 @@ Before you even had the chance to leave, you hear Frank scream "HOLY SHIT"
 ===Frank_wife_Reveal===
 * "Tell me more about the Headmaster and Headmistress..."
 Frank lights another cigarette on the gas stove.
-{feudStates == wifeNotHappy && c2_info: -> Frank_Learn_wifeFeudRevealed}
+{LIST_MAX(feudStates) == wifeNotHappy && c2_info: -> Frank_Learn_wifeFeudRevealed}
 -> Frank_wife_Reveal
 * "Tell me more about the Headmaster and Headmistress..."
 Frank lights another cigarette on the gas stove.
-{feudStates == wifeFeudRevealed && c2_info: -> Frank_Learn_wifePlanMurder}
+{LIST_MAX(feudStates) == wifeFeudRevealed && c2_info: -> Frank_Learn_wifePlanMurder}
 -> Frank_wife_Reveal
 * "Tell me more about the Headmaster and Headmistress..."
 Frank lights another cigarette on the gas stove.
-{feudStates == wifePlanMurder && c2_info: -> Frank_Learn_wifeFailMurder}
+{LIST_MAX(feudStates) == wifePlanMurder && c2_info: -> Frank_Learn_wifeFailMurder}
 -> Frank_wife_Reveal
 * "Tell me more about the Headmaster and Headmistress..."
 Frank lights another cigarette on the gas stove.
-{feudStates == wifeFailMurder && c2_info: -> Frank_Learn_wifeConclusion}
+{LIST_MAX(feudStates) == wifeFailMurder && c2_info: -> Frank_Learn_wifeConclusion}
 -> Frank_wife_Reveal
 *->
     Nothing you can tell anymore. ->Questions_Frank
@@ -133,16 +133,16 @@ Frank takes a drag from his cigarette. A long one. About half his cigarette is g
 # STATE MACHINE 3
 ===Frank_frog_Reveal===
 "Tell me about yourself..."
-    {frogStates == frogWho && c3_info: -> Frank_Learn_frogContraband}
+    {LIST_MAX(frogStates) == frogWho && c3_info: -> Frank_Learn_frogContraband}
     -> Frank_frog_Reveal
     
-    {frogStates == frogContraband && c3_info: -> Frank_Learn_frogOnRun}
+    {LIST_MAX(frogStates) == frogContraband && c3_info: -> Frank_Learn_frogOnRun}
     -> Frank_frog_Reveal
     
-    {frogStates == frogOnRun && c3_info: -> Frank_Learn_frogCriminal}
+    {LIST_MAX(frogStates) == frogOnRun && c3_info: -> Frank_Learn_frogCriminal}
     -> Frank_frog_Reveal
     
-    {frogStates == frogCriminal && c3_info: -> Frank_Learn_frogConclusion}
+    {LIST_MAX(frogStates) == frogCriminal && c3_info: -> Frank_Learn_frogConclusion}
     -> Frank_frog_Reveal
     
     *->

@@ -1,18 +1,18 @@
 ===Wife_Main_Interview===
-{StoryStates == StoryStates.head_explodes: ->Wife_Learn_SECRET_INGREDIENTS}
-{StoryStates == StoryStates.secret_ingredients: ->Wife_Learn_FILTHY_KITCHEN}
-{StoryStates == StoryStates.filthy_kitchen: ->Wife_Learn_BEAU_INGREDIENTS}
-{StoryStates == StoryStates.beauregard_ingredient: ->Wife_learn_FRANK_EXPAT}
-{StoryStates == StoryStates.frank_cache: ->Wife_Learn_POPROCKS}
-{StoryStates == StoryStates.ralph_pop_rocks: ->Wife_Learn_FULL}
+{LIST_MAX(StoryStates) == StoryStates.head_explodes: ->Wife_Learn_SECRET_INGREDIENTS}
+{LIST_MAX(StoryStates) == StoryStates.secret_ingredients: ->Wife_Learn_FILTHY_KITCHEN}
+{LIST_MAX(StoryStates) == StoryStates.filthy_kitchen: ->Wife_Learn_BEAU_INGREDIENTS}
+{LIST_MAX(StoryStates) == StoryStates.beauregard_ingredient: ->Wife_learn_FRANK_EXPAT}
+{LIST_MAX(StoryStates) == StoryStates.frank_cache: ->Wife_Learn_POPROCKS}
+{LIST_MAX(StoryStates) == StoryStates.ralph_pop_rocks: ->Wife_Learn_FULL}
 ->->
 
 ===wife_Catherine_Feud===
-{feudStates == feudStates.wifeNotHappy: -> Wife_Learn_wifeNotHappy}
-{feudStates == feudStates.wifeFeudRevealed: -> Wife_Learn_wifeFeudRevealed}
-{feudStates == feudStates.wifePlanMurder: -> Wife_Learn_wifePlanMurder}
-{feudStates == feudStates.wifeFailMurder: -> Wife_Learn_wifeFailMurder}
-{feudStates == feudStates.wifeConclusion: -> Wife_Learn_wifeConclusion}
+{LIST_MAX(feudStates) == feudStates.wifeNotHappy: -> Wife_Learn_wifeNotHappy}
+{LIST_MAX(feudStates) == feudStates.wifeFeudRevealed: -> Wife_Learn_wifeFeudRevealed}
+{LIST_MAX(feudStates) == feudStates.wifePlanMurder: -> Wife_Learn_wifePlanMurder}
+{LIST_MAX(feudStates) == feudStates.wifeFailMurder: -> Wife_Learn_wifeFailMurder}
+{LIST_MAX(feudStates) == feudStates.wifeConclusion: -> Wife_Learn_wifeConclusion}
 ->->
 
 === Wife ===
@@ -31,34 +31,34 @@ Ask about:
     -> QuestionsForWife
 * "Do you know about the frog?"
     "What the frog?" She shouted inconceivably, "I don't know anything about a frog, you animal!"
-    {StoryStates == beauregard_ingredient && c1_info: -> Wife_learn_FRANK_EXPAT}
+    {LIST_MAX(StoryStates) == beauregard_ingredient && c1_info: -> Wife_learn_FRANK_EXPAT}
     -> frog_Reveal
     -> QuestionsForWife
 * "Who is that weirdo?"
     "You mean Ralph? Well he is a good friend of my husband, he usually hanging around in the kitchen, touching this and that." She shaked her head and continued,"god knows how much I hate his wiseacre attitude everytime he came in."
-    {StoryStates == frank_cache && c1_info: -> Wife_Learn_POPROCKS}
+    {LIST_MAX(StoryStates) == frank_cache && c1_info: -> Wife_Learn_POPROCKS}
     -> QuestionsForWife
 * "Do you love your husband?"
     ->wife_Reveal
 
 * "Any thought on the chef?"
     "Yes of course, he is very talented and diligent, absolutely the best one in the kitchen I would say!"
-    {StoryStates == head_explodes && c1_info: -> Wife_Learn_SECRET_INGREDIENTS}
+    {LIST_MAX(StoryStates) == head_explodes && c1_info: -> Wife_Learn_SECRET_INGREDIENTS}
     -> QuestionsForWife
 * "What did the Headmaster eat?"
     "How would I know? He probably ate something toxic? No way it is going to be a micro-TNT...right?" She hesitated and thought about that for a second, "could he possibly ate a TNT?..."
-    {StoryStates == filthy_kitchen && c1_info: -> Wife_Learn_BEAU_INGREDIENTS}
+    {LIST_MAX(StoryStates) == filthy_kitchen && c1_info: -> Wife_Learn_BEAU_INGREDIENTS}
     -> QuestionsForWife
 * "How is the kitchen condition?"
     "I don't know, I think the kitchen is fine, it is not me who work in it so I don't care, if it is nasty then they should clean it themselves. Why are you asking that? Is that relevant?"
-    {StoryStates == secret_ingredients && c1_info: -> Wife_Learn_FILTHY_KITCHEN}
+    {LIST_MAX(StoryStates) == secret_ingredients && c1_info: -> Wife_Learn_FILTHY_KITCHEN}
     -> QuestionsForWife
     
 * "Do you know anything about the death of the headmaster, your husband?"
     "I was with him this morning, but I haven't seen him for the rest of the day, so how would I know anything...are you suspecting me huh?" She wasn't quite happy with your question, "so mr inspector, may I please ask, what does this question do with your job?"
     ** "Well the headmaster is dead, shouldn't miss any clue I must. So once again, are you sure about what you just said?"
         "Yes of course!"
-    {StoryStates == ralph_pop_rocks && c1_info: -> Wife_Learn_FULL}
+    {LIST_MAX(StoryStates) == ralph_pop_rocks && c1_info: -> Wife_Learn_FULL}
     -> QuestionsForWife
 * -> 
     Having done all you can to wring information out of the wife, you turn back to the rest of the lineup.
@@ -143,16 +143,16 @@ She decided to speak of the truth, the whole story that has happened in this res
 
 ===wife_Reveal===
 * "Yes I do."
-{feudStates == wifeNotHappy && c2_info: -> Wife_Learn_wifeFeudRevealed}
+{LIST_MAX(feudStates) == wifeNotHappy && c2_info: -> Wife_Learn_wifeFeudRevealed}
 -> wife_Reveal
 * "Why not?"
-{feudStates == wifeFeudRevealed && c2_info: -> Wife_Learn_wifePlanMurder}
+{LIST_MAX(feudStates) == wifeFeudRevealed && c2_info: -> Wife_Learn_wifePlanMurder}
 -> wife_Reveal
 * "What is this question?"
-{feudStates == wifePlanMurder && c2_info: -> Wife_Learn_wifeFailMurder}
+{LIST_MAX(feudStates) == wifePlanMurder && c2_info: -> Wife_Learn_wifeFailMurder}
 -> wife_Reveal
 * "Are you doubting my love to him?"
-{feudStates == wifeFailMurder && c2_info: -> Wife_Learn_wifeConclusion}
+{LIST_MAX(feudStates) == wifeFailMurder && c2_info: -> Wife_Learn_wifeConclusion}
 -> wife_Reveal
 //fallback option
 *->
@@ -203,16 +203,16 @@ She instinctly turned her head around and caught a glimpse at the hidden onion..
 ===frog_Reveal===
 "Do you know anymore about the frog?"
     *"I don't know!"
-    {frogStates == frogWho && c3_info: -> Wife_Learn_frogContraband}
+    {LIST_MAX(frogStates) == frogWho && c3_info: -> Wife_Learn_frogContraband}
     -> frog_Reveal
     *"Please!"
-    {frogStates == frogContraband && c3_info: -> Wife_Learn_frogOnRun}
+    {LIST_MAX(frogStates) == frogContraband && c3_info: -> Wife_Learn_frogOnRun}
     -> frog_Reveal
     * "I hate that creature!"
-    {frogStates == frogOnRun && c3_info: -> Wife_Learn_frogCriminal}
+    {LIST_MAX(frogStates) == frogOnRun && c3_info: -> Wife_Learn_frogCriminal}
     -> frog_Reveal
     *"Let me out!"
-    {frogStates == frogCriminal && c3_info: -> Wife_Learn_frogConclusion}
+    {LIST_MAX(frogStates) == frogCriminal && c3_info: -> Wife_Learn_frogConclusion}
     -> frog_Reveal
     //fallback option
     *->

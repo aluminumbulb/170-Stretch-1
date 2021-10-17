@@ -1,26 +1,26 @@
 ===chef_Main_Interview===
-{StoryStates == StoryStates.head_explodes: ->chef_Learn_SECRET_INGREDIENTS}
-{StoryStates == StoryStates.secret_ingredients: ->chef_Learn_FILTHY_KITCHEN}
-{StoryStates == StoryStates.filthy_kitchen: ->chef_Learn_BEAU_INGREDIENTS}
-{StoryStates == StoryStates.beauregard_ingredient: ->chef_learn_FRANK_EXPAT}
-{StoryStates == StoryStates.frank_cache: ->chef_Learn_POPROCKS}
-{StoryStates == StoryStates.ralph_pop_rocks: ->chef_Learn_FULL}
+{LIST_MAX(StoryStates) == StoryStates.head_explodes: ->chef_Learn_SECRET_INGREDIENTS}
+{LIST_MAX(StoryStates) == StoryStates.secret_ingredients: ->chef_Learn_FILTHY_KITCHEN}
+{LIST_MAX(StoryStates) == StoryStates.filthy_kitchen: ->chef_Learn_BEAU_INGREDIENTS}
+{LIST_MAX(StoryStates) == StoryStates.beauregard_ingredient: ->chef_learn_FRANK_EXPAT}
+{LIST_MAX(StoryStates) == StoryStates.frank_cache: ->chef_Learn_POPROCKS}
+{LIST_MAX(StoryStates) == StoryStates.ralph_pop_rocks: ->chef_Learn_FULL}
 ->->
 
 ==chef_Catherine_Feud==
-{feudStates == feudStates.wifeNotHappy: -> chef_Learn_wifeNotHappy}
-{feudStates == feudStates.wifeFeudRevealed: -> chef_Learn_wifeFeudRevealed}
-{feudStates == feudStates.wifePlanMurder: -> chef_Learn_wifePlanMurder}
-{feudStates == feudStates.wifeFailMurder: -> chef_Learn_wifeFailMurder}
-{feudStates == feudStates.wifeConclusion: -> chef_Learn_wifeConclusion}
+{LIST_MAX(feudStates) == feudStates.wifeNotHappy: -> chef_Learn_wifeNotHappy}
+{LIST_MAX(feudStates) == feudStates.wifeFeudRevealed: -> chef_Learn_wifeFeudRevealed}
+{LIST_MAX(feudStates) == feudStates.wifePlanMurder: -> chef_Learn_wifePlanMurder}
+{LIST_MAX(feudStates) == feudStates.wifeFailMurder: -> chef_Learn_wifeFailMurder}
+{LIST_MAX(feudStates) == feudStates.wifeConclusion: -> chef_Learn_wifeConclusion}
 ->->
 
 ==chef_Frank_Criminal==
-{frogStates == frogStates.frogWho: -> chef_Learn_frogOnRun}
-{frogStates == frogStates.frogContraband: -> chef_Learn_frogContraband}
-{frogStates == frogStates.frogOnRun: -> chef_Learn_illegalChampagne}
-{frogStates == frogStates.frogCriminal: -> chef_Learn_frankIsCriminal}
-{frogStates == frogStates.frogConclusion: -> chef_Learn_frankConclusion}
+{LIST_MAX(frogStates) == frogStates.frogWho: -> chef_Learn_frogOnRun}
+{LIST_MAX(frogStates) == frogStates.frogContraband: -> chef_Learn_frogContraband}
+{LIST_MAX(frogStates) == frogStates.frogOnRun: -> chef_Learn_illegalChampagne}
+{LIST_MAX(frogStates) == frogStates.frogCriminal: -> chef_Learn_frankIsCriminal}
+{LIST_MAX(frogStates) == frogStates.frogConclusion: -> chef_Learn_frankConclusion}
 ->->
 
 

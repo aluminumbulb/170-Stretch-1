@@ -76,7 +76,7 @@ The frog acted without a care in the world.
 -> Frank
 
 === WifeText ===
-A sobbing woman.
+A callous woman.
 -> Wife
 
 
