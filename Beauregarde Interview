@@ -1,3 +1,20 @@
+===Beau===
+{LIST_MAX(StoryStates) == StoryStates.head_explodes: ->Beau_Learn_SECRET_INGREDIENTS}
+{LIST_MAX(StoryStates) == StoryStates.secret_ingredients: ->Beau_Learn_FILTHY_KITCHEN}
+{LIST_MAX(StoryStates) == StoryStates.filthy_kitchen: ->Beau_Learn_BEAU_INGREDIENTS}
+{LIST_MAX(StoryStates) == StoryStates.beauregard_ingredient: ->Beau_learn_FRANK_EXPAT}
+{LIST_MAX(StoryStates) == StoryStates.frank_cache: ->Beau_Learn_POPROCKS}
+{LIST_MAX(StoryStates) == StoryStates.ralph_pop_rocks: ->Beau_Learn_FULL}
+->->
+
+===Beau_Catherine_Feud===
+{LIST_MAX(feudStates) == feudStates.wifeNotHappy: -> Beau_Learn_WifeNotHappy}
+{LIST_MAX(feudStates) == feudStates.wifeFeudRevealed: -> Beau_Learn_WifeFeudRevealed}
+{LIST_MAX(feudStates) == feudStates.wifePlanMurder: -> Beau_Learn_wifePlanMurder}
+{LIST_MAX(feudStates) == feudStates.wifeFailMurder: -> Beau_Learn_wifeFailMurder}
+{LIST_MAX(feudStates) == feudStates.wifeConclusion: -> Beau_Learn_WifeConclusion}
+->->
+
 ===Beau_Intro===
 ~ntbeau = false
 I beckon the redhead over to the kitchen, away from the others.
@@ -6,15 +23,39 @@ I beckon the redhead over to the kitchen, away from the others.
 ===Beau_Questions===
 * "Who are you?"
     The young man seems to remember himself, standing up straighter and fiddling with the collar of his shirt for a moment.
-    "Beauregard Smith."
-    // *"Smith? Like the chef?"
-    // "Yes, he's my father."
-    "I'm err... a member of the staff here. I was recently promoted from janitor, thanks to the good graces of the head chef." 
-    ->Beau_Questions
+    "Beauregard Smith.
+    I'm err... a member of the staff here. I was recently promoted from janitor, thanks to the good graces of the head chef."
+        ->Beau_Questions
 * "What do you know of the Headmaster?"
 "He's the owner, I haven't spoken to him directly very often, I was busy and he didn't need to meet a busboy like me. I know he and his wife run- ran the business together, though I don't know how even their divison of work was."
     ->Beau_Questions
-* ""
+* "What do you know of the Head Chef?"
+    "He's my father. He helped me get this job..."
+    {LIST_MAX(StoryStates) == head_explodes && s1_info: ->Beau_Learn_SECRET_INGREDIENTS}
+->Beau_Questions
+* "What do you know of the Headmaster's Wife?"
+"She's a stern lady, very business minded... I haven't had to speak with her..."
+    ->Beau_Wife_Reveal->
+    ->Beau_Questions
+    
+*"What can you tell me about the Frog Chef?"
+    "He's a good chef, but an odd man, err, frog."
+    ->Beau_Frank_Reveal->
+    "Just... keep that quiet please."
+    ->Beau_Questions
+*"Are you sure there's nothing more you can tell me about what occured here?"
+    {LIST_MAX(StoryStates) == head_explodes: -> Beau_Learn_SECRET_INGREDIENTS}
+    {LIST_MAX(StoryStates) == secret_ingredients: -> Beau_Learn_FILTHY_KITCHEN}
+    {LIST_MAX(StoryStates) == filthy_kitchen: -> Beau_Learn_SECRET_INGREDIENTS}
+    {LIST_MAX(StoryStates) == beauregard_ingredient: -> Beau_Learn_BEAU_INGREDIENTS}
+    {LIST_MAX(StoryStates) == frank_cache: -> Beau_learn_FRANK_EXPAT}
+    {LIST_MAX(StoryStates) == ralph_pop_rocks: -> Beau_Learn_POPROCKS}
+    {LIST_MAX(StoryStates) == conclusion: -> Beau_Learn_FULL}
+
+->Beau_Questions
+
+
+
 ->Beau_Questions
 
 *Take a firm approach
@@ -91,6 +132,32 @@ He wipes his hand with his face, looking nervous.
 ->Beau_Questions
 
 // frog storyline
+===Beau_Learn_frogContraband===
+"I, well I've seen that frog bringing some very... unconventional ingredients into the kitchen. It's never been my place to say anything about it of course. I'm sure he knows what he's doing, but some of those spices smelled awfully bad... and bringing in guns for decor is weird I guess."
+~frogStates += frogStates.frogContraband
+    ->Beau_Questions
+    
+===Beau_Learn_frogOnRun===
+"Frank has always been shifty, seems like he had a troubled past? I overheard my father in conversation with that frog once, something about how he could "never go back to that country" and he sure seemed ready to go at a moment's notice."
+~frogStates += frogStates.frogOnRun
+    ->Beau_Questions
+    
+===Beau_Learn_frogCriminal===
+"Now that you mention it.. I remember. He's wanted in France, something about Portugese wines?... I don't think I was supposed to know that."
+~frogStates += frogStates.frogCriminal
+    ->Beau_Questions
+
+===Beau_Wife_Reveal===
+{LIST_MAX(feudStates) == feudStates.wifeNotHappy && s2_info: ->M_Learn_FEUD->} 
+{LIST_MAX(feudStates) ==  feudStates.wifeFeudRevealed and s2_info: ->M_Learn_PLAN->} 
+{LIST_MAX(feudStates) ==  feudStates.wifePlanMurder and s2_info: ->M_Learn_FAIL->}
+->->
+
+===Beau_Frank_Reveal===
+{LIST_MAX(frogStates) == frogStates.frogContraband: -> Beau_Learn_frogContraband}
+{LIST_MAX(frogStates) == frogStates.frogOnRun: -> chef_Learn_frogOnRun}
+{LIST_MAX(frogStates) == frogStates.frogCriminal: -> Beau_Learn_frogCriminal}
+->->
 
 ===Beau_Done ===
 I clearly had learned all I could from the young man.
