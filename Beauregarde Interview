@@ -1,19 +1,35 @@
 ===Beau_Intro===
 ~ntbeau = false
-I step closer to the young man, 
+I beckon the redhead over to the kitchen, away from the others.
 ->Beau_Questions
 
 ===Beau_Questions===
 * "Who are you?"
-    "Beauregard Smith. I'm err... a member of the staff here. I was recently promoted from janitor, thanks to the good graces of the head chef."
+    The young man seems to remember himself, standing up straighter and fiddling with the collar of his shirt for a moment.
+    "Beauregard Smith."
+    // *"Smith? Like the chef?"
+    // "Yes, he's my father."
+    "I'm err... a member of the staff here. I was recently promoted from janitor, thanks to the good graces of the head chef." 
+    ->Beau_Questions
+* "What do you know of the Headmaster?"
+"He's the owner, I haven't spoken to him directly very often, I was busy and he didn't need to meet a busboy like me. I know he and his wife run- ran the business together, though I don't know how even their divison of work was."
     ->Beau_Questions
 * ""
+->Beau_Questions
+
+*Take a firm approach
+    "Beauregard, what do you know about what happened here. The truth." 
+     ->Beau_Learn_SECRET_INGREDIENTS
+
+// ask about others if not met,
+// ask about guy who died
+// ask about role in kitchen if at appropriate state
 
 ->Beau_Done
 
 ===Beau_Learn_SECRET_INGREDIENTS===
 "Fath-err, the head chef is unlike any other, his recipies are a well-kept secret. I myself am in charge of the care and organizaiton of the finest ingredients in here! Of course.. where did I put that basket of..." he trails off, clearly realizing he would have revealed the chef's secrets.
-"Nevermind. I'm in charge of restocking the shelves and that includes the chef's secret ingredients. It's just part of the way things are done here."
+"Nevermind. I'm in charge of restocking the shelves and that includes the chef's secret ingredients. It's just part of the way things are done here." 
 ~StoryStates += StoryStates.secret_ingredients
 ->Beau_Done
 
@@ -25,13 +41,13 @@ He points to a tile that does not appear to be cleaned, and continues looking do
 ->Beau_Done
 
 ===Beau_Learn_BEAU_INGREDIENTS===
-"I was in charge of the final plating for the food tonight! I remember it clearly because the recipe called for caviar, and I had just moved that into place earlier today. It was a very quick trip into the pantry and back for the caviar." He gasps, covering his mouth.
-"Err. Just don't tell anyone I told you what it was.
+"I was in charge of the final plating for the food tonight! I remember it clearly because the recipe called for peppered caviar, and I had just moved that into place earlier today. It was a very quick trip into the pantry and back for the caviar and the spice." He almost looks proud of himself for a moment, then gasps, covering his mouth.
+"Err. Just don't tell anyone I told you what it was, okay?"
 ~StoryStates += StoryStates.beauregard_ingredient
 ->Beau_Done
 
 ===Beau_learn_FRANK_EXPAT===
-"That frog.. he's brought some odd ingredients into the kitchen before, muttering something about his past? I didn't think much of them, it's not like I have any place to tell him how to cook the food."
+"That frog.. he's brought some odd ingredients into the kitchen before, muttering something about his past? I didn't think much of them, it's not my place to tell him how to cook the food, that would be up to da- the chef."
 ~StoryStates += StoryStates.frank_cache
 ->Beau_Done
 
@@ -44,10 +60,37 @@ He points to a tile that does not appear to be cleaned, and continues looking do
 The young man looks sick to his stomach, practically as green as the frog.
 "I suppose the caviar must have gone bad? It smelled almost like rotten eggs..."
 He wipes his hand with his face, looking nervous.
-"It also didn't have the usual texture of the caviar now that I think about it..."
+"It also didn't have the usual texture of the caviar now that I think about it... I suppose there's a chance he... well he could have eaten bad caviar, but we would never serve such a thing. I don't know what else it would be outside of the food, sir."
 ~StoryStates += StoryStates.conclusion
 ->Beau_Done
 
+// wife storyline 
+===Beau_Learn_WifeNotHappy===
+"It's awful that it happened to him. I don't think his wife, now his widow I guess seems too choked up about it though. Maybe it's the shock of it." He shrugs, going back to fidgeting with his apron. 
+~feudStates += feudStates.wifeNotHappy
+->Beau_Questions
+
+===Beau_Learn_WifeFeudRevealed ===
+"As long as this doesn't get me in trouble, I have heard her and the headmaster arguing at open, sometimes at closing as well. I couldn't really hear what the argument was about, I was just cleaning the kitchen and heard raised voices. They both seemed cross with each other if I had to speak to them after that."
+~feudStates += feudStates.wifeFeudRevealed
+->Beau_Questions
+
+===Beau_Learn_wifePlanMurder==
+"I think it's possible that, well," He leans in a bit closer, not quite close enough to cause discomfort, lowering his voice, "she may have been planning this. Guessing by her face, not like this, but I think she had it out for him. I kept seeing her around the kitchen recently, a lot more than usual, and she seemed off."
+~feudStates += feudStates.wifePlanMurder
+->Beau_Questions
+
+===Beau_Learn_wifeFailMurder==
+"I mean, I saw her behave oddly in the kitchen the past week or so, but I hadn't seen in her in it today, I don't think it would have been her. I think what happend was too messy for her either way. Oh! That and a knife went missing, and he wasn't exactly stabbed..."
+ He pulls out a mop he didn't seem to have a moment ago and solemly mops a small spot on the ground in front of him.
+~feudStates += feudStates.wifeFailMurder
+->Beau_Questions
+
+===Beau_Learn_WifeConclusion===
+"I guess she did take that knife, and was going to get rid of him after all... Someone did the work for her. She was always so business focused, it seemed surprisingly she would have time for love, and with a man like that- I didn't see how they were compatible."
+->Beau_Questions
+
+// frog storyline
 
 ===Beau_Done ===
 I clearly had learned all I could from the young man.
