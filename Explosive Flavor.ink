@@ -81,7 +81,7 @@ The frog acted without a care in the world.
 -> Frank
 
 === WifeText ===
-A sobbing woman.
+A callous woman.
 -> Wife
 
 === BeauText ===
@@ -90,5 +90,9 @@ A nervous looking young man, wringing the hem of his apron.
 
 === ending ===
 
-And the murderer was caught. Or was he?
+And the murderer was caught. Or were they? Who can say. The kitchen:
+* Passes Inspection
+* Fails Inspection
+-
+So at least your part in this mess is over with.
 -> END
