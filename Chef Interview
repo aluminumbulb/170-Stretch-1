@@ -156,28 +156,28 @@ After a momentary silence, William began to speak again. "Alright, inspector. Fr
     Darting his eyes back and forth. "W-what? There's nothing to tell. That's enough of that."
     * * "I certainly think not! Tell me everything you know about the frog."
          "He came to us! Many a night ago!" The chef began, rising slightly from his chair, "We needed all the hands we could get, and I do not discriminate! Frank has shown that he is an adamant worker. A bit strange, but adamant! And that's all I could ask for." The chef nodded confidently, sitting back in his chair.
-                {frogStates == frogStates.frogWho: -> chef_Learn_frogOnRun}
-                {frogStates == frogStates.frogContraband: -> chef_Learn_frogContraband}
-                {frogStates == frogStates.frogOnRun: -> chef_Learn_illegalChampagne}
-                {frogStates == frogStates.frogCriminal: -> chef_Learn_frankIsCriminal}
-                {frogStates == frogStates.frogConclusion: -> chef_Learn_frankConclusion}
+                {LIST_MAX(frogStates) == frogStates.frogWho: -> chef_Learn_frogOnRun}
+                {LIST_MAX(frogStates) == frogStates.frogContraband: -> chef_Learn_frogContraband}
+                {LIST_MAX(frogStates) == frogStates.frogOnRun: -> chef_Learn_illegalChampagne}
+                {LIST_MAX(frogStates) == frogStates.frogCriminal: -> chef_Learn_frankIsCriminal}
+                {LIST_MAX(frogStates) == frogStates.frogConclusion: -> chef_Learn_frankConclusion}
     * * [Drop this line of questioning.] -> Questions
 * "How is the Headmistress handling his death?"
-    {feudStates == wifeNotHappy: -> chef_Learn_wifeNotHappy}
-    {feudStates == wifeFeudRevealed: -> chef_Learn_wifeFeudRevealed}
-    {feudStates == wifePlanMurder: -> chef_Learn_wifePlanMurder}
-    {feudStates == wifeFailMurder: -> chef_Learn_wifeFailMurder}
-    {feudStates == wifeConclusion: -> chef_Learn_wifeConclusion}
+    {LIST_MAX(feudStates) == wifeNotHappy: -> chef_Learn_wifeNotHappy}
+    {LIST_MAX(feudStates) == wifeFeudRevealed: -> chef_Learn_wifeFeudRevealed}
+    {LIST_MAX(feudStates) == wifePlanMurder: -> chef_Learn_wifePlanMurder}
+    {LIST_MAX(feudStates) == wifeFailMurder: -> chef_Learn_wifeFailMurder}
+    {LIST_MAX(feudStates) == wifeConclusion: -> chef_Learn_wifeConclusion}
 
 * -> 
     "Alright that's enough." I commanded. "Tell me what your part in it all is!" I yelled, hoping to intimidate the chef into loosing his tongue. 
-    {StoryStates == head_explodes: -> chef_Learn_SECRET_INGREDIENTS}
-    {StoryStates == secret_ingredients: -> chef_Learn_FILTHY_KITCHEN}
-    {StoryStates == filthy_kitchen: -> chef_Learn_SECRET_INGREDIENTS}
-    {StoryStates == beauregard_ingredient: -> chef_Learn_BEAU_INGREDIENTS}
-    {StoryStates == frank_cache: -> chef_learn_FRANK_EXPAT}
-    {StoryStates == ralph_pop_rocks: -> chef_Learn_FULL}
-    {StoryStates == conclusion: -> chef_State_CONCLUSION}
+    {LIST_MAX(StoryStates) == head_explodes: -> chef_Learn_SECRET_INGREDIENTS}
+    {LIST_MAX(StoryStates) == secret_ingredients: -> chef_Learn_FILTHY_KITCHEN}
+    {LIST_MAX(StoryStates) == filthy_kitchen: -> chef_Learn_SECRET_INGREDIENTS}
+    {LIST_MAX(StoryStates) == beauregard_ingredient: -> chef_Learn_BEAU_INGREDIENTS}
+    {LIST_MAX(StoryStates) == frank_cache: -> chef_learn_FRANK_EXPAT}
+    {LIST_MAX(StoryStates) == ralph_pop_rocks: -> chef_Learn_FULL}
+    {LIST_MAX(StoryStates) == conclusion: -> chef_State_CONCLUSION}
 
 
 == slapchef ==
