@@ -46,7 +46,7 @@ Ask about:
     {LIST_MAX(StoryStates) == head_explodes && c1_info: -> Wife_Learn_SECRET_INGREDIENTS}
     -> QuestionsForWife
 * "What did the Headmaster eat?"
-    "How would I know? He probably ate something toxic? No way it is going to be a micro-TNT...right?" She hesitated and thought about that for a second, "could he possibly ate a TNT?..."
+    "How would I know? He probably ate something toxic? No way it is going to be a micro-bomb...right?" She hesitated and thought about that for a second, "could he possibly ate a bomb?..."
     {LIST_MAX(StoryStates) == filthy_kitchen && c1_info: -> Wife_Learn_BEAU_INGREDIENTS}
     -> QuestionsForWife
 * "How is the kitchen condition?"
@@ -142,16 +142,12 @@ She decided to speak of the truth, the whole story that has happened in this res
 
 
 ===wife_Reveal===
-* "Yes I do."
 {LIST_MAX(feudStates) == wifeNotHappy && c2_info: -> Wife_Learn_wifeFeudRevealed}
 -> wife_Reveal
-* "Why not?"
 {LIST_MAX(feudStates) == wifeFeudRevealed && c2_info: -> Wife_Learn_wifePlanMurder}
 -> wife_Reveal
-* "What is this question?"
 {LIST_MAX(feudStates) == wifePlanMurder && c2_info: -> Wife_Learn_wifeFailMurder}
 -> wife_Reveal
-* "Are you doubting my love to him?"
 {LIST_MAX(feudStates) == wifeFailMurder && c2_info: -> Wife_Learn_wifeConclusion}
 -> wife_Reveal
 //fallback option
@@ -201,22 +197,17 @@ She instinctly turned her head around and caught a glimpse at the hidden onion..
 
 
 ===frog_Reveal===
-"Do you know anymore about the frog?"
-    *"I don't know!"
-    {LIST_MAX(frogStates) == frogWho && c3_info: -> Wife_Learn_frogContraband}
-    -> frog_Reveal
-    *"Please!"
-    {LIST_MAX(frogStates) == frogContraband && c3_info: -> Wife_Learn_frogOnRun}
-    -> frog_Reveal
-    * "I hate that creature!"
-    {LIST_MAX(frogStates) == frogOnRun && c3_info: -> Wife_Learn_frogCriminal}
-    -> frog_Reveal
-    *"Let me out!"
-    {LIST_MAX(frogStates) == frogCriminal && c3_info: -> Wife_Learn_frogConclusion}
-    -> frog_Reveal
-    //fallback option
-    *->
-        Nothing you can tell anymore. ->QuestionsForWife
+{LIST_MAX(frogStates) == frogWho && c3_info: -> Wife_Learn_frogContraband}
+-> frog_Reveal
+{LIST_MAX(frogStates) == frogContraband && c3_info: -> Wife_Learn_frogOnRun}
+-> frog_Reveal
+{LIST_MAX(frogStates) == frogOnRun && c3_info: -> Wife_Learn_frogCriminal}
+-> frog_Reveal
+{LIST_MAX(frogStates) == frogCriminal && c3_info: -> Wife_Learn_frogConclusion}
+-> frog_Reveal
+//fallback option
+*->
+    Nothing you can tell anymore. ->QuestionsForWife
         
         
 ===Wife_Learn_frogContraband===
